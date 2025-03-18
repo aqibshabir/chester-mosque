@@ -1,9 +1,11 @@
 export default function Home() {
   return (
     <>
-      <nav className="bg-blue-400 h-8 sticky top-0">
-        <div className="flex justify-between p-1">
-          <a href="">logo</a>
+      <nav className="bg-white/95 h-14 sticky top-0">
+        <div className="flex justify-between items-center p-1">
+          <a href="" className="flex items-center">
+            <img src="/logo.png" alt="logo" width={50} />
+          </a>
           <div className="flex justify-evenly w-140">
             <a href="">About</a>
             <a href="">What's on</a>
@@ -13,10 +15,10 @@ export default function Home() {
           </div>
         </div>
       </nav>
-      <main className="bg-blue-300 h-200">
+      <main className="bg-gray-300 h-200">
         <p className="text-9xl">Content</p>
       </main>
-      <footer className="bg-blue-600 h-20 flex flex-col text-sm p-4 text-center">
+      <footer className="bg-gray-600 h-20 flex flex-col text-sm p-4 text-center">
         <p>
           Chester Shahjalal Jame Masjid & Islamic Centre is a charity (1182471) registered in
           England & Wales.
