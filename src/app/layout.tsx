@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Shah Jalal Jame Masjid & Islamic Centre | Chester Mosque',
