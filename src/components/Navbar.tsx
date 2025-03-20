@@ -2,25 +2,48 @@ import { RxHamburgerMenu } from 'react-icons/rx';
 
 export default function Navbar() {
   return (
-    <nav className="bg-white/95 md:sticky top-0 p-2 md:pl-4 md:py-4">
-      <div className="flex justify-between items-center">
+    <nav className="bg-white/95 md:sticky top-0 p-1 border-b border-0.5">
+      <div className="flex items-center justify-between">
         <a href="" className="flex items-center pl-2">
-          <img src="/logo.png" alt="logo" width={60} />
-          <h1 className="text-md md:text-xl pl-2 flex flex-col font-semibold uppercase font-stretch-condensed text-black">
-            Shah Jalal Jame Masjid<span className="text-gray-400">& Chester Islamic Centre </span>
-          </h1>
+          <img className="p-1" src="/logo.png" alt="logo" width={40} />
+          <h1 className="text-xl pl-1 text-black/80">Chester Mosque</h1>
         </a>
-        <div>
-          <div className="hidden md:flex md:justify-evenly uppercase w-100 font-semibold">
-            <a href="/about">About</a>
-            <a href="/timetable">Timetable</a>
-            <a href="/events">Events</a>
-            <a href="/services">Services</a>
-            <a href="/contact">Contact</a>
+        <div className="">
+          <div className="hidden md:flex">
+            <ul className="flex gap-8">
+              <li>
+                <a className="hover:text-gray-600 hover:underline" href="/about">
+                  About
+                </a>
+              </li>
+              <li>
+                <a className="hover:text-gray-600 hover:underline" href="/timetable">
+                  Timetable
+                </a>
+              </li>
+              <li>
+                <a className="hover:text-gray-600 hover:underline" href="/events">
+                  Events
+                </a>
+              </li>
+              <li>
+                <a className="hover:text-gray-600 hover:underline" href="/services">
+                  Services
+                </a>
+              </li>
+            </ul>
           </div>
           <div className="flex md:hidden">
             <RxHamburgerMenu size={30} />
           </div>
+        </div>
+        <div className="hidden md:flex">
+          <a
+            className="bg-black text-white px-2 py-1 rounded-full hover:bg-black/80 mr-4"
+            href="/contact"
+          >
+            Contact
+          </a>
         </div>
       </div>
     </nav>

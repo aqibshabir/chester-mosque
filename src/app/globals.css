@@ -1,5 +1,68 @@
 @import 'tailwindcss';
-@import "tw-animate-css";
+@import 'tw-animate-css';
+
+@font-face {
+  font-family: 'Mosk';
+  src: url('/font/mosk/mosk-thin-100.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mosk';
+  src: url('/font/mosk/mosk-extra-light-200.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mosk';
+  src: url('/font/mosk/mosk-light-300.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mosk';
+  src: url('/font/mosk/mosk-normal-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mosk';
+  src: url('/font/mosk/mosk-medium-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mosk';
+  src: url('/font/mosk/mosk-semi-bold-600.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mosk';
+  src: url('/font/mosk/mosk-bold-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mosk';
+  src: url('/font/mosk/mosk-extra-bold-800.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mosk';
+  src: url('/font/mosk/mosk-black-900.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+}
 
 @custom-variant dark (&:is(.dark *));
 
@@ -116,5 +179,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: 'Mosk', sans-serif;
+    font-weight: 400;
   }
 }
