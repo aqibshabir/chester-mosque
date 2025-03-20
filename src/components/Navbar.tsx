@@ -1,8 +1,10 @@
 import { RxHamburgerMenu } from 'react-icons/rx';
+import { MdOutlineKeyboardArrowUp } from 'react-icons/md';
+import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 
 export default function Navbar() {
   return (
-    <nav className="bg-white/95 md:sticky top-0 p-1 border-b border-0.5">
+    <nav className="bg-white/95 md:sticky top-0 p-1 pb-2 border-b border-0.5">
       <div className="flex items-center justify-between">
         <a href="" className="flex items-center pl-2">
           <img className="p-1" src="/logo.png" alt="logo" width={40} />
@@ -10,25 +12,33 @@ export default function Navbar() {
         </a>
         <div className="">
           <div className="hidden md:flex">
-            <ul className="flex gap-8">
+            <ul className="flex gap-6">
               <li>
-                <a className="hover:text-gray-600 hover:underline" href="/about">
+                <a className="hover:text-gray-600 flex items-center" href="/about">
                   About
+                  <MdOutlineKeyboardArrowDown className="ml-1" />
                 </a>
               </li>
               <li>
-                <a className="hover:text-gray-600 hover:underline" href="/timetable">
+                <a className="hover:text-gray-600" href="/timetable">
                   Timetable
                 </a>
               </li>
               <li>
-                <a className="hover:text-gray-600 hover:underline" href="/events">
-                  Events
+                <a className="hover:text-gray-600" href="/live_stream">
+                  Live Stream
                 </a>
               </li>
               <li>
-                <a className="hover:text-gray-600 hover:underline" href="/services">
+                <a className="hover:text-gray-600 flex items-center" href="/events">
+                  Events
+                  <MdOutlineKeyboardArrowDown className="ml-1" />
+                </a>
+              </li>
+              <li>
+                <a className="hover:text-gray-600 flex items-center" href="/services">
                   Services
+                  <MdOutlineKeyboardArrowDown className="ml-1" />
                 </a>
               </li>
             </ul>
@@ -39,7 +49,7 @@ export default function Navbar() {
         </div>
         <div className="hidden md:flex">
           <a
-            className="bg-black text-white px-2 py-1 rounded-full hover:bg-black/80 mr-4"
+            className="bg-indigo-600 text-white px-2 py-1 rounded-full hover:bg-indigo-600/80 mr-4"
             href="/contact"
           >
             Contact
