@@ -1,22 +1,39 @@
+'use client';
+
+import { useState } from 'react';
+
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { MdOutlineKeyboardArrowUp } from 'react-icons/md';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 
 export default function Navbar() {
+  const [hoveredMenu, setHoveredMenu] = useState(false);
+
+  const onMenuEnter = () => {
+    setHoveredMenu(true);
+  };
+  const onMenuLeave = () => {
+    setHoveredMenu(false);
+  };
+
   return (
     <nav className="bg-white/95 md:sticky top-0 p-1 pb-2 border-b border-0.5">
       <div className="flex items-center justify-between">
-        <a href="" className="flex items-center pl-2">
+        <a href="" className="flex items-center ml-2">
           <img className="p-1" src="/logo.png" alt="logo" width={40} />
           <h1 className="text-xl pl-1 text-black/80">Chester Mosque</h1>
         </a>
         <div className="">
           <div className="hidden md:flex">
             <ul className="flex gap-6">
-              <li>
+              <li onMouseEnter={onMenuEnter} onMouseLeave={onMenuLeave}>
                 <a className="hover:text-gray-600 flex items-center" href="/about">
                   About
-                  <MdOutlineKeyboardArrowDown className="ml-1" />
+                  {hoveredMenu ? (
+                    <MdOutlineKeyboardArrowUp className="ml-1" />
+                  ) : (
+                    <MdOutlineKeyboardArrowDown className="ml-1" />
+                  )}
                 </a>
               </li>
               <li>
@@ -29,16 +46,24 @@ export default function Navbar() {
                   Live Stream
                 </a>
               </li>
-              <li>
+              <li onMouseEnter={onMenuEnter} onMouseLeave={onMenuLeave}>
                 <a className="hover:text-gray-600 flex items-center" href="/events">
                   Events
-                  <MdOutlineKeyboardArrowDown className="ml-1" />
+                  {hoveredMenu ? (
+                    <MdOutlineKeyboardArrowUp className="ml-1" />
+                  ) : (
+                    <MdOutlineKeyboardArrowDown className="ml-1" />
+                  )}
                 </a>
               </li>
-              <li>
+              <li onMouseEnter={onMenuEnter} onMouseLeave={onMenuLeave}>
                 <a className="hover:text-gray-600 flex items-center" href="/services">
                   Services
-                  <MdOutlineKeyboardArrowDown className="ml-1" />
+                  {hoveredMenu ? (
+                    <MdOutlineKeyboardArrowUp className="ml-1" />
+                  ) : (
+                    <MdOutlineKeyboardArrowDown className="ml-1" />
+                  )}
                 </a>
               </li>
             </ul>
