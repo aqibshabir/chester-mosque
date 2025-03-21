@@ -36,6 +36,11 @@ export default function Navbar() {
                       <MdOutlineKeyboardArrowDown className="ml-1" />
                     )}
                   </a>
+                  {hoveredMenu === 0 && (
+                    <div className="absolute top-16 left-20 right-20 p-20 bg-white rounded-2xl border border-0.5">
+                      about sub menu
+                    </div>
+                  )}
                 </li>
                 <li>
                   <a className="hover:text-gray-600" href="/timetable">
@@ -56,6 +61,11 @@ export default function Navbar() {
                       <MdOutlineKeyboardArrowDown className="ml-1" />
                     )}
                   </a>
+                  {hoveredMenu === 1 && (
+                    <div className="absolute top-16 left-20 right-20 p-20 bg-white rounded-2xl border border-0.5">
+                      events sub menu
+                    </div>
+                  )}
                 </li>
                 <li onMouseEnter={() => onMenuEnter(2)} onMouseLeave={onMenuLeave}>
                   <a className="hover:text-gray-600 flex items-center" href="/services">
@@ -66,6 +76,11 @@ export default function Navbar() {
                       <MdOutlineKeyboardArrowDown className="ml-1" />
                     )}
                   </a>
+                  {hoveredMenu === 2 && (
+                    <div className="absolute top-16 left-20 right-20 p-20 bg-white rounded-2xl border border-0.5">
+                      services sub menu
+                    </div>
+                  )}
                 </li>
               </ul>
             </div>

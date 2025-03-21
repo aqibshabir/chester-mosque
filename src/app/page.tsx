@@ -5,9 +5,9 @@ export default function Home() {
     <>
       <Navbar />
       <main className="bg-white h-200">
-        <p className="text-9xl">Content</p>
+        <div className="bg-slate-300 h-100 m-6 rounded-2xl"></div>
       </main>
-      <footer className="bg-gray-300 h-20 flex flex-col text-sm p-4 text-center">
+      <footer className="bg-indigo-600 text-white h-20 flex flex-col text-sm p-4 text-center">
         <p>
           Chester Shahjalal Jame Masjid & Islamic Centre is a charity (1182471) registered in
           England & Wales.
