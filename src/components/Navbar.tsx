@@ -54,12 +54,12 @@ export default function Navbar() {
                       <div
                         onMouseEnter={() => onMenuEnter(0)}
                         onMouseLeave={() => onMenuLeave(true)}
-                        className="absolute top-14 left-1/2 -translate-x-[40%] w-[500px] h-[260px] p-2 shadow-md bg-gradient-to-br from-white-70 to-white/50 backdrop-blur-lg"
+                        className="absolute top-14 left-1/2 -translate-x-[40%] w-[500px] h-[260px] p-2 shadow-sm bg-gradient-to-br from-white-70 to-white/50 backdrop-blur-lg"
                       >
                         <div className="flex h-full w-full">
                           <a
                             href="/about"
-                            className="bg-white/90 hover:bg-white m-2 p-2 w-[200px] flex flex-col justify-center items-center gap-1 rounded-2xl"
+                            className="bg-white/90 hover:bg-white m-2 p-2 w-[200px] flex flex-col justify-center items-center gap-1 rounded-2xl border border-0.5"
                           >
                             <img src="/logo.png" alt="logo" width={50} />
                             <p className="font-semibold">About The Mosque</p>
@@ -67,28 +67,26 @@ export default function Navbar() {
                               Learn key details on the mosque, our team and FAQs.
                             </p>
                           </a>
-                          <div className="flex flex-col h-full m-2.5 gap-3.5">
+                          <div className="flex flex-col h-full justify-center m-1 gap-2">
                             <a
                               href="/about/staff"
-                              className="hover:bg-black/5 rounded-sm w-[250px] p-1 flex flex-col"
+                              className="hover:bg-black/5 rounded-sm w-[250px] p-2 flex flex-col"
                             >
                               <p className="font-semibold">Our Staff</p>
-                              <p className="text-sm text-gray-600">
-                                Information on our staff & volunteering oppertunities
-                              </p>
+                              <p className="text-sm text-gray-600">Information on our staff.</p>
                             </a>
                             <a
                               href="/about/new"
-                              className="hover:bg-black/5 rounded-sm w-[250px] p-1"
+                              className="hover:bg-black/5 rounded-sm w-[250px] p-2"
                             >
                               <p className="font-semibold">New To Islam</p>
                               <p className="text-sm text-gray-600">
-                                Information and resources for our new brothers and sisters
+                                Resources for our new brothers and sisters of Islam.
                               </p>
                             </a>
                             <a
                               href="/about/visit"
-                              className="hover:bg-black/5 rounded-sm w-[250px] p-1"
+                              className="hover:bg-black/5 rounded-sm w-[250px] p-2"
                             >
                               <p className="font-semibold">Visiting the Mosque</p>
                               <p className="text-sm text-gray-600">Plan your next visit</p>
@@ -124,7 +122,62 @@ export default function Navbar() {
                       onMouseLeave={() => onMenuLeave(true)}
                       className="absolute top-14 left-1/2 -translate-x-[40%] w-[500px] h-[260px] p-2 shadow-md bg-gradient-to-br from-white-70 to-white/50 backdrop-blur-lg"
                     >
-                      events sub menu
+                      <div className="flex h-full w-full justify-center items-center">
+                        <div className="flex flex-col h-full justify-center m-1 gap-2">
+                          <a
+                            href="/events/jummah"
+                            className="hover:bg-black/5 rounded-sm w-[230px] p-2 flex flex-col"
+                          >
+                            <p className="font-semibold">Jummah Prayer</p>
+                            <p className="text-sm text-gray-600">
+                              Weekly Friday prayer timings and topics.
+                            </p>
+                          </a>
+                          <a
+                            href="/events/diversity"
+                            className="hover:bg-black/5 rounded-sm w-[230px] p-2"
+                          >
+                            <p className="font-semibold">Cultural Diversity</p>
+                            <p className="text-sm text-gray-600">Celebrating unity in diversity.</p>
+                          </a>
+                          <a
+                            href="/events/school"
+                            className="hover:bg-black/5 rounded-sm w-[230px] p-2"
+                          >
+                            <p className="font-semibold">School Visits</p>
+                            <p className="text-sm text-gray-600">
+                              Building bridges through understanding.
+                            </p>
+                          </a>
+                        </div>
+                        <div className="flex flex-col h-full justify-center m-1 gap-2">
+                          <a
+                            href="/events/fundraisers"
+                            className="hover:bg-black/5 rounded-sm w-[230px] p-2 flex flex-col"
+                          >
+                            <p className="font-semibold">Community Fundraisers</p>
+                            <p className="text-sm text-gray-600">
+                              Charity events, food drives, or mosque projects.
+                            </p>
+                          </a>
+                          <a
+                            href="/events/classes"
+                            className="hover:bg-black/5 rounded-sm w-[230px] p-2"
+                          >
+                            <p className="font-semibold">Islamic Lectures & Classes</p>
+                            <p className="text-sm text-gray-600">
+                              Regular lectures, guest speakers, or Islamic courses.
+                            </p>
+                          </a>
+                          <a
+                            href="/events/ramadan"
+                            className="hover:bg-black/5 rounded-sm w-[230px] p-2"
+                          >
+                            <p className="font-semibold">Taraweeh & Ramadan</p>
+                            <p className="text-sm text-gray-600">Prayer and community iftars.</p>
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   )}
                 </li>
@@ -143,7 +196,48 @@ export default function Navbar() {
                       onMouseLeave={() => onMenuLeave(true)}
                       className="absolute top-14 left-1/2 -translate-x-[40%] w-[500px] h-[260px] p-2 shadow-md bg-gradient-to-br from-white-70 to-white/50 backdrop-blur-lg"
                     >
-                      services sub menu
+                      <div className="flex h-full w-full justify-center items-center">
+                        <div className="flex flex-col h-full justify-center m-1 gap-2">
+                          <a
+                            href="/services/nikah"
+                            className="hover:bg-black/5 rounded-sm w-[230px] p-2"
+                          >
+                            <p className="font-semibold">Nikah Services</p>
+                            <p className="text-sm text-gray-600">
+                              Conducting and registering Islamic marriages.
+                            </p>
+                          </a>
+                          <a
+                            href="/services/funeral"
+                            className="hover:bg-black/5 rounded-sm w-[230px] p-2"
+                          >
+                            <p className="font-semibold">Funeral Services</p>
+                            <p className="text-sm text-gray-600">
+                              Janazah prayer arrangements and support.
+                            </p>
+                          </a>
+                        </div>
+                        <div className="flex flex-col h-full justify-center m-1 gap-2">
+                          <a
+                            href="/services/zakat"
+                            className="hover:bg-black/5 rounded-sm w-[230px] p-2 flex flex-col"
+                          >
+                            <p className="font-semibold">Zakat & Charity Support</p>
+                            <p className="text-sm text-gray-600">
+                              Collection and distribution of charitable donations.
+                            </p>
+                          </a>
+                          <a
+                            href="/services/classes"
+                            className="hover:bg-black/5 rounded-sm w-[230px] p-2"
+                          >
+                            <p className="font-semibold">Quran & Islamic Studies </p>
+                            <p className="text-sm text-gray-600">
+                              Madrasa classes, Quran recitation, and Tajweed lessons.
+                            </p>
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   )}
                 </li>
