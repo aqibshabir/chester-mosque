@@ -29,11 +29,13 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="bg-white/95 md:sticky top-0 p-1 pb-2 border-b border-0.5">
+      <nav className="md:sticky top-0 p-2 border-b border-white border-0.5 bg-gradient-to-br from-white/80 to-white/50 backdrop-blur-lg">
         <div className="flex items-center justify-between">
-          <a href="/" className="flex items-center ml-2">
-            <img className="" src="/logo.png" alt="logo" width={30} />
-            <h1 className="text-xl pl-1 text-black/80">Chester Mosque</h1>
+          <a href="/" className="flex items-center ml-1">
+            <img className="" src="/logo.png" alt="logo" width={40} />
+            <h1 className="text-xl text-indigo-600/90 ml-1.5 flex flex-col leading-4.5">
+              Chester Mosque<span className="text-black/40">& Islamic Centre</span>
+            </h1>
           </a>
           <div>
             <div className="hidden md:flex">
@@ -52,9 +54,12 @@ export default function Navbar() {
                       <div
                         onMouseEnter={() => onMenuEnter(0)}
                         onMouseLeave={() => onMenuLeave(true)}
-                        className="absolute top-16 left-1/2 -translate-x-[40%] w-[500px] h-[250px] p-2 bg-white rounded-2xl border border-0.5"
+                        className="absolute top-16 left-1/2 -translate-x-[40%] w-[500px] h-[250px] p-2 rounded-2xl border border-0.5 shadow-md bg-gradient-to-br from-white/80 to-white/50 backdrop-blur-lg"
                       >
-                        about sub menu
+                        <div className="flex h-full w-full">
+                          <div className="bg-slate-200 rounded-xl m-2 p-2 w-[200px]">About us</div>
+                          <div>New to Islam</div>
+                        </div>
                       </div>
                     </>
                   )}
@@ -82,7 +87,7 @@ export default function Navbar() {
                     <div
                       onMouseEnter={() => onMenuEnter(1)}
                       onMouseLeave={() => onMenuLeave(true)}
-                      className="absolute top-16 left-1/2 -translate-x-[40%] w-[500px] h-[250px] p-2 bg-white rounded-2xl border border-0.5"
+                      className="absolute top-16 left-1/2 -translate-x-[40%] w-[500px] h-[250px] p-2 rounded-2xl border border-0.5 shadow-md bg-gradient-to-br from-white/80 to-white/50 backdrop-blur-lg"
                     >
                       events sub menu
                     </div>
@@ -101,7 +106,7 @@ export default function Navbar() {
                     <div
                       onMouseEnter={() => onMenuEnter(2)}
                       onMouseLeave={() => onMenuLeave(true)}
-                      className="absolute top-16 left-1/2 -translate-x-[40%] w-[500px] h-[250px] p-2 bg-white rounded-2xl border border-0.5"
+                      className="absolute top-16 left-1/2 -translate-x-[40%] w-[500px] h-[250px] p-2 rounded-2xl border border-0.5 shadow-md bg-gradient-to-br from-white/80 to-white/50 backdrop-blur-lg"
                     >
                       services sub menu
                     </div>
@@ -115,7 +120,7 @@ export default function Navbar() {
           </div>
           <div className="hidden md:flex">
             <a
-              className="bg-indigo-600 text-white px-2 py-1 rounded-full hover:bg-indigo-600/80 mr-4"
+              className="bg-indigo-600 text-white px-2 py-1 rounded-full hover:bg-indigo-600/80 mr-2"
               href="/contact"
             >
               Contact
