@@ -56,33 +56,35 @@ function DesktopNav() {
                   <div className="flex h-full w-full">
                     <a
                       href="/about"
-                      className="bg-indigo-600 hover:bg-indigo-600/95 m-2 p-2 w-[200px] flex flex-col justify-center items-center gap-1 rounded-2xl border border-0.5 text-white group"
+                      className="bg-linear-to-br to-indigo-600 from-indigo-600/60 hover:to-indigo-600 hover:from-indigo-600/55 m-2 p-2 w-[200px] flex flex-col justify-center items-center gap-1 rounded-xl text-white hover:scale-102 transition-transform duration-300 ease-in-out shadow-sm"
                     >
-                      <img
-                        className="mb-2 w-[60px] group-hover:scale-108 transition-all ease-in-out"
-                        src="/white_logo.png"
-                        alt="logo"
-                      />
+                      <img className="mb-2 w-[60px]" src="/white_logo.png" alt="logo" />
                       <p className="font-semibold">About The Mosque</p>
-                      <p className="text-sm text-gray-300 text-center">
-                        Key details on the mosque, our team and FAQs.
+                      <p className="text-sm text-gray-200 text-center">
+                        Key details about our mosque, our team and FAQs.
                       </p>
                     </a>
                     <div className="flex flex-col h-full justify-center m-1 gap-2">
                       <a
                         href="/about/staff"
-                        className="hover:bg-black/5 rounded-sm w-[250px] p-2 flex flex-col"
+                        className="hover:bg-black/5 rounded-sm w-[250px] p-2 flex flex-col hover:scale-102 transition-transform duration-300"
                       >
                         <p className="font-semibold">Our Staff</p>
                         <p className="text-sm text-gray-600">Information on our staff.</p>
                       </a>
-                      <a href="/about/new" className="hover:bg-black/5 rounded-sm w-[250px] p-2">
+                      <a
+                        href="/about/new"
+                        className="hover:bg-black/5 rounded-sm w-[250px] p-2 hover:scale-102 transition-transform duration-300"
+                      >
                         <p className="font-semibold">New To Islam</p>
                         <p className="text-sm text-gray-600">
                           Resources for our new brothers and sisters of Islam.
                         </p>
                       </a>
-                      <a href="/about/visit" className="hover:bg-black/5 rounded-sm w-[250px] p-2">
+                      <a
+                        href="/about/visit"
+                        className="hover:bg-black/5 rounded-sm w-[250px] p-2 hover:scale-102 transition-transform duration-300"
+                      >
                         <p className="font-semibold">Visiting the Mosque</p>
                         <p className="text-sm text-gray-600">Plan your next visit</p>
                       </a>
@@ -100,7 +102,7 @@ function DesktopNav() {
         </li>
         <li>
           <a className="hover:text-gray-600" href="/live_stream">
-            Live Stream
+            Live
           </a>
         </li>
         <li onMouseEnter={() => onMenuEnter(1)} onMouseLeave={() => onMenuLeave()}>
@@ -131,7 +133,7 @@ function DesktopNav() {
                   <div className="flex flex-col h-full justify-center m-1 gap-2">
                     <a
                       href="/events/jummah"
-                      className="hover:bg-black/5 rounded-sm w-[230px] p-2 flex flex-col"
+                      className="hover:bg-black/5 hover:scale-102 transition-transform duration-300 rounded-sm w-[230px] p-2 flex flex-col"
                     >
                       <p className="font-semibold">Jummah Prayer</p>
                       <p className="text-sm text-gray-600">
@@ -140,12 +142,15 @@ function DesktopNav() {
                     </a>
                     <a
                       href="/events/diversity"
-                      className="hover:bg-black/5 rounded-sm w-[230px] p-2"
+                      className="hover:bg-black/5 hover:scale-102 transition-transform duration-300 rounded-sm w-[230px] p-2"
                     >
                       <p className="font-semibold">Cultural Diversity</p>
                       <p className="text-sm text-gray-600">Celebrating unity in diversity.</p>
                     </a>
-                    <a href="/events/school" className="hover:bg-black/5 rounded-sm w-[230px] p-2">
+                    <a
+                      href="/events/school"
+                      className="hover:bg-black/5 hover:scale-102 transition-transform duration-300 rounded-sm w-[230px] p-2"
+                    >
                       <p className="font-semibold">School Visits</p>
                       <p className="text-sm text-gray-600">
                         Building bridges through understanding.
@@ -155,20 +160,26 @@ function DesktopNav() {
                   <div className="flex flex-col h-full justify-center m-1 gap-2">
                     <a
                       href="/events/fundraisers"
-                      className="hover:bg-black/5 rounded-sm w-[230px] p-2 flex flex-col"
+                      className="hover:bg-black/5 hover:scale-102 transition-transform duration-300 rounded-sm w-[230px] p-2 flex flex-col"
                     >
                       <p className="font-semibold">Community Fundraisers</p>
                       <p className="text-sm text-gray-600">
                         Charity events, food drives, or mosque projects.
                       </p>
                     </a>
-                    <a href="/events/classes" className="hover:bg-black/5 rounded-sm w-[230px] p-2">
+                    <a
+                      href="/events/classes"
+                      className="hover:bg-black/5 hover:scale-102 transition-transform duration-300 rounded-sm w-[230px] p-2"
+                    >
                       <p className="font-semibold">Islamic Lectures & Classes</p>
                       <p className="text-sm text-gray-600">
                         Regular lectures, guest speakers, or Islamic courses.
                       </p>
                     </a>
-                    <a href="/events/ramadan" className="hover:bg-black/5 rounded-sm w-[230px] p-2">
+                    <a
+                      href="/events/ramadan"
+                      className="hover:bg-black/5 hover:scale-102 transition-transform duration-300 rounded-sm w-[230px] p-2"
+                    >
                       <p className="font-semibold">Taraweeh & Ramadan</p>
                       <p className="text-sm text-gray-600">Prayer and community iftars.</p>
                     </a>
@@ -212,7 +223,7 @@ function DesktopNav() {
                     </a>
                     <a
                       href="/services/funeral"
-                      className="hover:bg-black/5 rounded-sm w-[230px] p-2"
+                      className="hover:bg-black/5 hover:scale-102 transition-transform duration-300 rounded-sm w-[230px] p-2"
                     >
                       <p className="font-semibold">Funeral Services</p>
                       <p className="text-sm text-gray-600">
@@ -223,7 +234,7 @@ function DesktopNav() {
                   <div className="flex flex-col h-full justify-start m-1 gap-2">
                     <a
                       href="/services/zakat"
-                      className="hover:bg-black/5 rounded-sm w-[230px] p-2 flex flex-col"
+                      className="hover:bg-black/5 hover:scale-102 transition-transform duration-300 rounded-sm w-[230px] p-2 flex flex-col"
                     >
                       <p className="font-semibold">Zakat & Charity Support</p>
                       <p className="text-sm text-gray-600">
@@ -232,7 +243,7 @@ function DesktopNav() {
                     </a>
                     <a
                       href="/services/classes"
-                      className="hover:bg-black/5 rounded-sm w-[230px] p-2"
+                      className="hover:bg-black/5 hover:scale-102 transition-transform duration-300 rounded-sm w-[230px] p-2"
                     >
                       <p className="font-semibold">Quran & Islamic Studies </p>
                       <p className="text-sm text-gray-600">
@@ -244,6 +255,11 @@ function DesktopNav() {
               </motion.div>
             )}
           </AnimatePresence>
+        </li>
+        <li>
+          <a className="hover:text-gray-600" href="/contact">
+            Contact
+          </a>
         </li>
       </ul>
     </div>

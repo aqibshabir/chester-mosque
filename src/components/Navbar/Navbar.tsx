@@ -19,10 +19,10 @@ export default function Navbar() {
           </div>
           <div className="hidden md:flex">
             <a
-              className="bg-indigo-600 text-white px-2 py-1 rounded-full hover:bg-indigo-600/80 mr-2"
-              href="/contact"
+              className="bg-indigo-600 text-white px-2 py-1 rounded-full hover:bg-indigo-600/80 mr-2 hover:scale-105 transition-all ease-in-out"
+              href="/donate"
             >
-              Contact
+              Donate
             </a>
           </div>
         </div>
