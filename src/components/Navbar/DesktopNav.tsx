@@ -56,12 +56,16 @@ function DesktopNav() {
                   <div className="flex h-full w-full">
                     <a
                       href="/about"
-                      className="bg-white/90 hover:bg-white m-2 p-2 w-[200px] flex flex-col justify-center items-center gap-1 rounded-2xl border border-0.5"
+                      className="bg-indigo-600 hover:bg-indigo-600/95 m-2 p-2 w-[200px] flex flex-col justify-center items-center gap-1 rounded-2xl border border-0.5 text-white group"
                     >
-                      <img src="/logo.png" alt="logo" width={50} />
+                      <img
+                        className="mb-2 w-[60px] group-hover:scale-108 transition-all ease-in-out"
+                        src="/white_logo.png"
+                        alt="logo"
+                      />
                       <p className="font-semibold">About The Mosque</p>
-                      <p className="text-sm text-gray-400 text-center">
-                        Learn key details on the mosque, our team and FAQs.
+                      <p className="text-sm text-gray-300 text-center">
+                        Key details on the mosque, our team and FAQs.
                       </p>
                     </a>
                     <div className="flex flex-col h-full justify-center m-1 gap-2">
