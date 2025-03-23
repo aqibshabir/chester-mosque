@@ -9,7 +9,7 @@ export default function Navbar() {
           <div className="md:hidden" aria-hidden="true"></div>
           <a href="/" className="flex items-center ml-1 z-50">
             <img className="w-[50px] md:w-[38px]" src="/logo.png" alt="logo" />
-            <h1 className="text-2xl md:text-xl text-indigo-600/90 ml-2 md:ml-1.5 flex flex-col leading-5.5 md:leading-4.5">
+            <h1 className="text-2xl md:text-xl text-indigo-600/90 ml-3.5 md:ml-1.5 flex flex-col leading-5.5 md:leading-4.5">
               Chester Mosque<span className="text-black/40">& Islamic Centre</span>
             </h1>
           </a>
