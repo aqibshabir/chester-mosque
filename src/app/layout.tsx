@@ -4,7 +4,7 @@ import Footer from '@/components/Footer/Footer';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Shah Jalal Jame Masjid & Islamic Centre | Chester Mosque',
+  title: 'Shah Jalal Jame Masjid | Chester Mosque & Islamic Centre',
   description:
     'The only mosque serving the Muslim community in Chester. Find prayer times, events, and religious services.',
 

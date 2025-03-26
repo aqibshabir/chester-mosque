@@ -4,7 +4,7 @@ import MobileNav from './MobileNav';
 export default function Navbar() {
   return (
     <>
-      <nav className="sticky top-0 p-2 bg-gradient-to-br from-white/80 to-white/50 backdrop-blur-lg">
+      <nav className="sticky top-0 p-2 bg-gradient-to-br from-white/80 to-white/50 backdrop-blur-lg z-100">
         <div className="flex items-center justify-between">
           <div className="md:hidden" aria-hidden="true"></div>
           <a href="/" className="flex items-center ml-1 z-50">
