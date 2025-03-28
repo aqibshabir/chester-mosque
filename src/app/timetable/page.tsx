@@ -94,12 +94,12 @@ export default function TimeTable() {
               ))}
             </SelectContent>
           </Select>
-          <div>
+          <div className="mt-4 sm:mx-4">
             <Table>
               <TableCaption>A timetable of prayer times.</TableCaption>
               <TableHeader>
-                <TableRow className="">
-                  <TableHead className="text-left">Date</TableHead>
+                <TableRow>
+                  <TableHead className="text-center">Day</TableHead>
                   <TableHead className="text-center">Fajr</TableHead>
                   <TableHead className="text-center">Dhuhr</TableHead>
                   <TableHead className="text-center">Asr</TableHead>
@@ -109,9 +109,9 @@ export default function TimeTable() {
               </TableHeader>
               <TableBody>
                 {monthData?.map((day) => (
-                  <TableRow>
-                    <TableCell className="text-left" key={day.date.readable}>
-                      {day.date.readable}
+                  <TableRow key={day.date.readable}>
+                    <TableCell className="text-center" key={day.date.readable}>
+                      {day.date.readable[0] + day.date.readable[1]}
                     </TableCell>
                     <TableCell className="text-center" key={day.timings.Fajr}>
                       {day.timings.Fajr}
