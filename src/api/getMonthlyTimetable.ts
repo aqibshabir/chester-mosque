@@ -1,3 +1,5 @@
+import { DateTime } from 'luxon';
+
 interface Timings {
   Fajr: string;
   Sunrise: string;
@@ -32,7 +34,12 @@ export const getMonthlyTimeTable = async (dateOne: string, dateTwo: string) => {
 
   const { data }: { data: DayData[] } = await response.json();
 
-  data.forEach((day) => formatTimings(day.timings));
+  data.forEach((day) => {
+    const time = formatTimings(day.timings);
+    const date = day.date.readable;
+
+    console.log(date);
+  });
 
   return data;
 };
