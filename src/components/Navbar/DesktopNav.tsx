@@ -27,7 +27,7 @@ function DesktopNav() {
 
   return (
     <div className="hidden md:flex">
-      <ul className="flex gap-6 lg:gap-10">
+      <ul className="flex gap-5 lg:gap-10 xl:gap-20 mx-2">
         <li onMouseEnter={() => onMenuEnter(0)} onMouseLeave={() => onMenuLeave()}>
           <a className="hover:text-gray-600 flex items-center" href="/about">
             About
@@ -51,7 +51,7 @@ function DesktopNav() {
                   }}
                   onMouseEnter={() => onMenuEnter(0)}
                   onMouseLeave={() => onMenuLeave(true)}
-                  className="absolute top-14 left-1/2 -translate-x-[40%] w-[500px] h-[260px] p-2 shadow-sm bg-gradient-to-br from-white-70 to-white/50 backdrop-blur-lg"
+                  className="absolute top-14 left-1/2 -translate-x-[46%] w-[500px] h-[260px] p-2 shadow-sm bg-gradient-to-br from-white-70 to-white/50 backdrop-blur-lg"
                 >
                   <div className="flex h-full w-full">
                     <a
@@ -127,7 +127,7 @@ function DesktopNav() {
                 }}
                 onMouseEnter={() => onMenuEnter(1)}
                 onMouseLeave={() => onMenuLeave(true)}
-                className="absolute top-14 left-1/2 -translate-x-[40%] w-[500px] h-[260px] p-2 shadow-md bg-gradient-to-br from-white-70 to-white/50 backdrop-blur-lg"
+                className="absolute top-14 left-1/2 -translate-x-[46%] w-[500px] h-[260px] p-2 shadow-md bg-gradient-to-br from-white-70 to-white/50 backdrop-blur-lg"
               >
                 <div className="flex h-full w-full justify-center items-center">
                   <div className="flex flex-col h-full justify-center m-1 gap-2">
@@ -211,7 +211,7 @@ function DesktopNav() {
                 }}
                 onMouseEnter={() => onMenuEnter(2)}
                 onMouseLeave={() => onMenuLeave(true)}
-                className="absolute top-14 left-1/2 -translate-x-[40%] w-[500px] h-[200px] p-2 shadow-md bg-gradient-to-br from-white-70 to-white/50 backdrop-blur-lg"
+                className="absolute top-14 left-1/2 -translate-x-[46%] w-[500px] h-[200px] p-2 shadow-md bg-gradient-to-br from-white-70 to-white/50 backdrop-blur-lg"
               >
                 <div className="flex h-full w-full justify-center items-center">
                   <div className="flex flex-col h-full justify-start m-1 gap-2">
@@ -255,11 +255,6 @@ function DesktopNav() {
               </motion.div>
             )}
           </AnimatePresence>
-        </li>
-        <li>
-          <a className="hover:text-gray-600" href="/contact">
-            Contact
-          </a>
         </li>
       </ul>
     </div>

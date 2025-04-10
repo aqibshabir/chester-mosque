@@ -38,7 +38,7 @@ export const getMonthlyTimeTable = async (dateOne: string, dateTwo: string) => {
     const time = formatTimings(day.timings);
     const date = day.date.readable;
 
-    console.log(date);
+    console.log(DateTime);
   });
 
   return data;

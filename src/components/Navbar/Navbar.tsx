@@ -1,5 +1,6 @@
 import DesktopNav from './DesktopNav';
 import MobileNav from './MobileNav';
+import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
 
 export default function Navbar() {
   return (
@@ -17,12 +18,16 @@ export default function Navbar() {
             <DesktopNav />
             <MobileNav />
           </div>
-          <div className="hidden md:flex">
+          <div className="hidden md:flex gap-2">
+            <a className="text-black rounded-full px-2 py-1 hover:text-black/80" href="/contact">
+              Contact
+            </a>
             <a
-              className="bg-indigo-600 text-white px-2 py-1 rounded-full hover:bg-indigo-600/80 mr-2 hover:scale-105 transition-all ease-in-out"
+              className="bg-indigo-600 text-white px-2 py-1 rounded-full hover:bg-indigo-600/80 mr-2 hover:scale-105 transition-all ease-in-out flex justify-center items-center group"
               href="/donate"
             >
               Donate
+              <MdOutlineKeyboardArrowRight className="group-hover:translate-x-1 ease-in-out transition-all" />
             </a>
           </div>
         </div>
