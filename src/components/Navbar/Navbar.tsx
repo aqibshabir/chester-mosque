@@ -23,7 +23,7 @@ export default function Navbar() {
               Contact
             </a>
             <a
-              className="bg-indigo-600 text-white px-2 py-1 rounded-full hover:bg-indigo-600/80 mr-2 hover:scale-105 transition-all ease-in-out flex justify-center items-center group"
+              className="bg-indigo-600 text-white pl-3 px-2 py-1 rounded-full hover:bg-indigo-600/80 mr-2 hover:scale-105 transition-all ease-in-out flex justify-center items-center group"
               href="/donate"
             >
               Donate

@@ -35,10 +35,7 @@ export const getMonthlyTimeTable = async (dateOne: string, dateTwo: string) => {
   const { data }: { data: DayData[] } = await response.json();
 
   data.forEach((day) => {
-    const time = formatTimings(day.timings);
-    const date = day.date.readable;
-
-    // console.log();
+    formatTimings(day.timings);
   });
 
   return data;
@@ -46,6 +43,14 @@ export const getMonthlyTimeTable = async (dateOne: string, dateTwo: string) => {
 
 const formatTimings = (timings: Timings) => {
   for (const key in timings) {
-    timings[key as keyof Timings] = timings[key as keyof Timings].replace(' (UTC)', '');
+    const removingUTC = timings[key as keyof Timings].replace(' (UTC)', '');
+
+    const time = DateTime.fromFormat(removingUTC, 'HH:mm', {
+      zone: 'utc',
+    })
+      .setZone('Europe/London')
+      .toFormat('HH:mm');
+
+    timings[key as keyof Timings] = time;
   }
 };

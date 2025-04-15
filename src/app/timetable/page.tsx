@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
+import { DateTime } from 'luxon';
 
 import {
   Select,
@@ -103,33 +104,39 @@ export default function TimeTable() {
                   <TableHead className="text-center">Fajr</TableHead>
                   <TableHead className="text-center">Dhuhr</TableHead>
                   <TableHead className="text-center">Asr</TableHead>
-                  <TableHead className="text-center">Maghreb</TableHead>
+                  <TableHead className="text-center">Maghrib</TableHead>
                   <TableHead className="text-center">Isha</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {monthData?.map((day) => (
-                  <TableRow key={day.date.readable}>
-                    <TableCell className="text-center" key={day.date.readable}>
-                      {day.date.readable[0] + day.date.readable[1]}
-                    </TableCell>
-                    <TableCell className="text-center" key={day.timings.Fajr}>
-                      {day.timings.Fajr}
-                    </TableCell>
-                    <TableCell className="text-center" key={day.timings.Dhuhr}>
-                      {day.timings.Dhuhr}
-                    </TableCell>
-                    <TableCell className="text-center" key={day.timings.Asr}>
-                      {day.timings.Asr}
-                    </TableCell>
-                    <TableCell className="text-center" key={day.timings.Maghrib}>
-                      {day.timings.Maghrib}
-                    </TableCell>
-                    <TableCell className="text-center" key={day.timings.Isha}>
-                      {day.timings.Isha}
-                    </TableCell>
-                  </TableRow>
-                ))}
+                {monthData?.map((day) => {
+                  const isToday = DateTime.now().toFormat('dd MMM yyyy') === day.date.readable;
+                  return (
+                    <TableRow
+                      className={isToday ? 'bg-indigo-600 hover:bg-indigo-600/90 text-white' : ''}
+                      key={day.date.readable}
+                    >
+                      <TableCell className="text-center" key={day.date.readable}>
+                        {day.date.readable.split(' ')[0]}
+                      </TableCell>
+                      <TableCell className="text-center" key={day.timings.Fajr}>
+                        {day.timings.Fajr}
+                      </TableCell>
+                      <TableCell className="text-center" key={day.timings.Dhuhr}>
+                        {day.timings.Dhuhr}
+                      </TableCell>
+                      <TableCell className="text-center" key={day.timings.Asr}>
+                        {day.timings.Asr}
+                      </TableCell>
+                      <TableCell className="text-center" key={day.timings.Maghrib}>
+                        {day.timings.Maghrib}
+                      </TableCell>
+                      <TableCell className="text-center" key={day.timings.Isha}>
+                        {day.timings.Isha}
+                      </TableCell>
+                    </TableRow>
+                  );
+                })}
                 <TableRow></TableRow>
               </TableBody>
             </Table>
