@@ -113,7 +113,11 @@ export default function TimeTable() {
                   const isToday = DateTime.now().toFormat('dd MMM yyyy') === day.date.readable;
                   return (
                     <TableRow
-                      className={isToday ? 'bg-indigo-600 hover:bg-indigo-600/90 text-white' : ''}
+                      className={
+                        isToday
+                          ? 'bg-indigo-600 hover:bg-indigo-600/95 hover:scale-102 hover:shadow-md text-white ease-in-out transition-all'
+                          : ''
+                      }
                       key={day.date.readable}
                     >
                       <TableCell className="text-center" key={day.date.readable}>
