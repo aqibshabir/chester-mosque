@@ -27,7 +27,7 @@ function DesktopNav() {
 
   return (
     <div className="hidden md:flex">
-      <ul className="flex gap-5 lg:gap-10 xl:gap-20 mx-2">
+      <ul className="flex gap-5 lg:gap-10 mx-2">
         <li onMouseEnter={() => onMenuEnter(0)} onMouseLeave={() => onMenuLeave()}>
           <a className="hover:text-gray-600 flex items-center" href="/about">
             About
