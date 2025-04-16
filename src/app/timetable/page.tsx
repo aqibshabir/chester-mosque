@@ -13,6 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { Button } from '@/components/ui/button';
 import {
   Table,
   TableBody,
@@ -121,7 +122,7 @@ export default function TimeTable() {
     <>
       <main className="bg-white">
         <div className="mt-2 p-4">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-center md:justify-start">
             <Select defaultValue={selectedDate.label} onValueChange={(e) => handleDateChange(e)}>
               <SelectTrigger className="w-[180px]">
                 <SelectValue />
@@ -134,15 +135,16 @@ export default function TimeTable() {
                 ))}
               </SelectContent>
             </Select>
-            <button
+            <Button
+              variant="outline"
               onClick={handleDownloadPDF}
-              className="bg-indigo-600 text-white p-2 mr-0 sm:mr-4 rounded-full hover:bg-indigo-600/80 hover:scale-105 transition-all ease-in-out flex justify-center items-center hover:cursor-pointer"
+              className="ml-2 hover:cursor-pointer"
             >
-              <MdOutlineSaveAlt size={20} />
-            </button>
+              <MdOutlineSaveAlt />
+            </Button>
           </div>
           <div className="mt-4 sm:mx-4">
-            <Table className="overflow-x-hidden" id="timetable-container">
+            <Table className="overflow-hidden" id="timetable-container">
               <TableCaption>A timetable of prayer times.</TableCaption>
               <TableHeader>
                 <TableRow>
