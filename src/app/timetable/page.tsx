@@ -1,6 +1,8 @@
 'use client';
 import { useEffect, useState } from 'react';
+
 import { DateTime } from 'luxon';
+import { MdOutlineSaveAlt } from 'react-icons/md';
 
 import {
   Select,
@@ -83,20 +85,25 @@ export default function TimeTable() {
     <>
       <main className="bg-white">
         <div className="mt-2 p-4">
-          <Select defaultValue={selectedDate.label} onValueChange={(e) => handleDateChange(e)}>
-            <SelectTrigger className="w-[180px]">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              {dates.map((date) => (
-                <SelectItem key={date.label} value={date.label}>
-                  {date.label}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          <div className="flex items-center justify-between">
+            <Select defaultValue={selectedDate.label} onValueChange={(e) => handleDateChange(e)}>
+              <SelectTrigger className="w-[180px]">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {dates.map((date) => (
+                  <SelectItem key={date.label} value={date.label}>
+                    {date.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <button className="bg-indigo-600 text-white p-2 mr-0 sm:mr-4 rounded-full hover:bg-indigo-600/80 hover:scale-105 transition-all ease-in-out flex justify-center items-center hover:cursor-pointer">
+              <MdOutlineSaveAlt size={20} />
+            </button>
+          </div>
           <div className="mt-4 sm:mx-4">
-            <Table>
+            <Table className="overflow-x-hidden">
               <TableCaption>A timetable of prayer times.</TableCaption>
               <TableHeader>
                 <TableRow>
