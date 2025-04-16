@@ -1,6 +1,8 @@
 'use client';
 import { useEffect, useState } from 'react';
 
+import jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
 import { DateTime } from 'luxon';
 import { MdOutlineSaveAlt } from 'react-icons/md';
 
@@ -81,6 +83,40 @@ export default function TimeTable() {
     fetchData();
   }, [selectedDate]);
 
+  const handleDownloadPDF = () => {
+    if (!monthData) return;
+
+    const timetable = new jsPDF();
+
+    const tableColumn = ['Date', 'Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
+
+    const tableRows = monthData.map((day) => {
+      const [dayCount, month] = day.date.readable.split(' ');
+      return [
+        `${dayCount} ${month}`,
+        day.timings.Fajr,
+        day.timings.Dhuhr,
+        day.timings.Asr,
+        day.timings.Maghrib,
+        day.timings.Isha,
+      ];
+    });
+
+    autoTable(timetable, {
+      head: [tableColumn],
+      body: tableRows,
+      styles: {
+        halign: 'center',
+      },
+      headStyles: {
+        fillColor: [79, 70, 229],
+        textColor: 255,
+      },
+    });
+
+    timetable.save(`chester-mosque-timetable.pdf`);
+  };
+
   return (
     <>
       <main className="bg-white">
@@ -98,12 +134,15 @@ export default function TimeTable() {
                 ))}
               </SelectContent>
             </Select>
-            <button className="bg-indigo-600 text-white p-2 mr-0 sm:mr-4 rounded-full hover:bg-indigo-600/80 hover:scale-105 transition-all ease-in-out flex justify-center items-center hover:cursor-pointer">
+            <button
+              onClick={handleDownloadPDF}
+              className="bg-indigo-600 text-white p-2 mr-0 sm:mr-4 rounded-full hover:bg-indigo-600/80 hover:scale-105 transition-all ease-in-out flex justify-center items-center hover:cursor-pointer"
+            >
               <MdOutlineSaveAlt size={20} />
             </button>
           </div>
           <div className="mt-4 sm:mx-4">
-            <Table className="overflow-x-hidden">
+            <Table className="overflow-x-hidden" id="timetable-container">
               <TableCaption>A timetable of prayer times.</TableCaption>
               <TableHeader>
                 <TableRow>
