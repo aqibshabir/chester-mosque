@@ -27,9 +27,12 @@ function DesktopNav() {
 
   return (
     <div className="hidden md:flex">
-      <ul className="flex gap-5 lg:gap-10 mx-2">
+      <ul className="flex gap-6 lg:gap-10 mx-2">
         <li onMouseEnter={() => onMenuEnter(0)} onMouseLeave={() => onMenuLeave()}>
-          <a className="hover:text-gray-600 flex items-center" href="/about">
+          <a
+            className="hover:text-gray-600 flex items-center text-sm lg:text-md font-medium"
+            href="/about"
+          >
             About
             {hoveredMenu === 0 ? (
               <MdOutlineKeyboardArrowUp className="ml-1" />
@@ -96,17 +99,23 @@ function DesktopNav() {
           </AnimatePresence>
         </li>
         <li>
-          <a className="hover:text-gray-600" href="/timetable">
+          <a
+            className="hover:text-gray-600 text-sm flex items-center font-medium"
+            href="/timetable"
+          >
             Timetable
           </a>
         </li>
         <li>
-          <a className="hover:text-gray-600" href="/live_stream">
+          <a
+            className="hover:text-gray-600 text-sm flex items-center font-medium"
+            href="/live_stream"
+          >
             Live
           </a>
         </li>
         <li onMouseEnter={() => onMenuEnter(1)} onMouseLeave={() => onMenuLeave()}>
-          <a className="hover:text-gray-600 flex items-center" href="/events">
+          <a className="hover:text-gray-600 flex items-center text-sm font-medium" href="/events">
             Events
             {hoveredMenu === 1 ? (
               <MdOutlineKeyboardArrowUp className="ml-1" />
@@ -190,7 +199,7 @@ function DesktopNav() {
           </AnimatePresence>
         </li>
         <li onMouseEnter={() => onMenuEnter(2)} onMouseLeave={() => onMenuLeave()}>
-          <a className="hover:text-gray-600 flex items-center" href="/services">
+          <a className="hover:text-gray-600 flex items-center text-sm font-medium" href="/services">
             Services
             {hoveredMenu === 2 ? (
               <MdOutlineKeyboardArrowUp className="ml-1" />

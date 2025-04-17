@@ -135,11 +135,7 @@ export default function TimeTable() {
                 ))}
               </SelectContent>
             </Select>
-            <Button
-              variant="outline"
-              onClick={handleDownloadPDF}
-              className="ml-2 hover:cursor-pointer"
-            >
+            <Button variant="outline" onClick={handleDownloadPDF} className="ml-2" size="icon">
               <MdOutlineSaveAlt />
             </Button>
           </div>
