@@ -183,3 +183,7 @@
     font-weight: 400;
   }
 }
+
+html {
+  overscroll-behavior: none;
+}
