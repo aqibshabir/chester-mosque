@@ -43,9 +43,9 @@ export const getMonthlyTimeTable = async (dateOne: string, dateTwo: string) => {
 
 const formatTimings = (timings: Timings) => {
   for (const key in timings) {
-    const removingUTC = timings[key as keyof Timings].replace(' (UTC)', '');
+    const trimmedTime = timings[key as keyof Timings].replace(/[^0-9:]*$/, '').trim();
 
-    const time = DateTime.fromFormat(removingUTC, 'HH:mm', {
+    const time = DateTime.fromFormat(trimmedTime, 'HH:mm', {
       zone: 'utc',
     })
       .setZone('Europe/London')
