@@ -1,5 +1,3 @@
-import { DateTime } from 'luxon';
-
 interface Timings {
   Fajr: string;
   Sunrise: string;
@@ -23,9 +21,31 @@ interface DayData {
   meta: unknown;
 }
 
+const ishaMonthlyTuneMinutes: Record<number, number> = {
+  1: 90,
+  2: 85,
+  3: 80,
+  4: 75,
+  5: 70,
+  6: 70,
+  7: 70,
+  8: 75,
+  9: 80,
+  10: 85,
+  11: 90,
+  12: 95,
+};
+
 export const getMonthlyTimeTable = async (dateOne: string, dateTwo: string) => {
+  const [day, monthStr] = dateOne.split('-');
+  const month = parseInt(monthStr, 10);
+
+  const ishaTune = ishaMonthlyTuneMinutes[month] || 0;
+
+  const tuneString = `0,3,0,6,-1,6,0,${ishaTune},0`;
+
   const response = await fetch(
-    `https://api.aladhan.com/v1/calendarByAddress/from/${dateOne}/to/${dateTwo}?address=Chester%2C+UK&school=1&method=99&methodSettings=15,null,12&tune=1,-4,-3,5,-3,2,2,8,-24`
+    `https://api.aladhan.com/v1/calendarByAddress/from/${dateOne}/to/${dateTwo}?address=Chester%2C+UK&school=1&method=99&methodSettings=14,null,null&tune=${tuneString}`
   );
 
   if (!response.ok) {
@@ -43,14 +63,7 @@ export const getMonthlyTimeTable = async (dateOne: string, dateTwo: string) => {
 
 const formatTimings = (timings: Timings) => {
   for (const key in timings) {
-    const trimmedTime = timings[key as keyof Timings].replace(/[^0-9:]*$/, '').trim();
-
-    const time = DateTime.fromFormat(trimmedTime, 'HH:mm', {
-      zone: 'utc',
-    })
-      .setZone('Europe/London')
-      .toFormat('HH:mm');
-
+    const time = timings[key as keyof Timings].replace(/[^0-9:]*$/, '').trim();
     timings[key as keyof Timings] = time;
   }
 };
