@@ -1,9 +1,18 @@
+import { defineQuery } from 'next-sanity';
+import { sanityFetch } from '@/sanity/live';
+
 import { Button } from '../ui/button';
-import DesktopNav from './DesktopNav';
-import MobileNav from './MobileNav';
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
 
-export default function Navbar() {
+import DesktopNav from './DesktopNav';
+import MobileNav from './MobileNav';
+
+const aboutQuery = defineQuery(
+  "*[_type == 'aboutSubPageType' && showInNavbar == true]|order(_createdAt asc){title,summary,'slug': slug.current}"
+);
+
+export default async function Navbar() {
+  const { data: about } = await sanityFetch({ query: aboutQuery });
   return (
     <>
       <nav className="sticky top-0 shadow-md p-2 bg-gradient-to-br from-white/80 to-white/50 backdrop-blur-lg z-100">
@@ -17,7 +26,7 @@ export default function Navbar() {
             </h1>
           </a>
           <div>
-            <DesktopNav />
+            <DesktopNav about={about} />
             <MobileNav />
           </div>
           <div className="hidden md:flex gap-2">

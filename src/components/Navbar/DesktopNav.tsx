@@ -4,7 +4,17 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MdOutlineKeyboardArrowUp } from 'react-icons/md';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 
-function DesktopNav() {
+interface SubPages {
+  title: string;
+  summary: string;
+  slug: string;
+}
+
+interface DesktopNavProps {
+  about: SubPages[];
+}
+
+function DesktopNav({ about }: DesktopNavProps) {
   const [hoveredMenu, setHoveredMenu] = useState<number | null>(null);
   const menuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -68,29 +78,16 @@ function DesktopNav() {
                       </p>
                     </a>
                     <div className="flex flex-col h-full justify-center m-1 gap-2">
-                      <a
-                        href="/about/staff"
-                        className="hover:bg-black/5 rounded-sm w-[250px] p-2 flex flex-col hover:scale-102 transition-transform duration-300"
-                      >
-                        <p className="font-semibold">Our Staff</p>
-                        <p className="text-sm text-gray-600">Information on our staff.</p>
-                      </a>
-                      <a
-                        href="/about/new"
-                        className="hover:bg-black/5 rounded-sm w-[250px] p-2 hover:scale-102 transition-transform duration-300"
-                      >
-                        <p className="font-semibold">New To Islam</p>
-                        <p className="text-sm text-gray-600">
-                          Resources for our new brothers and sisters of Islam.
-                        </p>
-                      </a>
-                      <a
-                        href="/about/visit"
-                        className="hover:bg-black/5 rounded-sm w-[250px] p-2 hover:scale-102 transition-transform duration-300"
-                      >
-                        <p className="font-semibold">Visiting the Mosque</p>
-                        <p className="text-sm text-gray-600">Plan your next visit</p>
-                      </a>
+                      {about.map((item) => (
+                        <a
+                          key={item.title}
+                          href={`/about${item.slug}`}
+                          className="hover:bg-black/5 rounded-sm w-[250px] p-2 flex flex-col hover:scale-102 transition-transform duration-300"
+                        >
+                          <p className="font-semibold">{item.title}</p>
+                          <p className="text-sm text-gray-600">{item.summary}</p>
+                        </a>
+                      ))}
                     </div>
                   </div>
                 </motion.div>

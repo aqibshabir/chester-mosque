@@ -13,6 +13,11 @@ export const servicesSubPageType = defineType({
       title: 'Page Title',
     }),
     defineField({
+      name: 'summary',
+      title: 'Summary',
+      type: 'text',
+    }),
+    defineField({
       name: 'slug',
       type: 'slug',
       title: 'URL Slug',
