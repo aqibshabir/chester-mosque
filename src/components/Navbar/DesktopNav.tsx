@@ -12,9 +12,11 @@ interface SubPages {
 
 interface DesktopNavProps {
   about: SubPages[];
+  events: SubPages[];
+  services: SubPages[];
 }
 
-function DesktopNav({ about }: DesktopNavProps) {
+function DesktopNav({ about, events, services }: DesktopNavProps) {
   const [hoveredMenu, setHoveredMenu] = useState<number | null>(null);
   const menuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -133,62 +135,20 @@ function DesktopNav({ about }: DesktopNavProps) {
                 }}
                 onMouseEnter={() => onMenuEnter(1)}
                 onMouseLeave={() => onMenuLeave(true)}
-                className="absolute top-14 left-1/2 -translate-x-[46%] w-[500px] h-[260px] p-2 shadow-md bg-gradient-to-br from-white-70 to-white/50 backdrop-blur-lg"
+                className="absolute top-14 left-1/2 -translate-x-[46%] w-[500px] h-[300px]  p-2 shadow-sm bg-gradient-to-br from-white-70 to-white/50 backdrop-blur-lg"
               >
-                <div className="flex h-full w-full justify-center items-center">
-                  <div className="flex flex-col h-full justify-center m-1 gap-2">
-                    <a
-                      href="/events/jummah"
-                      className="hover:bg-black/5 hover:scale-102 transition-transform duration-300 rounded-sm w-[230px] p-2 flex flex-col"
-                    >
-                      <p className="font-semibold">Jummah Prayer</p>
-                      <p className="text-sm text-gray-600">
-                        Weekly Friday prayer timings and topics.
-                      </p>
-                    </a>
-                    <a
-                      href="/events/diversity"
-                      className="hover:bg-black/5 hover:scale-102 transition-transform duration-300 rounded-sm w-[230px] p-2"
-                    >
-                      <p className="font-semibold">Cultural Diversity</p>
-                      <p className="text-sm text-gray-600">Celebrating unity in diversity.</p>
-                    </a>
-                    <a
-                      href="/events/school"
-                      className="hover:bg-black/5 hover:scale-102 transition-transform duration-300 rounded-sm w-[230px] p-2"
-                    >
-                      <p className="font-semibold">School Visits</p>
-                      <p className="text-sm text-gray-600">
-                        Building bridges through understanding.
-                      </p>
-                    </a>
-                  </div>
-                  <div className="flex flex-col h-full justify-center m-1 gap-2">
-                    <a
-                      href="/events/fundraisers"
-                      className="hover:bg-black/5 hover:scale-102 transition-transform duration-300 rounded-sm w-[230px] p-2 flex flex-col"
-                    >
-                      <p className="font-semibold">Community Fundraisers</p>
-                      <p className="text-sm text-gray-600">
-                        Charity events, food drives, or mosque projects.
-                      </p>
-                    </a>
-                    <a
-                      href="/events/classes"
-                      className="hover:bg-black/5 hover:scale-102 transition-transform duration-300 rounded-sm w-[230px] p-2"
-                    >
-                      <p className="font-semibold">Islamic Lectures & Classes</p>
-                      <p className="text-sm text-gray-600">
-                        Regular lectures, guest speakers, or Islamic courses.
-                      </p>
-                    </a>
-                    <a
-                      href="/events/ramadan"
-                      className="hover:bg-black/5 hover:scale-102 transition-transform duration-300 rounded-sm w-[230px] p-2"
-                    >
-                      <p className="font-semibold">Taraweeh & Ramadan</p>
-                      <p className="text-sm text-gray-600">Prayer and community iftars.</p>
-                    </a>
+                <div className="flex h-full w-full justify-center items-center p-2">
+                  <div className="grid grid-cols-2 gap-2 h-full">
+                    {events.map((item) => (
+                      <a
+                        key={item.title}
+                        href={`/events/${item.slug}`}
+                        className="hover:bg-black/5 hover:scale-102 transition-transform duration-300 rounded-sm p-2"
+                      >
+                        <p className="font-semibold">{item.title}</p>
+                        <p className="text-sm text-gray-600">{item.summary}</p>
+                      </a>
+                    ))}
                   </div>
                 </div>
               </motion.div>
@@ -217,45 +177,20 @@ function DesktopNav({ about }: DesktopNavProps) {
                 }}
                 onMouseEnter={() => onMenuEnter(2)}
                 onMouseLeave={() => onMenuLeave(true)}
-                className="absolute top-14 left-1/2 -translate-x-[46%] w-[500px] h-[200px] p-2 shadow-md bg-gradient-to-br from-white-70 to-white/50 backdrop-blur-lg"
+                className="absolute top-14 left-1/2 -translate-x-[46%] w-[500px] h-[220px] p-2 shadow-md bg-gradient-to-br from-white-70 to-white/50 backdrop-blur-lg"
               >
-                <div className="flex h-full w-full justify-center items-center">
-                  <div className="flex flex-col h-full justify-start m-1 gap-2">
-                    <a href="/services/nikah" className="hover:bg-black/5 rounded-sm w-[230px] p-2">
-                      <p className="font-semibold">Nikah Services</p>
-                      <p className="text-sm text-gray-600">
-                        Conducting and registering Islamic marriages.
-                      </p>
-                    </a>
-                    <a
-                      href="/services/funeral"
-                      className="hover:bg-black/5 hover:scale-102 transition-transform duration-300 rounded-sm w-[230px] p-2"
-                    >
-                      <p className="font-semibold">Funeral Services</p>
-                      <p className="text-sm text-gray-600">
-                        Janazah prayer arrangements and support.
-                      </p>
-                    </a>
-                  </div>
-                  <div className="flex flex-col h-full justify-start m-1 gap-2">
-                    <a
-                      href="/services/zakat"
-                      className="hover:bg-black/5 hover:scale-102 transition-transform duration-300 rounded-sm w-[230px] p-2 flex flex-col"
-                    >
-                      <p className="font-semibold">Zakat & Charity Support</p>
-                      <p className="text-sm text-gray-600">
-                        Collection and distribution of charitable donations.
-                      </p>
-                    </a>
-                    <a
-                      href="/services/classes"
-                      className="hover:bg-black/5 hover:scale-102 transition-transform duration-300 rounded-sm w-[230px] p-2"
-                    >
-                      <p className="font-semibold">Quran & Islamic Studies </p>
-                      <p className="text-sm text-gray-600">
-                        Madrasa classes, Quran recitation, and Tajweed lessons.
-                      </p>
-                    </a>
+                <div className="flex h-full w-full justify-center items-center p-2">
+                  <div className="grid grid-cols-2 gap-2 h-full">
+                    {services.map((item) => (
+                      <a
+                        key={item.title}
+                        href={`/services/${item.slug}`}
+                        className="hover:bg-black/5 hover:scale-102 transition-transform duration-300 rounded-sm w-[230px] p-2"
+                      >
+                        <p className="font-semibold">{item.title}</p>
+                        <p className="text-sm text-gray-600">{item.summary}</p>
+                      </a>
+                    ))}
                   </div>
                 </div>
               </motion.div>

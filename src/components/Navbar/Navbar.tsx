@@ -11,8 +11,18 @@ const aboutQuery = defineQuery(
   "*[_type == 'aboutSubPageType' && showInNavbar == true]|order(_createdAt asc){title,summary,'slug': slug.current}"
 );
 
+const eventsQuery = defineQuery(
+  "*[_type == 'eventsSubPageType' && showInNavbar == true]|order(_createdAt asc){title,summary,'slug': slug.current}"
+);
+
+const servicesQuery = defineQuery(
+  "*[_type == 'servicesSubPageType' && showInNavbar == true]|order(_createdAt asc){title,summary,'slug': slug.current}"
+);
+
 export default async function Navbar() {
   const { data: about } = await sanityFetch({ query: aboutQuery });
+  const { data: events } = await sanityFetch({ query: eventsQuery });
+  const { data: services } = await sanityFetch({ query: servicesQuery });
   return (
     <>
       <nav className="sticky top-0 shadow-md p-2 bg-gradient-to-br from-white/80 to-white/50 backdrop-blur-lg z-100">
@@ -26,7 +36,7 @@ export default async function Navbar() {
             </h1>
           </a>
           <div>
-            <DesktopNav about={about} />
+            <DesktopNav about={about} events={events} services={services} />
             <MobileNav />
           </div>
           <div className="hidden md:flex gap-2">
