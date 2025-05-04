@@ -1,6 +1,5 @@
-import { defineQuery } from 'next-sanity';
+import { defineQuery, PortableText } from 'next-sanity';
 import { sanityFetch } from '@/sanity/live';
-import { PortableText } from '@portabletext/react';
 
 const mainAboutQuery = defineQuery(
   '*[_type == "aboutMainPageType"]{title, content, subPages[]->{title, summary, "slug": slug.current}}'
@@ -16,7 +15,7 @@ export default async function About() {
       <h2 className="text-4xl mb-4">{about.title}</h2>
       <PortableText value={about.content} />
       <h3>More Information:</h3>
-      <div className="flex justify-between items-center">
+      <div className="flex items-center flex-wrap">
         {subPages.map((item) => (
           <a key={item.title} className="m-4 border rounded-xl p-6" href={`/about/${item.slug}`}>
             <p className="text-xl">{item.title}:</p>
