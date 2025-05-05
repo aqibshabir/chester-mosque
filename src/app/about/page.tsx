@@ -32,16 +32,30 @@ export default async function About() {
             className="object-cover object-center"
           />
         </div>
-        <h2 className="text-4xl mb-4">{about.title}</h2>
-        <PortableText value={about.content} />
-        <h3>More Information:</h3>
-        <div className="flex items-center flex-wrap">
-          {subPages.map((item) => (
-            <a key={item.title} className="m-4 border rounded-xl p-6" href={`/about/${item.slug}`}>
-              <p className="text-xl">{item.title}:</p>
-              <p className="text-sm">{item.summary}</p>
-            </a>
-          ))}
+        <div className="mx-6 lg:max-w-[1100] lg:mx-auto">
+          <h2 className="text-5xl text-center md:text-start font-semibold mt-16 md:mt-8 lg:mx-4 xl:mx-0">
+            {about.title}
+          </h2>
+          <div className="my-8 mx-auto lg:mx-4 xl:mx-0 space-y-4 mb-4 text-center md:text-start max-w-[500px] md:max-w-none">
+            <PortableText value={about.content} />
+          </div>
+          <div className="lg:mx-4 xl:mx-0">
+            <h3 className="text-2xl font-semibold my-12 md:my-8 text-center md:text-start">
+              More Information:
+            </h3>
+            <div className="flex flex-col md:flex-row items-center gap-8 mb-20">
+              {subPages.map((item) => (
+                <a
+                  key={item.title}
+                  className="mr-4 border rounded-xl p-6 w-[250px] h-[250px] md:w-[27%] lg:w-[40%]"
+                  href={`/about/${item.slug}`}
+                >
+                  <p className="text-2xl">{item.title}:</p>
+                  <p className="text-sm">{item.summary}</p>
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>

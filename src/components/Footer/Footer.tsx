@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <footer className="bg-indigo-600 text-white h-20 flex flex-col text-sm p-4 text-center">
+    <footer className="bg-indigo-600 text-white h-full flex flex-col text-sm p-4 justify-center items-center text-center">
       <p>
         Chester Shahjalal Jame Masjid & Islamic Centre is a charity (1182471) registered in England
         & Wales.
