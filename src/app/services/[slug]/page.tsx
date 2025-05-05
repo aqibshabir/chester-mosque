@@ -1,4 +1,4 @@
-import { sanityFetch } from '@/sanity/live';
+import { sanityFetch } from '@/sanity/sanityFetch';
 import { defineQuery, PortableText } from 'next-sanity';
 import { notFound } from 'next/navigation';
 
@@ -8,7 +8,7 @@ interface ServicesSubPageProps {
 
 export async function generateStaticParams() {
   const slugQuery = defineQuery('*[_type == "servicesSubPageType"]{"slug": slug.current}');
-  const { data } = await sanityFetch({ query: slugQuery, perspective: 'published' });
+  const data = await sanityFetch<string[]>(slugQuery);
 
   return data;
 }
@@ -17,8 +17,8 @@ const subPageQuery = defineQuery(
 );
 
 export default async function ServicesSubPage({ params }: ServicesSubPageProps) {
-  const slug = params;
-  const { data: services } = await sanityFetch({ query: subPageQuery, params: slug });
+  const { slug } = await params;
+  const services = await sanityFetch<{ title: string; content: any }>(subPageQuery, { slug });
 
   if (!services) {
     return notFound();

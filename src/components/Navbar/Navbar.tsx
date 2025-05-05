@@ -1,5 +1,5 @@
 import { defineQuery } from 'next-sanity';
-import { sanityFetch } from '@/sanity/live';
+import { sanityFetch } from '@/sanity/sanityFetch';
 
 import { Button } from '../ui/button';
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
@@ -20,9 +20,10 @@ const servicesQuery = defineQuery(
 );
 
 export default async function Navbar() {
-  const { data: about } = await sanityFetch({ query: aboutQuery });
-  const { data: events } = await sanityFetch({ query: eventsQuery });
-  const { data: services } = await sanityFetch({ query: servicesQuery });
+  const about = await sanityFetch<{ title: string; summary: string; slug: string }[]>(aboutQuery);
+  const events = await sanityFetch<{ title: string; summary: string; slug: string }[]>(eventsQuery);
+  const services =
+    await sanityFetch<{ title: string; summary: string; slug: string }[]>(servicesQuery);
   return (
     <>
       <nav className="sticky top-0 shadow-md p-2 bg-gradient-to-br from-white/80 to-white/50 backdrop-blur-lg z-100">

@@ -1,4 +1,3 @@
-import { SanityLive } from '@/sanity/live';
 import type { Metadata } from 'next';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
@@ -56,7 +55,6 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
-        <SanityLive />
       </body>
     </html>
   );

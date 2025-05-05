@@ -1,12 +1,18 @@
 import { defineQuery, PortableText } from 'next-sanity';
-import { sanityFetch } from '@/sanity/live';
+import { sanityFetch } from '@/sanity/sanityFetch';
 
 const mainAboutQuery = defineQuery(
   '*[_type == "aboutMainPageType"]{title, content, subPages[]->{title, summary, "slug": slug.current}}'
 );
 
+type AboutMainPageType = {
+  title: string;
+  content: any;
+  subPages: { title: string; summary: string; slug: string }[];
+};
+
 export default async function About() {
-  const { data } = await sanityFetch({ query: mainAboutQuery });
+  const data = await sanityFetch<AboutMainPageType[]>(mainAboutQuery);
   const about = data[0];
   const subPages: { title: string; summary: string; slug: string }[] = about.subPages;
 
