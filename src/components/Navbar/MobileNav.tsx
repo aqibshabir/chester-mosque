@@ -39,11 +39,15 @@ function MobileNav() {
       <AnimatePresence>
         {menuClick && (
           <motion.div
-            className="absolute top-16 left-0 right-0 h-[calc(100vh-64px)] bg-gradient-to-br from-white/50 to-white/50 backdrop-blur-lg z-49 p-4"
+            className="absolute top-16 left-0 right-0 h-[calc(100vh-64px)] bg-white/50 backdrop-blur-lg z-49 p-4"
             initial={{ y: -25, opacity: 0 }}
             animate={{ y: 0, opacity: 100 }}
             exit={{ opacity: 0, y: -12.5 }}
           >
+            <div
+              className="absolute top-0 left-0 w-full h-2 bg-gradient-to-b from-black/20 via-black/5 to-transparent"
+              aria-hidden="true"
+            />
             <motion.ul
               className="flex flex-col justify-center items-center text-4xl gap-8 mt-10"
               initial={{ y: -25, opacity: 0 }}
