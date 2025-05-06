@@ -66,8 +66,12 @@ function DesktopNav({ about, events, services }: DesktopNavProps) {
                   }}
                   onMouseEnter={() => onMenuEnter(0)}
                   onMouseLeave={() => onMenuLeave(true)}
-                  className="absolute top-14 left-1/2 -translate-x-[46%] w-[500px] h-[260px] p-2 shadow-sm bg-gradient-to-br from-white-70 to-white/50 backdrop-blur-lg"
+                  className="absolute top-[54px] left-1/2 -translate-x-[46%] w-[500px] h-[260px] p-2 shadow-md bg-gradient-to-br from-white/60 to-white/50 backdrop-blur-lg"
                 >
+                  <div
+                    className="absolute top-0 left-0 w-full h-2 bg-gradient-to-b from-black/20 via-black/5 to-transparent"
+                    aria-hidden="true"
+                  />
                   <div className="flex h-full w-full">
                     <a
                       href="/about"
@@ -135,8 +139,12 @@ function DesktopNav({ about, events, services }: DesktopNavProps) {
                 }}
                 onMouseEnter={() => onMenuEnter(1)}
                 onMouseLeave={() => onMenuLeave(true)}
-                className="absolute top-14 left-1/2 -translate-x-[46%] w-[500px] h-[300px]  p-2 shadow-sm bg-gradient-to-br from-white-70 to-white/50 backdrop-blur-lg"
+                className="absolute top-[54px] left-1/2 -translate-x-[46%] w-[500px] h-[300px] p-2 shadow-md bg-gradient-to-br from-white/70 to-white/50 backdrop-blur-lg"
               >
+                <div
+                  className="absolute top-0 left-0 w-full h-2 bg-gradient-to-b from-black/20 via-black/5 to-transparent"
+                  aria-hidden="true"
+                />
                 <div className="flex h-full w-full justify-center items-center p-2">
                   <div className="grid grid-cols-2 gap-2 h-full">
                     {events.map((item) => (
@@ -177,8 +185,12 @@ function DesktopNav({ about, events, services }: DesktopNavProps) {
                 }}
                 onMouseEnter={() => onMenuEnter(2)}
                 onMouseLeave={() => onMenuLeave(true)}
-                className="absolute top-14 left-1/2 -translate-x-[46%] w-[500px] h-[220px] p-2 shadow-md bg-gradient-to-br from-white-70 to-white/50 backdrop-blur-lg"
+                className="absolute top-[54px] left-1/2 -translate-x-[46%] w-[500px] h-[220px] p-2 shadow-md bg-gradient-to-br from-white/70 to-white/50 backdrop-blur-lg"
               >
+                <div
+                  className="absolute top-0 left-0 w-full h-2 bg-gradient-to-b from-black/20 via-black/5 to-transparent"
+                  aria-hidden="true"
+                />
                 <div className="flex h-full w-full justify-center items-center p-2">
                   <div className="grid grid-cols-2 gap-2 h-full">
                     {services.map((item) => (
