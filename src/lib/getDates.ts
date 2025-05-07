@@ -4,7 +4,7 @@ interface MonthOption {
   label: string;
 }
 
-const monthNames = [
+export const monthNames = [
   'January',
   'February',
   'March',
