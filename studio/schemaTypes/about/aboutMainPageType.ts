@@ -27,6 +27,32 @@ export const aboutMainPageType = defineType({
       },
     }),
     defineField({
+      name: 'faq',
+      title: 'FAQ',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          name: 'faqItem',
+          title: 'FAQ Item',
+          fields: [
+            defineField({
+              name: 'question',
+              title: 'Question',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: 'answer',
+              title: 'Answer',
+              type: 'text',
+              validation: (Rule) => Rule.required(),
+            }),
+          ],
+        },
+      ],
+    }),
+    defineField({
       name: 'subPages',
       title: 'Related Sub Pages',
       type: 'array',

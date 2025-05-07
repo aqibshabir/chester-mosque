@@ -4,15 +4,23 @@ import { urlFor } from '../../lib/sanity';
 import Image from 'next/image';
 import type { PortableTextBlock } from 'sanity';
 
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
+
 interface AboutMainPageType {
   title: string;
   content: PortableTextBlock[];
   image: string;
+  faq: { question: string; answer: string }[];
   subPages: { title: string; summary: string; slug: string }[];
 }
 
 const mainAboutQuery = defineQuery(
-  '*[_type == "aboutMainPageType"]{title, content, "image": image.asset->url, subPages[]->{title, summary, "slug": slug.current}}'
+  '*[_type == "aboutMainPageType"]{title, content, faq[]{question, answer}, "image": image.asset->url, subPages[]->{title, summary, "slug": slug.current}}'
 );
 
 export default async function About() {
@@ -40,6 +48,17 @@ export default async function About() {
             <PortableText value={about.content} />
           </div>
           <div className="lg:mx-4 xl:mx-0">
+            <h3 className="text-2xl font-semibold text-center md:text-start">FAQ</h3>
+            <Accordion type="single" collapsible>
+              {about.faq.map((item, index) => {
+                return (
+                  <AccordionItem key={item.question} value={`item-${index}`}>
+                    <AccordionTrigger className="text-xl">{item.question}</AccordionTrigger>
+                    <AccordionContent>{item.answer}</AccordionContent>
+                  </AccordionItem>
+                );
+              })}
+            </Accordion>
             <h3 className="text-2xl font-semibold my-12 md:my-8 text-center md:text-start">
               More Information:
             </h3>
