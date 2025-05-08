@@ -1,8 +1,5 @@
-import { defineQuery, PortableText } from 'next-sanity';
+import { defineQuery } from 'next-sanity';
 import { sanityFetch } from '@/sanity/sanityFetch';
-import { urlFor } from '../../lib/sanity';
-import Image from 'next/image';
-import type { PortableTextBlock } from 'sanity';
 
 import {
   Accordion,
@@ -13,24 +10,77 @@ import {
 
 interface AboutMainPageType {
   title: string;
-  content: PortableTextBlock[];
-  image: string;
+  missionStatement: { mission: string; description: string }[];
+  values: { title: string; description: string }[];
+  timeline: { date: string; title: string; event: string }[];
   faq: { question: string; answer: string }[];
   subPages: { title: string; summary: string; slug: string }[];
 }
 
 const mainAboutQuery = defineQuery(
-  '*[_type == "aboutMainPageType"]{title, content, faq[]{question, answer}, "image": image.asset->url, subPages[]->{title, summary, "slug": slug.current}}'
+  '*[_type == "aboutMainPageType"]{title, missionStatement[]{mission, description}, values[]{title, description}, timeline[]{date, title, event}, faq[]{question, answer}, subPages[]->{title, summary, "slug": slug.current}}'
 );
 
 export default async function About() {
   const data = await sanityFetch<AboutMainPageType[]>(mainAboutQuery);
   const about = data[0];
+  console.log(about);
   const subPages: { title: string; summary: string; slug: string }[] = about.subPages;
 
   return (
-    <div className="h-full">
-      <div className="max-w-[1280px] mx-auto">
+    <div className="">
+      <h2 className="">{about.title}</h2>
+      <div>
+        <h3>Mission Statement:</h3>
+        <p>{about.missionStatement[0].mission}</p>
+        <p>{about.missionStatement[0].description}</p>
+      </div>
+      <div>
+        <h3>Values:</h3>
+        {about.values.map((item) => (
+          <div key={item.title}>
+            <p>{item.title}</p>
+            <p>{item.description}</p>
+          </div>
+        ))}
+      </div>
+      <div className="">
+        <h3>Timeline</h3>
+        {about.timeline.map((item) => (
+          <div key={item.title}>
+            <p>{item.date}</p>
+            <p>{item.title}</p>
+            <p>{item.event}</p>
+          </div>
+        ))}
+      </div>
+      <div>
+        <h3>FAQs</h3>
+        <Accordion type="single" collapsible>
+          {about.faq.map((item, index) => {
+            return (
+              <AccordionItem key={item.question} value={`item-${index}`}>
+                <AccordionTrigger className="text-xl">{item.question}</AccordionTrigger>
+                <AccordionContent>{item.answer}</AccordionContent>
+              </AccordionItem>
+            );
+          })}
+        </Accordion>
+      </div>
+      <div className="">
+        {subPages.map((item) => (
+          <a key={item.title} className="" href={`/about/${item.slug}`}>
+            <p className="">{item.title}:</p>
+            <p className="">{item.summary}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+{
+  /* <div className="max-w-[1280px] mx-auto">
         <div className="relative w-full h-[350px] sm:h-[450px] lg:h-[550px] xl:rounded-2xl xl:my-6 overflow-hidden">
           <Image
             src={urlFor(about.image).auto('format').url()}
@@ -76,7 +126,5 @@ export default async function About() {
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  );
+      </div> */
 }

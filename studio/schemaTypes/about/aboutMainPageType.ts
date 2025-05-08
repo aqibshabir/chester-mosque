@@ -13,18 +13,55 @@ export const aboutMainPageType = defineType({
       title: 'Page Title',
     }),
     defineField({
-      name: 'content',
+      name: 'missionStatement',
+      title: 'Mission Statement',
       type: 'array',
-      title: 'Content Blocks',
-      of: [{type: 'block'}],
+      of: [
+        {
+          type: 'object',
+          name: 'missionItem',
+          title: 'Mission Item',
+          fields: [
+            defineField({name: 'mission', type: 'string', title: 'Mission'}),
+            defineField({name: 'description', type: 'text', title: 'Description'}),
+          ],
+        },
+      ],
+      validation: (Rule) => Rule.max(1),
+    }),
+
+    defineField({
+      name: 'values',
+      title: 'Our Values',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          name: 'valueItem',
+          title: 'Value Item',
+          fields: [
+            defineField({name: 'title', type: 'string', title: 'Title'}),
+            defineField({name: 'description', type: 'text', title: 'Description'}),
+          ],
+        },
+      ],
     }),
     defineField({
-      name: 'image',
-      type: 'image',
-      title: 'Image',
-      options: {
-        hotspot: true,
-      },
+      name: 'timeline',
+      title: 'Timeline',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          name: 'timelineItem',
+          title: 'Timeline Event',
+          fields: [
+            defineField({name: 'date', type: 'string', title: 'Date'}),
+            defineField({name: 'title', type: 'string', title: 'Event Title'}),
+            defineField({name: 'event', type: 'string', title: 'Event Description'}),
+          ],
+        },
+      ],
     }),
     defineField({
       name: 'faq',
@@ -36,27 +73,18 @@ export const aboutMainPageType = defineType({
           name: 'faqItem',
           title: 'FAQ Item',
           fields: [
-            defineField({
-              name: 'question',
-              title: 'Question',
-              type: 'string',
-              validation: (Rule) => Rule.required(),
-            }),
-            defineField({
-              name: 'answer',
-              title: 'Answer',
-              type: 'text',
-              validation: (Rule) => Rule.required(),
-            }),
+            defineField({name: 'question', type: 'string', title: 'Question'}),
+            defineField({name: 'answer', type: 'text', title: 'Answer'}),
           ],
         },
       ],
     }),
     defineField({
       name: 'subPages',
-      title: 'Related Sub Pages',
+      title: 'Featured Sub Pages',
       type: 'array',
       of: [{type: 'reference', to: [{type: 'aboutSubPageType'}]}],
+      validation: (Rule) => Rule.max(3),
     }),
   ],
 })
