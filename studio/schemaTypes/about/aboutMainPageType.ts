@@ -41,6 +41,7 @@ export const aboutMainPageType = defineType({
           title: 'Value Item',
           fields: [
             defineField({name: 'title', type: 'string', title: 'Title'}),
+            defineField({name: 'icon', type: 'string', title: 'Icon'}),
             defineField({name: 'description', type: 'text', title: 'Description'}),
           ],
         },
