@@ -3,9 +3,10 @@ import { FaAngleDown } from 'react-icons/fa';
 
 interface HeroProps {
   heading: string;
+  onScrollClick: () => void;
 }
 
-function Hero({ heading }: HeroProps) {
+function Hero({ heading, onScrollClick }: HeroProps) {
   return (
     <Ripple>
       <div className="relative flex flex-col gap-4 items-center justify-center px-4">
@@ -13,7 +14,10 @@ function Hero({ heading }: HeroProps) {
         <p className="font-extralight text-base sm:text-xl md:text-4xl py-4 text-black/60">
           Your mosque. Your community. Your home.
         </p>
-        <button className="bg-indigo-600 hover:bg-indigo-600/95 rounded-2xl w-fit text-white px-4 py-2 cursor-pointer flex justify-center items-center">
+        <button
+          className="bg-indigo-600 hover:bg-indigo-600/95 rounded-2xl w-fit text-white px-4 py-2 cursor-pointer flex justify-center items-center"
+          onClick={onScrollClick}
+        >
           Learn more
           <FaAngleDown className="animate-bounce transition-all ease-in-out text-sm translate-y-0.5 ml-2" />
         </button>

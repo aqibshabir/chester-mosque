@@ -42,5 +42,13 @@ export const aboutSubPageType = defineType({
       type: 'boolean',
       title: 'Is this an Update?',
     }),
+    defineField({
+      name: 'image',
+      type: 'image',
+      title: 'Image',
+      options: {
+        hotspot: true,
+      },
+    }),
   ],
 })
