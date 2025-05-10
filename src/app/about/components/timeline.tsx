@@ -41,13 +41,13 @@ const Timeline = ({ events }: TimelineProps) => {
               <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white flex items-center justify-center">
                 <div className="h-4 w-4 rounded-full border border-neutral-300 p-2" />
               </div>
-              <h4 className="hidden md:block md:pl-20 md:text-5xl font-bold text-neutral-500">
+              <h4 className="hidden md:block md:pl-20 md:text-5xl font-bold text-zinc-500">
                 {item.date}
               </h4>
             </div>
 
             <div className="relative pl-20 pr-4 md:pl-4 w-full">
-              <h4 className=" block text-2xl mb-4 text-left font-semibold text-neutral-500 ">
+              <h4 className=" block text-2xl mb-4 text-left font-semibold text-black/70">
                 {item.title} <span className="md:hidden">- {item.date}</span>
               </h4>
               <p>{item.event}</p>
