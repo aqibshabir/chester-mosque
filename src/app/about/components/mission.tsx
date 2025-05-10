@@ -16,7 +16,7 @@ function Mission({ mission, description }: MissionProps) {
               <FaCircle className="animate-pulse w-2 text-indigo-600" />
               Our Mission
             </h3>
-            <PiMosque size={80} className="hidden md:block mt-auto text-indigo-600" />
+            <PiMosque size={80} className="hidden md:block mt-auto text-zinc-200" />
           </div>
           <div className="flex flex-col min-h-40 justify-between">
             <p className="text-xl sm:text-3xl pb-10 border-b border-indigo-600/30 md:border-black/30">

@@ -1,5 +1,5 @@
 import { FaCircle } from 'react-icons/fa6';
-import { VscSparkleFilled } from 'react-icons/vsc';
+import { HiSparkles } from 'react-icons/hi';
 import { IoMdHappy } from 'react-icons/io';
 import { BsPeople } from 'react-icons/bs';
 import { LuHandshake } from 'react-icons/lu';
@@ -16,15 +16,15 @@ const icons: Record<string, React.ElementType> = {
 
 function Values({ values }: ValuesProps) {
   return (
-    <div className="sm:mx-8 p-4 sm:rounded-4xl shadow-2xl my-20 bg-indigo-600">
+    <div className="sm:mx-8 p-4 sm:rounded-4xl my-20 bg-indigo-600">
       <div className="m-2 sm:m-8 p-4 rounded-4xl bg-white">
-        <div className="p-10 lg:flex gap-8 xl:gap-40">
+        <div className="p-10 lg:flex gap-8 xl:gap-30">
           <div className="flex flex-col min-h-20 justify-between md:px-4">
             <h3 className="border border-black/80 whitespace-nowrap px-2 rounded-full flex gap-1.5 items-center w-fit">
               <FaCircle className="animate-pulse w-2 text-indigo-600" />
               Our Values
             </h3>
-            <VscSparkleFilled size={80} className="hidden lg:block mt-auto text-black/60" />
+            <HiSparkles size={80} className="hidden lg:block mt-auto text-zinc-200" />
           </div>
           <div className="flex flex-col min-h-40 justify-between">
             <p className="text-xl sm:text-3xl md:text-5xl text-center sm:text-start">
