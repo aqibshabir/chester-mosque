@@ -13,6 +13,11 @@ export const aboutSubPageType = defineType({
       title: 'Page Title',
     }),
     defineField({
+      name: 'readTime',
+      title: 'Read Time',
+      type: 'number',
+    }),
+    defineField({
       name: 'summary',
       title: 'Summary',
       type: 'text',
