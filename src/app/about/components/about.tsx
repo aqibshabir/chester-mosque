@@ -42,9 +42,9 @@ export default function About({ about }: AboutProps) {
           mission={about.missionStatement[0].mission}
           description={about.missionStatement[0].description}
         />
+        <Timeline events={about.timeline} />
         <Quote />
         <Values values={about.values} />
-        <Timeline events={about.timeline} />
         <FAQ faq={about.faq} />
         <div ref={ref}>
           <Learn subPages={subPages} />
