@@ -13,6 +13,11 @@ export const servicesSubPageType = defineType({
       title: 'Page Title',
     }),
     defineField({
+      name: 'readTime',
+      title: 'Read Time',
+      type: 'number',
+    }),
+    defineField({
       name: 'summary',
       title: 'Summary',
       type: 'text',
@@ -41,6 +46,14 @@ export const servicesSubPageType = defineType({
       name: 'isUpdate',
       type: 'boolean',
       title: 'Is this an Update?',
+    }),
+    defineField({
+      name: 'image',
+      type: 'image',
+      title: 'Image',
+      options: {
+        hotspot: true,
+      },
     }),
   ],
 })

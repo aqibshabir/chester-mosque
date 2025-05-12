@@ -9,7 +9,7 @@ type EventsMainPageType = {
 };
 
 const mainEventsQuery = defineQuery(
-  '*[_type == "eventsMainPageType"]{title, subPages[]->{title, summary, image, "slug": slug.current}}'
+  '*[_type == "eventsMainPageType"]{title, subPages[]->{title, summary, "image": image.asset._ref, "slug": slug.current}}'
 );
 
 export default async function Events() {

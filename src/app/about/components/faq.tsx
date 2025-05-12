@@ -12,7 +12,7 @@ interface FAQProps {
 function FAQ({ faq }: FAQProps) {
   return (
     <div className="my-20 mx-4">
-      <h3 className="text-4xl font-semibold mb-4">Common Questions</h3>
+      <h3 className="text-4xl font-semibold mb-4">FAQ</h3>
       <Accordion type="single" collapsible className="">
         {faq.map((item, index) => {
           return (
