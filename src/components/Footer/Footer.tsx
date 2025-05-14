@@ -7,32 +7,29 @@ function Footer() {
   return (
     <footer className="bg-indigo-600 flex justify-center">
       <div className="w-full max-w-[1280px] mx-auto">
-        <div className="flex flex-col text-sm p-4 justify-center items-center my-4 text-white">
-          <p>
-            Chester Shahjalal Jame Masjid & Islamic Centre is a charity (1182471) registered in
-            England & Wales.
-          </p>
-          <p>
-            Registered Office: 25 Clifton Drive, Blacon, Chester, Cheshire West & Chester, CH1 5LT
-          </p>
-        </div>
-
-        <div className="flex justify-end items-center my-4">
-          <div className="flex gap-3 justify-center items-center ">
-            <div className="p-1.5 bg-white/80 hover:bg-white cursor-pointer rounded-full">
-              <FaFacebookSquare size={20} className="text-indigo-600" />
-            </div>
-            <div className="p-1.5 bg-white/80 hover:bg-white cursor-pointer rounded-full">
-              <FaYoutube size={20} className="text-indigo-600" />
-            </div>
-            <div className="p-1.5 bg-white/80 hover:bg-white cursor-pointer rounded-full">
-              <FaInstagram size={20} className="text-indigo-600" />
+        <div className="flex justify-between mx-2 mb-10 mt-4">
+          <div className="flex items-center">
+            <p className="text-white font-bold text-xl mr-2">Need Help?</p>
+            <a href="/contact" className="text-white/80 hover:underline hover:text-white">
+              Contact us
+            </a>
+          </div>
+          <div className="flex justify-end items-center">
+            <div className="flex gap-3 justify-center items-center ">
+              <div className="p-1.5 bg-white/80 hover:bg-white hover:scale-105 cursor-pointer rounded-full">
+                <FaFacebookSquare size={20} className="text-indigo-600" />
+              </div>
+              <div className="p-1.5 bg-white/80 hover:bg-white hover:scale-105 cursor-pointer rounded-full">
+                <FaYoutube size={20} className="text-indigo-600" />
+              </div>
+              <div className="p-1.5 bg-white/80 hover:bg-white hover:scale-105 cursor-pointer rounded-full">
+                <FaInstagram size={20} className="text-indigo-600" />
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="w-full h-[0.3px] my-2 bg-white/60"></div>
-
+        <div className="w-full h-[0.5px] my-2 bg-white/60" />
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center ml-2">
             <img className="w-[30px]" src="/white_logo.png" alt="logo" />
@@ -43,11 +40,14 @@ function Footer() {
           </div>
           <div className="flex flex-col items-end">
             <p className="text-white/80 mr-2 text-xs">
-              &copy; Chester Mosque {new Date().getFullYear()}. All rights reserved
+              &copy; {new Date().getFullYear()} Shah Jalal Jame Masjid
             </p>
-            <p className="text-white/80 mr-2 text-xs flex">
-              Made with <IoIosHeart className="mx-0.5 translate-y-0.5" /> by Aqib Shabir
-            </p>
+            <a
+              href="https://www.aqibshabir.com"
+              className="text-white/80 mr-2 text-xs hover:underline hover:text-white hover:scale-105"
+            >
+              Built by Aqib Shabir
+            </a>
           </div>
         </div>
       </div>
