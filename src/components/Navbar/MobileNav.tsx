@@ -61,9 +61,6 @@ function MobileNav() {
                 <a href="/timetable">Timetable</a>
               </li>
               <li className="cursor-pointer hover:text-black/60 transition-transform duration-300 hover:scale-110">
-                <a href="/live_stream">Live Stream</a>
-              </li>
-              <li className="cursor-pointer hover:text-black/60 transition-transform duration-300 hover:scale-110">
                 <a href="/events">Events</a>
               </li>
               <li className="cursor-pointer hover:text-black/60 transition-transform duration-300 hover:scale-110">

@@ -109,14 +109,6 @@ function DesktopNav({ about, events, services }: DesktopNavProps) {
             Timetable
           </a>
         </li>
-        <li>
-          <a
-            className="hover:text-gray-600 text-sm flex items-center font-medium"
-            href="/live_stream"
-          >
-            Live
-          </a>
-        </li>
         <li onMouseEnter={() => onMenuEnter(1)} onMouseLeave={() => onMenuLeave()}>
           <a className="hover:text-gray-600 flex items-center text-sm font-medium" href="/events">
             Events
