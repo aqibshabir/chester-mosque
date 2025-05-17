@@ -2,52 +2,64 @@ import { FaFacebookSquare } from 'react-icons/fa';
 import { FaYoutube } from 'react-icons/fa';
 import { FaInstagram } from 'react-icons/fa';
 import { IoIosHeart } from 'react-icons/io';
+import { Button } from '../ui/button';
+import Link from 'next/link';
 
 function Footer() {
   return (
-    <footer className="bg-indigo-600 flex justify-center">
+    <footer className="bg-indigo-600 sm:pt-0 flex justify-center">
       <div className="w-full max-w-[1280px] mx-auto">
-        <div className="flex justify-between mx-2 mb-10 mt-4">
-          <div className="flex items-center">
-            <p className="text-white font-bold text-xl mr-2">Need Help?</p>
-            <a href="/contact" className="text-white/80 hover:underline hover:text-white">
+        <div className="my-40 md:my-20 flex flex-col justify-center items-center">
+          <p className="text-white font-bold text-3xl sm:text-5xl mb-4">Here to help.</p>
+          <Link href="/contact">
+            <Button variant="ghost" className="bg-black/10 text-white">
               Contact us
-            </a>
-          </div>
-          <div className="flex justify-end items-center">
-            <div className="flex gap-3 justify-center items-center ">
-              <div className="p-1.5 bg-white/80 hover:bg-white hover:scale-105 cursor-pointer rounded-full">
-                <FaFacebookSquare size={20} className="text-indigo-600" />
-              </div>
-              <div className="p-1.5 bg-white/80 hover:bg-white hover:scale-105 cursor-pointer rounded-full">
-                <FaYoutube size={20} className="text-indigo-600" />
-              </div>
-              <div className="p-1.5 bg-white/80 hover:bg-white hover:scale-105 cursor-pointer rounded-full">
-                <FaInstagram size={20} className="text-indigo-600" />
-              </div>
-            </div>
-          </div>
+            </Button>
+          </Link>
         </div>
 
-        <div className="w-full h-[0.5px] my-2 bg-white/60" />
+        <div className="max-w-[350px] mx-start">
+          <ul className="text-white grid grid-cols-2 gap-1 mb-10 ml-4 font-semibold text-sm">
+            <li>
+              <a href="" className="hover:text-gray-200">
+                Timetable
+              </a>
+            </li>
+            <li>
+              <a href="" className="hover:text-gray-200">
+                Events
+              </a>
+            </li>
+            <li>
+              <a href="" className="hover:text-gray-200">
+                Services
+              </a>
+            </li>
+            <li>
+              <a href="" className="hover:text-gray-200">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="" className="hover:text-gray-200">
+                Contact
+              </a>
+            </li>
+            <li>
+              <a href="" className="hover:text-gray-200">
+                Donate
+              </a>
+            </li>
+          </ul>
+        </div>
+
         <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center ml-2">
-            <img className="w-[30px]" src="/white_logo.png" alt="logo" />
-            <p className="text-base text-white ml-2 mr-1 flex flex-col leading-4.5 font-medium">
+          <div className="flex items-center ml-4">
+            <img className="w-[40px]" src="/white_logo.png" alt="logo" />
+            <p className="text-lg text-white ml-2 mr-1 flex flex-col leading-4.5 font-medium">
               Chester Mosque
               <span className="text-white/60 font-extralight">& Islamic Centre</span>
             </p>
-          </div>
-          <div className="flex flex-col items-end">
-            <p className="text-white/80 mr-2 text-xs">
-              &copy; {new Date().getFullYear()} Shah Jalal Jame Masjid
-            </p>
-            <a
-              href="https://www.aqibshabir.com"
-              className="text-white/80 mr-2 text-xs hover:underline hover:text-white hover:scale-105"
-            >
-              Built by Aqib Shabir
-            </a>
           </div>
         </div>
       </div>
