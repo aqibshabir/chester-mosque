@@ -6,8 +6,8 @@ function Footer() {
   return (
     <footer className="bg-gradient-to-t from-indigo-500 to-indigo-600 sm:pt-0 flex justify-center">
       <div className="w-full max-w-[1280px] mx-auto">
-        <div className="mt-40 mb-20 md:my-20 flex flex-col justify-center items-center gap-4">
-          <img className="w-[70px] md:w-[100px]" src="/white_logo.png" alt="logo" />
+        <div className="mt-40 mb-20 md:my-20 flex flex-col justify-center items-center gap-4 md:gap-6">
+          <img className="w-[70px] md:w-[120px]" src="/white_logo.png" alt="logo" />
           <p className="text-white font-bold text-3xl md:text-5xl">Need help?</p>
           <Link href="/contact">
             <Button
@@ -69,7 +69,7 @@ function Footer() {
             &copy; Shah Jalal Jame Masjid {new Date().getFullYear()} <FaAngleRight size={10} />
             <a
               href="https://aqibshabir.com"
-              className="group-hover:underline group-hover:text-white hover:cursor-pointer hover:scale-105 transition-transform ease-in-out"
+              className="ml-1 group-hover:underline group-hover:text-white hover:cursor-pointer hover:scale-105 transition-transform ease-in-out"
             >
               Made by Aqib Shabir
             </a>

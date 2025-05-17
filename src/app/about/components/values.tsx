@@ -16,8 +16,8 @@ const icons: Record<string, React.ElementType> = {
 
 function Values({ values }: ValuesProps) {
   return (
-    <div className="sm:mx-8 p-4 sm:p-2 sm:rounded-4xl my-20 bg-indigo-600">
-      <div className="m-2 sm:m-8 p-4 rounded-4xl bg-white">
+    <div className="sm:mx-8 p-4 sm:p-2 sm:rounded-4xl my-20 bg-gradient-to-br from-indigo-400 to-indigo-700">
+      <div className="m-2 sm:m-8 p-4 rounded-xl sm:rounded-4xl bg-white">
         <div className="p-10 lg:flex gap-8 xl:gap-24">
           <div className="flex flex-col min-h-20 justify-between md:px-4">
             <h3 className="border border-black/80 whitespace-nowrap px-2 rounded-full flex gap-1.5 items-center w-fit">
@@ -38,7 +38,7 @@ function Values({ values }: ValuesProps) {
                     key={item.title}
                     className="flex flex-col items-center justify-center lg:items-start lg:justify-start sm:px-10 md:px-30 lg:px-0"
                   >
-                    <Icon className="text-7xl sm:text-6xl border rounded-xl p-2 bg-indigo-100 text-indigo-900" />
+                    <Icon className="text-7xl sm:text-6xl rounded-xl p-2 bg-gradient-to-br from-indigo-500 to-indigo-100 text-[#12173d]" />
                     <p className="font-semibold my-4 text-base md:text-lg text-center lg:text-start">
                       {item.title}
                     </p>

@@ -28,6 +28,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { getMonthlyTimeTable } from '@/api/getMonthlyTimetable';
 import { getDates } from '@/lib/getDates';
 import { getStartAndEndDate } from '@/lib/getStartAndEndDate';
+import Hero from './components/hero';
 
 interface MonthOption {
   month: number;
@@ -125,94 +126,93 @@ export default function TimeTable() {
 
   return (
     <>
-      <main className="bg-white">
-        <div className="mt-2 p-4">
-          <div className="flex items-center justify-center md:justify-start">
-            {loading ? (
-              <Skeleton className="w-[180px] h-10 rounded-md" />
-            ) : (
-              <Select defaultValue={selectedDate.label} onValueChange={(e) => handleDateChange(e)}>
-                <SelectTrigger className="w-[180px]">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {dates.map((date) => (
-                    <SelectItem key={date.label} value={date.label}>
-                      {date.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            )}
-
-            {loading ? (
-              <Skeleton className="w-10 h-10 rounded-md ml-2" />
-            ) : (
-              <Button variant="outline" onClick={handleDownloadPDF} className="ml-2" size="icon">
-                <MdOutlineSaveAlt />
-              </Button>
-            )}
-          </div>
+      <Hero heading="Timetable" />
+      <div className="mb-20 p-4">
+        <div className="flex items-center justify-center md:justify-start">
           {loading ? (
-            <div className="mt-4 space-y-2 mb-4">
-              {[...Array(30)].map((_, i) => (
-                <Skeleton key={i} className="w-full h-10 rounded-md" />
-              ))}
-            </div>
+            <Skeleton className="w-[180px] h-10 rounded-md" />
           ) : (
-            <div className="mt-4 sm:mx-4">
-              <Table className="overflow-hidden" id="timetable-container">
-                <TableCaption>Timetable for {selectedDate.label}</TableCaption>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead className="text-center">Day</TableHead>
-                    <TableHead className="text-center">Fajr</TableHead>
-                    <TableHead className="text-center">Dhuhr</TableHead>
-                    <TableHead className="text-center">Asr</TableHead>
-                    <TableHead className="text-center">Maghrib</TableHead>
-                    <TableHead className="text-center">Isha</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {monthData?.map((day) => {
-                    const isToday = DateTime.now().toFormat('dd MMM yyyy') === day.date.readable;
-                    return (
-                      <TableRow
-                        className={
-                          isToday
-                            ? 'bg-indigo-600 hover:bg-indigo-600/95 hover:scale-102 hover:shadow-md text-white ease-in-out transition-all'
-                            : ''
-                        }
-                        key={day.date.readable}
-                      >
-                        <TableCell className="text-center" key={day.date.readable}>
-                          {day.date.readable.split(' ')[0]}
-                        </TableCell>
-                        <TableCell className="text-center" key={day.timings.Fajr}>
-                          {day.timings.Fajr}
-                        </TableCell>
-                        <TableCell className="text-center" key={day.timings.Dhuhr}>
-                          {day.timings.Dhuhr}
-                        </TableCell>
-                        <TableCell className="text-center" key={day.timings.Asr}>
-                          {day.timings.Asr}
-                        </TableCell>
-                        <TableCell className="text-center" key={day.timings.Maghrib}>
-                          {day.timings.Maghrib}
-                        </TableCell>
-                        <TableCell className="text-center" key={day.timings.Isha}>
-                          {day.timings.Isha}
-                        </TableCell>
-                      </TableRow>
-                    );
-                  })}
-                  <TableRow></TableRow>
-                </TableBody>
-              </Table>
-            </div>
+            <Select defaultValue={selectedDate.label} onValueChange={(e) => handleDateChange(e)}>
+              <SelectTrigger className="w-[180px]">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {dates.map((date) => (
+                  <SelectItem key={date.label} value={date.label}>
+                    {date.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          )}
+
+          {loading ? (
+            <Skeleton className="w-10 h-10 rounded-md mx-2" />
+          ) : (
+            <Button variant="outline" onClick={handleDownloadPDF} className="ml-2" size="icon">
+              <MdOutlineSaveAlt />
+            </Button>
           )}
         </div>
-      </main>
+        {loading ? (
+          <div className="mt-4 space-y-2 mb-4">
+            {[...Array(30)].map((_, i) => (
+              <Skeleton key={i} className="w-full h-10 rounded-md" />
+            ))}
+          </div>
+        ) : (
+          <div className="mt-4 sm:mx-4">
+            <Table className="overflow-hidden" id="timetable-container">
+              <TableCaption>Timetable for {selectedDate.label}</TableCaption>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="text-center">Day</TableHead>
+                  <TableHead className="text-center">Fajr</TableHead>
+                  <TableHead className="text-center">Dhuhr</TableHead>
+                  <TableHead className="text-center">Asr</TableHead>
+                  <TableHead className="text-center">Maghrib</TableHead>
+                  <TableHead className="text-center">Isha</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {monthData?.map((day) => {
+                  const isToday = DateTime.now().toFormat('dd MMM yyyy') === day.date.readable;
+                  return (
+                    <TableRow
+                      className={
+                        isToday
+                          ? 'bg-indigo-600 hover:bg-indigo-600/95 hover:scale-102 hover:shadow-md text-white ease-in-out transition-all'
+                          : ''
+                      }
+                      key={day.date.readable}
+                    >
+                      <TableCell className="text-center" key={day.date.readable}>
+                        {day.date.readable.split(' ')[0]}
+                      </TableCell>
+                      <TableCell className="text-center" key={day.timings.Fajr}>
+                        {day.timings.Fajr}
+                      </TableCell>
+                      <TableCell className="text-center" key={day.timings.Dhuhr}>
+                        {day.timings.Dhuhr}
+                      </TableCell>
+                      <TableCell className="text-center" key={day.timings.Asr}>
+                        {day.timings.Asr}
+                      </TableCell>
+                      <TableCell className="text-center" key={day.timings.Maghrib}>
+                        {day.timings.Maghrib}
+                      </TableCell>
+                      <TableCell className="text-center" key={day.timings.Isha}>
+                        {day.timings.Isha}
+                      </TableCell>
+                    </TableRow>
+                  );
+                })}
+                <TableRow></TableRow>
+              </TableBody>
+            </Table>
+          </div>
+        )}
+      </div>
     </>
   );
 }
