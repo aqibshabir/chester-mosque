@@ -69,9 +69,9 @@ function MobileNav() {
               <li className="cursor-pointer hover:text-black/60 transition-transform duration-300 hover:scale-110">
                 <a href="contact">Contact</a>
               </li>
-              <li className="transition-transform duration-300 hover:scale-110 mt-2">
+              <li className="mt-2">
                 <a
-                  className="bg-indigo-600 text-white px-6 py-2 rounded-full hover:bg-indigo-600/80"
+                  className="bg-indigo-600 text-white px-6 py-2 rounded-xl hover:bg-indigo-600/95"
                   href="/donate"
                 >
                   Donate

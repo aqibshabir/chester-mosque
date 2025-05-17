@@ -29,7 +29,10 @@ export default async function Navbar() {
       <nav className="sticky top-0 shadow-md p-2 bg-gradient-to-br from-white/80 to-white/50 backdrop-blur-lg z-50">
         <div className="flex items-center justify-between">
           <div className="md:hidden" aria-hidden="true"></div>
-          <a href="/" className="flex items-center ml-1">
+          <a
+            href="/"
+            className="flex items-center ml-1 hover:scale-101 ease-in-out transition-transform"
+          >
             <img className="w-[50px] md:w-[38px]" src="/logo.png" alt="logo" />
             <h1 className="text-2xl md:text-lg lg:text-xl text-indigo-600/90 ml-3.5 md:ml-2.5 mr-1 flex flex-col leading-5.5 md:leading-4.5 font-medium">
               Chester Mosque

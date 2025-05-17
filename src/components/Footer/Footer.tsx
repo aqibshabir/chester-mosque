@@ -1,11 +1,10 @@
 import { Button } from '../ui/button';
 import Link from 'next/link';
 import { FaAngleRight } from 'react-icons/fa6';
-import { FaCopyright } from 'react-icons/fa';
 
 function Footer() {
   return (
-    <footer className="bg-indigo-800 sm:pt-0 flex justify-center">
+    <footer className="bg-gradient-to-t from-indigo-500 to-indigo-600 sm:pt-0 flex justify-center">
       <div className="w-full max-w-[1280px] mx-auto">
         <div className="mt-40 mb-20 md:my-20 flex flex-col justify-center items-center gap-4">
           <img className="w-[70px] md:w-[100px]" src="/white_logo.png" alt="logo" />
@@ -66,7 +65,7 @@ function Footer() {
           </div>
         </div>
         <div className="flex justify-center md:justify-between text-white/50 text-sm mb-1 mx-4">
-          <p className="flex items-center group gap-2">
+          <p className="flex items-center group gap-1">
             &copy; Shah Jalal Jame Masjid {new Date().getFullYear()} <FaAngleRight size={10} />
             <a
               href="https://aqibshabir.com"
