@@ -6,6 +6,7 @@ import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
 
 import DesktopNav from './DesktopNav';
 import MobileNav from './MobileNav';
+import Link from 'next/link';
 
 const aboutQuery = defineQuery(
   "*[_type == 'aboutSubPageType' && showInNavbar == true]|order(_createdAt asc){title,summary,'slug': slug.current}"
@@ -44,11 +45,15 @@ export default async function Navbar() {
             <MobileNav />
           </div>
           <div className="hidden md:flex gap-2">
-            <Button variant="ghost">Contact</Button>
-            <Button className="group bg-indigo-600 hover:bg-indigo-600/95 gap-1">
-              Donate
-              <MdOutlineKeyboardArrowRight className="group-hover:translate-x-1 ease-in-out transition-all" />
-            </Button>
+            <Link href="/contact">
+              <Button variant="ghost">Contact</Button>
+            </Link>
+            <Link href="/donate">
+              <Button className="group bg-indigo-600 hover:bg-indigo-600/95 gap-1">
+                Donate
+                <MdOutlineKeyboardArrowRight className="group-hover:translate-x-1 ease-in-out transition-all" />
+              </Button>
+            </Link>
           </div>
         </div>
       </nav>
