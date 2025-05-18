@@ -88,7 +88,7 @@ function DesktopNav({ about, events, services }: DesktopNavProps) {
                         <a
                           key={item.title}
                           href={`/about/${item.slug}`}
-                          className="hover:bg-black/5 rounded-sm w-[250px] p-2 flex flex-col hover:scale-102 transition-transform duration-300"
+                          className="hover:bg-black/10 rounded-sm w-[250px] p-2 flex flex-col hover:scale-102 transition-transform duration-300"
                         >
                           <p className="font-semibold">{item.title}</p>
                           <p className="text-sm text-gray-600">{item.summary}</p>
@@ -143,7 +143,7 @@ function DesktopNav({ about, events, services }: DesktopNavProps) {
                       <a
                         key={item.title}
                         href={`/events/${item.slug}`}
-                        className="hover:bg-black/5 hover:scale-102 transition-transform duration-300 rounded-sm p-2"
+                        className="hover:bg-black/10 hover:scale-102 transition-transform duration-300 rounded-sm p-2"
                       >
                         <p className="font-semibold">{item.title}</p>
                         <p className="text-sm text-gray-600">{item.summary}</p>
@@ -189,7 +189,7 @@ function DesktopNav({ about, events, services }: DesktopNavProps) {
                       <a
                         key={item.title}
                         href={`/services/${item.slug}`}
-                        className="hover:bg-black/5 hover:scale-102 transition-transform duration-300 rounded-sm w-[230px] p-2"
+                        className="hover:bg-black/10 hover:scale-102 transition-transform duration-300 rounded-sm w-[230px] p-2"
                       >
                         <p className="font-semibold">{item.title}</p>
                         <p className="text-sm text-gray-600">{item.summary}</p>

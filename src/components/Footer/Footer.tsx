@@ -32,8 +32,8 @@ function Footer() {
           <div className="md:order-1 mb-14 md:mb-0 flex justify-center items-center">
             <ul className="text-white grid grid-cols-1 md:grid-cols-3 font-semibold text-sm gap-x-12 gap-y-2 text-center">
               <li>
-                <a href="/timetable" className="hover:text-gray-200">
-                  Timetable
+                <a href="/about" className="hover:text-gray-200">
+                  About
                 </a>
               </li>
               <li>
@@ -47,8 +47,8 @@ function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/about" className="hover:text-gray-200">
-                  About
+                <a href="/timetable" className="hover:text-gray-200">
+                  Timetable
                 </a>
               </li>
               <li>
