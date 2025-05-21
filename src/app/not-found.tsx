@@ -1,8 +1,17 @@
+'use client';
+import { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md';
 
 export default function NotFound() {
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-start text-center pt-[20vh]">
       <h2 className="text-9xl font-bold mb-4 text-indigo-600">404</h2>
