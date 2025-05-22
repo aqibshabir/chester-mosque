@@ -38,7 +38,7 @@ function Values({ values }: ValuesProps) {
                     key={item.title}
                     className="flex flex-col items-center justify-center lg:items-start lg:justify-start sm:px-10 md:px-30 lg:px-0"
                   >
-                    <Icon className="text-7xl sm:text-6xl rounded-xl p-2 bg-gradient-to-br from-indigo-500 to-indigo-100 text-[#12173d]" />
+                    <Icon className="text-7xl sm:text-6xl rounded-xl p-2 bg-gradient-to-br to-indigo-500 from-indigo-100 text-[#12173d]" />
                     <p className="font-semibold my-4 text-base md:text-lg text-center lg:text-start">
                       {item.title}
                     </p>
