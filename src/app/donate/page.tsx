@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 
 export default function Page() {
   const [typeOfPayment, setTypeOfPayment] = useState('subscription');
+  const [selected, setSelected] = useState<number>(1);
 
   const togglePayment = (type: string) => {
     if (type === 'one-off') {
@@ -16,6 +17,11 @@ export default function Page() {
     if (type === 'subscription') {
       setTypeOfPayment('subscription');
     }
+  };
+
+  const toggleSelected = (num: number) => {
+    setSelected(num);
+    console.log(num);
   };
 
   return (
@@ -187,24 +193,48 @@ export default function Page() {
         ) : (
           <>
             <div className="mt-18 mb-40">
-              <div className="flex flex-col gap-4 justify-center items-center">
+              <div className="flex flex-col gap-4 justify-center items-center mt-6">
+                <p>How much would you like to give?</p>
                 <div className="flex gap-4">
-                  <Button className="mt-6 text-xl" size="lg">
-                    £10
-                  </Button>
-                  <Button className="mt-6 text-xl" size="lg">
-                    £25
-                  </Button>
-                  <Button className="mt-6 text-xl" size="lg">
+                  <div aria-hidden={true} className="hidden"></div>
+                  <Button
+                    className={cn(
+                      'text-xl',
+                      selected === 1 && 'bg-indigo-600 text-white shadow-xs hover:bg-indigo-600/90'
+                    )}
+                    onClick={() => toggleSelected(1)}
+                  >
                     £50
                   </Button>
+                  <Button
+                    className={cn(
+                      'text-xl',
+                      selected === 2 && 'bg-indigo-600 text-white shadow-xs hover:bg-indigo-600/90'
+                    )}
+                    onClick={() => toggleSelected(2)}
+                  >
+                    £20
+                  </Button>
+                  <Button
+                    className={cn(
+                      'text-xl',
+                      selected === 3 && 'bg-indigo-600 text-white shadow-xs hover:bg-indigo-600/90'
+                    )}
+                    onClick={() => toggleSelected(3)}
+                  >
+                    £10
+                  </Button>
                 </div>
-                <div className="">
-                  <p className="text-4xl"></p>
-                </div>
+                <p> Or enter other amount (optional) </p>
+                <input
+                  className="h-8 rounded-md border border-black px-4 focus:outline-none focus:ring-2"
+                  type="text"
+                  onFocus={() => toggleSelected(0)}
+                />
+                <p>{selected}</p>
                 <div>
                   <Button className="text-xl bg-indigo-600 hover:bg-indigo-600/90" size="lg">
-                    Donate
+                    Continue
                   </Button>
                 </div>
               </div>
