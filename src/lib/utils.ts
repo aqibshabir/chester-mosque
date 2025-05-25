@@ -26,3 +26,13 @@ export const getErrorMessage = (error: unknown): string => {
 
   return message;
 };
+
+export const getDynamicMessage = (amount: number) => {
+  if (amount >= 50) {
+    return 'goes towards ongoing charity that helps preserve and improve our mosque. Whether it is upgrading wudu areas, repairing the prayer hall, or enhancing accessibility, your gift ensures our sacred space remains a source of peace, reflection, and unity for generations to come.';
+  }
+  if (amount >= 10) {
+    return 'helps nurture hearts and minds. It supports Quran classes, Islamic studies, and youth programmes. Planting seeds of faith and knowledge in our future generation, and earning you lasting reward - inshallah.';
+  }
+  return 'helps provide daily necessities like Qurans, prayer mats and clean spaces. Allowing every visitor to feel welcome, comfortable, and spiritually uplifted.';
+};
