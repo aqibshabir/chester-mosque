@@ -301,7 +301,7 @@ export default function Page() {
                   className={cn(
                     'absolute top-2.5 left-2 text-black pr-3 pl-2 border-r border-gray-300',
                     !input && 'text-gray-300 border-gray-300',
-                    !isValidAmount && input && 'text-gray-600 border-gray-600',
+                    !isValidAmount && input && 'text-red-400 border-gray-600',
                     isValidAmount && 'text-black border-black'
                   )}
                 >
@@ -315,7 +315,7 @@ export default function Page() {
                     'h-12 w-[220px] rounded-md border px-4 pl-12 focus:outline-none ring-1 focus:ring-2 text-2xl text-center',
                     !input &&
                       'text-gray-300 border-gray-300 ring-gray-300 focus:ring-gray-400 focus:border-gray-400',
-                    !isValidAmount && input && 'text-gray-600 border-gray-600 focus:ring-gray-600',
+                    !isValidAmount && input && 'text-red-400 border-red-400 focus:ring-red-400',
                     isValidAmount &&
                       'text-black border-indigo-600 focus:ring-indigo-600 ring-indigo-600'
                   )}
