@@ -61,7 +61,6 @@ export default function Page() {
         },
         body: JSON.stringify({ priceId, mode, amount }),
       });
-      console.log(res);
       if (!res.ok) throw new Error('Failed to create session');
 
       const { sessionId } = await res.json();
