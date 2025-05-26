@@ -25,7 +25,7 @@ import {
 } from '@/components/ui/table';
 import { Skeleton } from '@/components/ui/skeleton';
 
-import { getMonthlyTimeTable } from '@/api/getMonthlyTimetable';
+import { getMonthlyTimeTable } from '../api/getMonthlyTimetable';
 import { getDates } from '@/lib/getDates';
 import { getStartAndEndDate } from '@/lib/getStartAndEndDate';
 import Hero from './components/hero';

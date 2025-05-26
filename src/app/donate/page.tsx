@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { loadStripe } from '@stripe/stripe-js';
 import { cn } from '@/lib/utils';
 import { FaCheckCircle } from 'react-icons/fa';
 import Hero from './components/hero';
@@ -43,6 +44,28 @@ export default function Page() {
     }
     setInput(value);
     Number(value) >= 1 ? setSelected(4) : setSelected(0);
+  };
+
+  const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
+
+  const handleSelectPlan = async (priceId: string, mode: 'subscription' | 'payment') => {
+    try {
+      const res = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ priceId, mode }),
+      });
+      console.log(res);
+      if (!res.ok) throw new Error('Failed to create session');
+
+      const { sessionId } = await res.json();
+      const stripe = await stripePromise;
+      stripe?.redirectToCheckout({ sessionId });
+    } catch (error) {
+      throw new Error('Something went wrong');
+    }
   };
 
   return (
@@ -101,7 +124,14 @@ export default function Page() {
                   </div>
                 </div>
                 <div className="flex justify-center items-center">
-                  <Button className="mt-6">Select Plan</Button>
+                  <Button
+                    onClick={() =>
+                      handleSelectPlan('price_1RSkDNALoJ4eLPXvXqaUFaR8', 'subscription')
+                    }
+                    className="mt-6"
+                  >
+                    Select Plan
+                  </Button>
                 </div>
               </div>
 
@@ -150,7 +180,14 @@ export default function Page() {
                   </div>
                 </div>
                 <div className="flex justify-center items-center">
-                  <Button variant="secondary">Select Plan</Button>
+                  <Button
+                    onClick={() =>
+                      handleSelectPlan('price_1RSkPhALoJ4eLPXv1AaE2de4', 'subscription')
+                    }
+                    variant="secondary"
+                  >
+                    Select Plan
+                  </Button>
                 </div>
               </div>
 
@@ -206,7 +243,14 @@ export default function Page() {
                   </div>
                 </div>
                 <div className="flex justify-center items-center">
-                  <Button className="mt-6">Select Plan</Button>
+                  <Button
+                    onClick={() =>
+                      handleSelectPlan('price_1RSkVNALoJ4eLPXvO9JRbRvA', 'subscription')
+                    }
+                    className="mt-6"
+                  >
+                    Select Plan
+                  </Button>
                 </div>
               </div>
             </div>
