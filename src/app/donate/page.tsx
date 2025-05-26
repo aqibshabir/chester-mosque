@@ -48,14 +48,18 @@ export default function Page() {
 
   const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
-  const handleSelectPlan = async (priceId: string, mode: 'subscription' | 'payment') => {
+  const handleSelectPlan = async (
+    mode: 'subscription' | 'payment',
+    priceId?: string,
+    amount?: number
+  ) => {
     try {
       const res = await fetch('/api/create-checkout-session', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ priceId, mode }),
+        body: JSON.stringify({ priceId, mode, amount }),
       });
       console.log(res);
       if (!res.ok) throw new Error('Failed to create session');
@@ -65,6 +69,21 @@ export default function Page() {
       stripe?.redirectToCheckout({ sessionId });
     } catch (error) {
       throw new Error('Something went wrong');
+    }
+  };
+
+  const handleDonateClick = () => {
+    if (selected === 1) {
+      handleSelectPlan('payment', 'price_1RSy4GALoJ4eLPXv29ZH4eK6');
+    }
+    if (selected === 2) {
+      handleSelectPlan('payment', 'price_1RSy4pALoJ4eLPXv3cu1sKto');
+    }
+    if (selected === 3) {
+      handleSelectPlan('payment', 'price_1RSy54ALoJ4eLPXvkTJkpXqz');
+    }
+    if (selected === 4) {
+      handleSelectPlan('payment', undefined, parsedInput);
     }
   };
 
@@ -126,7 +145,7 @@ export default function Page() {
                 <div className="flex justify-center items-center">
                   <Button
                     onClick={() =>
-                      handleSelectPlan('price_1RSkDNALoJ4eLPXvXqaUFaR8', 'subscription')
+                      handleSelectPlan('subscription', 'price_1RSkDNALoJ4eLPXvXqaUFaR8')
                     }
                     className="mt-6"
                   >
@@ -182,7 +201,7 @@ export default function Page() {
                 <div className="flex justify-center items-center">
                   <Button
                     onClick={() =>
-                      handleSelectPlan('price_1RSkPhALoJ4eLPXv1AaE2de4', 'subscription')
+                      handleSelectPlan('subscription', 'price_1RSkPhALoJ4eLPXv1AaE2de4')
                     }
                     variant="secondary"
                   >
@@ -245,7 +264,7 @@ export default function Page() {
                 <div className="flex justify-center items-center">
                   <Button
                     onClick={() =>
-                      handleSelectPlan('price_1RSkVNALoJ4eLPXvO9JRbRvA', 'subscription')
+                      handleSelectPlan('subscription', 'price_1RSkVNALoJ4eLPXvO9JRbRvA')
                     }
                     className="mt-6"
                   >
@@ -387,6 +406,7 @@ export default function Page() {
                   className="text-lg bg-indigo-600 hover:bg-indigo-600/90"
                   disabled={!selected && !isValidAmount}
                   size="lg"
+                  onClick={handleDonateClick}
                 >
                   {selected === 1 && 'Donate £50'}
                   {selected === 2 && 'Donate £20'}
