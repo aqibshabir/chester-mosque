@@ -12,7 +12,7 @@ function Footer() {
           <Link href="/contact">
             <Button
               variant="ghost"
-              className="bg-black/10 text-white hover:translate-y-0.5 ease-in-out transition-transform"
+              className="bg-black/10 text-white hover:bg-white hover:translate-y-0.5 ease-in-out transition-transform"
             >
               Contact us
             </Button>
