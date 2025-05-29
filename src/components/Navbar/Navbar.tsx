@@ -27,6 +27,9 @@ export default async function Navbar() {
     await sanityFetch<{ title: string; summary: string; slug: string }[]>(servicesQuery);
   return (
     <>
+      {/* <div className="bg-gradient-to-br from-indigo-600 to-indigo-500 h-fit text-white flex justify-center items-center">
+        <p className="font-semibold uppercase">this is an annoucement</p>
+      </div> */}
       <nav className="sticky top-0 shadow-md p-2 bg-gradient-to-br from-white/80 to-white/50 backdrop-blur-lg z-50">
         <div className="flex items-center justify-between">
           <div className="md:hidden" aria-hidden="true"></div>
@@ -44,12 +47,14 @@ export default async function Navbar() {
             <DesktopNav about={about} events={events} services={services} />
             <MobileNav />
           </div>
-          <div className="hidden md:flex gap-2">
+          <div className="hidden md:flex gap-2 mr-4">
             <Link href="/contact">
-              <Button variant="ghost">Contact</Button>
+              <Button variant="ghost" className="text-base">
+                Contact
+              </Button>
             </Link>
             <Link href="/donate">
-              <Button className="group bg-indigo-600 hover:bg-indigo-600/95 gap-1">
+              <Button className="group bg-indigo-600 hover:bg-indigo-600/95 gap-1 text-base">
                 Donate
                 <MdOutlineKeyboardArrowRight className="group-hover:translate-x-1 ease-in-out transition-all" />
               </Button>

@@ -49,7 +49,7 @@ function MobileNav() {
               aria-hidden="true"
             />
             <motion.ul
-              className="flex flex-col justify-center items-center text-4xl gap-8 mt-10"
+              className="flex flex-col justify-center items-center text-4xl gap-10 mt-10"
               initial={{ y: -25, opacity: 0 }}
               animate={{ y: 0, opacity: 100 }}
               exit={{ opacity: 0, y: -12.5 }}
@@ -69,13 +69,8 @@ function MobileNav() {
               <li className="cursor-pointer hover:text-black/60 transition-transform duration-300 hover:scale-110">
                 <a href="contact">Contact</a>
               </li>
-              <li className="mt-2">
-                <a
-                  className="bg-indigo-600 text-white px-6 py-2 rounded-xl hover:bg-indigo-600/95"
-                  href="/donate"
-                >
-                  Donate
-                </a>
+              <li className="cursor-pointer hover:text-black/60 transition-transform duration-300 hover:scale-110">
+                <a href="/donate">Donate</a>
               </li>
             </motion.ul>
           </motion.div>

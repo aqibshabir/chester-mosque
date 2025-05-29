@@ -42,7 +42,7 @@ function DesktopNav({ about, events, services }: DesktopNavProps) {
       <ul className="flex gap-6 lg:gap-10 mx-2">
         <li onMouseEnter={() => onMenuEnter(0)} onMouseLeave={() => onMenuLeave()}>
           <a
-            className="hover:text-gray-600 flex items-center text-sm lg:text-md font-medium"
+            className="hover:text-gray-600 flex items-center text-base lg:text-md font-medium"
             href="/about"
           >
             About
@@ -103,14 +103,14 @@ function DesktopNav({ about, events, services }: DesktopNavProps) {
         </li>
         <li>
           <a
-            className="hover:text-gray-600 text-sm flex items-center font-medium"
+            className="hover:text-gray-600 text-base flex items-center font-medium"
             href="/timetable"
           >
             Timetable
           </a>
         </li>
         <li onMouseEnter={() => onMenuEnter(1)} onMouseLeave={() => onMenuLeave()}>
-          <a className="hover:text-gray-600 flex items-center text-sm font-medium" href="/events">
+          <a className="hover:text-gray-600 flex items-center text-base font-medium" href="/events">
             Events
             {hoveredMenu === 1 ? (
               <MdOutlineKeyboardArrowUp className="ml-1" />
@@ -156,7 +156,10 @@ function DesktopNav({ about, events, services }: DesktopNavProps) {
           </AnimatePresence>
         </li>
         <li onMouseEnter={() => onMenuEnter(2)} onMouseLeave={() => onMenuLeave()}>
-          <a className="hover:text-gray-600 flex items-center text-sm font-medium" href="/services">
+          <a
+            className="hover:text-gray-600 flex items-center text-base font-medium"
+            href="/services"
+          >
             Services
             {hoveredMenu === 2 ? (
               <MdOutlineKeyboardArrowUp className="ml-1" />
