@@ -1,5 +1,6 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { useTimetable } from '@/hooks/useTimetable';
 
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
@@ -25,9 +26,7 @@ import {
 } from '@/components/ui/table';
 import { Skeleton } from '@/components/ui/skeleton';
 
-import { getMonthlyTimeTable } from '../api/getMonthlyTimetable';
 import { getDates } from '@/lib/getDates';
-import { getStartAndEndDate } from '@/lib/getStartAndEndDate';
 import Hero from './components/hero';
 
 interface MonthOption {
@@ -36,59 +35,17 @@ interface MonthOption {
   label: string;
 }
 
-interface Timings {
-  Fajr: string;
-  Sunrise: string;
-  Dhuhr: string;
-  Asr: string;
-  Sunset: string;
-  Maghrib: string;
-  Isha: string;
-  Imsak: string;
-  Midnight: string;
-  Firstthird: string;
-  Lastthird: string;
-}
-
-interface DayData {
-  timings: Timings;
-  date: {
-    readable: string;
-    timestamp: string;
-  };
-  meta: unknown;
-}
-
 const dates = getDates();
 
 export default function TimeTable() {
   const [selectedDate, setSelectedDate] = useState<MonthOption>(dates[0]);
-  const [monthData, setMonthData] = useState<DayData[]>();
-  const [loading, setLoading] = useState(true);
+  const { monthData, loading } = useTimetable(selectedDate.month, selectedDate.year);
 
   const handleDateChange = (label: string) => {
     if (selectedDate.label !== label) {
       setSelectedDate(dates.find((date) => date.label === label) || selectedDate);
     }
   };
-
-  const dateRanges = getStartAndEndDate(selectedDate.year, selectedDate.month);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const data = await getMonthlyTimeTable(dateRanges[0], dateRanges[1]);
-        setMonthData(data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [selectedDate]);
 
   const handleDownloadPDF = () => {
     if (!monthData) return;
