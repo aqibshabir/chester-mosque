@@ -1,4 +1,6 @@
+import { Button } from '@/components/ui/button';
 import DayTimetable from './_components/dayTimeTable';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -34,8 +36,17 @@ export default function Home() {
         <div className="h-100 w-full bg-gray-200 my-20">
           <p>Services we offer</p>
         </div>
-        <div className="h-100 w-full bg-gray-200 my-20">
-          <p>Donate CTA</p>
+        <div className="flex flex-col justify-center items-center mb-20 mx-4 md:mx-0">
+          <h4 className="text-2xl md:text-4xl lg:text-6xl font-semibold mb-4">
+            Support your mosque
+          </h4>
+          <p className="text-center text-base mb-8 text-black/70">
+            Your generosity is an act of worship. Donate now, reap eternal rewards.
+          </p>
+
+          <Link href="/donate">
+            <Button className="bg-indigo-600 hover:bg-indigo-600/90">Donate Now</Button>
+          </Link>
         </div>
       </main>
     </>

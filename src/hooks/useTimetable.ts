@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { getMonthlyTimeTable } from '@/app/api/getMonthlyTimetable';
 import { getStartAndEndDate } from '@/lib/getStartAndEndDate';
 
-interface Timings {
+export interface Timings {
   Fajr: string;
   Sunrise: string;
   Dhuhr: string;

@@ -1,10 +1,29 @@
 import {StructureResolver} from 'sanity/structure'
-import {InfoOutlineIcon, CalendarIcon, EarthGlobeIcon, DocumentTextIcon} from '@sanity/icons'
+import {
+  InfoOutlineIcon,
+  CalendarIcon,
+  EarthGlobeIcon,
+  DocumentTextIcon,
+  HomeIcon,
+} from '@sanity/icons'
 
 export const deskStructure: StructureResolver = (S) =>
   S.list()
     .title('Content')
     .items([
+      S.listItem()
+        .title('Home')
+        .icon(HomeIcon)
+        .child(
+          S.list()
+            .title('Home')
+            .items([
+              S.listItem()
+                .title('Main Page')
+                .icon(DocumentTextIcon)
+                .child(S.document().schemaType('homeMainPageType').documentId('homeMainPage')),
+            ]),
+        ),
       S.listItem()
         .title('About')
         .icon(InfoOutlineIcon)
