@@ -29,13 +29,13 @@ export const useTimetable = (month: number, year: number) => {
   const [monthData, setMonthData] = useState<DayData[]>([]);
   const [loading, setLoading] = useState(true);
 
-  const dateRanges = getStartAndEndDate(year, month);
+  const [start, end] = getStartAndEndDate(year, month);
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const data = await getMonthlyTimeTable(dateRanges[0], dateRanges[1]);
+        const data = await getMonthlyTimeTable(start, end);
         setMonthData(data);
       } catch (err) {
         console.error(err);

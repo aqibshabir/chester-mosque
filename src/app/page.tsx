@@ -1,3 +1,5 @@
+import DayTimetable from './_components/dayTimeTable';
+
 export default function Home() {
   return (
     <>
@@ -20,9 +22,9 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="h-100 w-full bg-gray-200 my-20">
-          <p>Timetable</p>
-        </div>
+
+        <DayTimetable />
+
         <div className="h-100 w-full bg-gray-200 my-20">
           <p>News/updates - sanity integration</p>
         </div>
