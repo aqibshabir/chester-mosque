@@ -62,7 +62,7 @@ const components: PortableTextComponents = {
         href={value?.href}
         target="_blank"
         rel="noopener noreferrer"
-        className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent hover:from-indigo-600 hover:to-blue-600 transition-all"
+        className="text-indigo-600  visited:text-purple-700 hover:underline"
       >
         {children}
       </a>

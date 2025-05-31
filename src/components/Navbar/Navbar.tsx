@@ -7,9 +7,10 @@ import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
 import DesktopNav from './DesktopNav';
 import MobileNav from './MobileNav';
 import Link from 'next/link';
+import Announcements from './Announcements';
 
 const homeQuery = defineQuery(
-  "*[_type == 'homeMainPageType' && _id == 'homeMainPage']{annoucement}"
+  "*[_type == 'homeMainPageType' && _id == 'homeMainPage']{announcement, announcementStart, announcementEnd}"
 );
 
 const aboutQuery = defineQuery(
@@ -25,17 +26,18 @@ const servicesQuery = defineQuery(
 );
 
 export default async function Navbar() {
-  const home = await sanityFetch<{ annoucement: string }[]>(homeQuery);
+  const home =
+    await sanityFetch<
+      { announcement: string; announcementStart: string; announcementEnd: string }[]
+    >(homeQuery);
   const about = await sanityFetch<{ title: string; summary: string; slug: string }[]>(aboutQuery);
   const events = await sanityFetch<{ title: string; summary: string; slug: string }[]>(eventsQuery);
   const services =
     await sanityFetch<{ title: string; summary: string; slug: string }[]>(servicesQuery);
 
   return (
-    <div>
-      <div className="bg-gradient-to-br from-indigo-600 to-indigo-500 text-white flex justify-center items-center z-50">
-        <p className="font-semibold uppercase z-50 py-1">{home[0].annoucement}</p>
-      </div>
+    <>
+      <Announcements home={home} />
       <nav className="sticky top-0 shadow-md p-2 bg-gradient-to-br from-white/80 to-white/50 backdrop-blur-lg z-50">
         <div className="flex items-center justify-between">
           <div className="md:hidden" aria-hidden="true"></div>
@@ -68,6 +70,6 @@ export default async function Navbar() {
           </div>
         </div>
       </nav>
-    </div>
+    </>
   );
 }

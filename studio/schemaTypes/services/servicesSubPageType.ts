@@ -43,11 +43,6 @@ export const servicesSubPageType = defineType({
       title: 'Show in Navbar',
     }),
     defineField({
-      name: 'isUpdate',
-      type: 'boolean',
-      title: 'Is this an Update?',
-    }),
-    defineField({
       name: 'image',
       type: 'image',
       title: 'Image',

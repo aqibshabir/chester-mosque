@@ -1,26 +1,17 @@
 import {defineType, defineField} from 'sanity'
 import {DocumentsIcon} from '@sanity/icons'
 
-export const aboutSubPageType = defineType({
-  name: 'aboutSubPageType',
-  title: 'About (Sub Page)',
+export const updateSubPageType = defineType({
+  name: 'updatesSubPageType',
+  title: 'Update (Sub Page)',
   type: 'document',
   icon: DocumentsIcon,
   fields: [
     defineField({
       name: 'title',
       type: 'string',
-      title: 'Page Title',
-    }),
-    defineField({
-      name: 'readTime',
-      title: 'Read Time',
-      type: 'number',
-    }),
-    defineField({
-      name: 'summary',
-      title: 'Summary',
-      type: 'text',
+      title: 'Update Title',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'slug',
@@ -30,22 +21,29 @@ export const aboutSubPageType = defineType({
         source: 'title',
         maxLength: 96,
       },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'publishedAt',
+      type: 'datetime',
+      title: 'Publish Date & Time',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'summary',
+      type: 'text',
+      title: 'Summary',
     }),
     defineField({
       name: 'content',
       type: 'array',
-      title: 'Page Content',
+      title: 'Content',
       of: [{type: 'block'}],
-    }),
-    defineField({
-      name: 'showInNavbar',
-      type: 'boolean',
-      title: 'Show in Navbar',
     }),
     defineField({
       name: 'image',
       type: 'image',
-      title: 'Image',
+      title: 'Feature Image',
       options: {
         hotspot: true,
       },

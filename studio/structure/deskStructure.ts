@@ -5,6 +5,7 @@ import {
   EarthGlobeIcon,
   DocumentTextIcon,
   HomeIcon,
+  BellIcon,
 } from '@sanity/icons'
 
 export const deskStructure: StructureResolver = (S) =>
@@ -70,6 +71,20 @@ export const deskStructure: StructureResolver = (S) =>
                     .documentId('servicesMainPageType'),
                 ),
               S.documentTypeListItem('servicesSubPageType').title('Sub Pages'),
+            ]),
+        ),
+      S.listItem()
+        .title('Updates')
+        .icon(BellIcon)
+        .child(
+          S.list()
+            .title('Updates Pages')
+            .items([
+              S.listItem()
+                .title('Main Page')
+                .icon(DocumentTextIcon)
+                .child(S.document().schemaType('updateMainPageType').documentId('updateMainPage')),
+              S.documentTypeListItem('updatesSubPageType').title('Sub Pages'),
             ]),
         ),
     ])

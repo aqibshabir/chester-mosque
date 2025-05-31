@@ -7,7 +7,7 @@ export default function Home() {
     <>
       <main className="">
         <img
-          className="absolute top-116 -left-10 sm:top-90 xl:top-80  sm:-left-8 md:-left-0 w-50 sm:w-80 xl:w-100 z-10"
+          className="absolute top-130 -left-10 sm:top-106 xl:top-90  sm:-left-8 md:-left-0 w-50 sm:w-80 xl:w-100 z-10"
           src="/flower-left.png"
           alt="flower-left"
         />
