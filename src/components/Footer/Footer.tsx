@@ -52,8 +52,8 @@ function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/contact" className="hover:text-gray-200">
-                  Contact
+                <a href="/updates" className="hover:text-gray-200">
+                  Updates
                 </a>
               </li>
               <li>

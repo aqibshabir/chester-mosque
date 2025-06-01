@@ -47,8 +47,8 @@ function DayTimetable() {
   );
 
   return (
-    <div className="mt-22 mx-4">
-      <p className="text-center mb-12 font-semibold text-3xl">Today's Prayer Times</p>
+    <div className="mt-22 mb-30 mx-4">
+      <h3 className="text-center mb-12 font-semibold text-4xl">Today's Prayer Times</h3>
       <div className="flex justify-center items-center gap-8 sm:gap-10  flex-wrap">
         {prayerNames.map((name) => (
           <div

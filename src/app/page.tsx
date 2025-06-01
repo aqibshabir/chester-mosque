@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import DayTimetable from './_components/dayTimeTable';
 import Link from 'next/link';
+import Updates from './_components/updates';
 
 export default function Home() {
   return (
@@ -27,9 +28,8 @@ export default function Home() {
 
         <DayTimetable />
 
-        <div className="h-100 w-full bg-gray-200 my-20">
-          <p>News/updates - sanity integration</p>
-        </div>
+        <Updates />
+
         <div className="h-100 w-full bg-gray-200 my-20">
           <p>Upcoming Events - sanity integration</p>
         </div>
