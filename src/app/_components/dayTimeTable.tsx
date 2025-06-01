@@ -36,7 +36,7 @@ function DayTimetable() {
             ))}
         </div>
         <div className="flex justify-center">
-          <Skeleton className="mt-4 h-10 w-60" />
+          <Skeleton className="mt-8 h-10 w-60" />
         </div>
       </div>
     );
@@ -65,7 +65,7 @@ function DayTimetable() {
         ))}
       </div>
       <a href="/timetable">
-        <p className="text-center mt-4 hover:underline ">View Monthly Timetable</p>
+        <p className="text-center mt-8 hover:underline ">View Monthly Timetable</p>
       </a>
     </div>
   );

@@ -16,22 +16,37 @@ const reasonLabels: Record<string, string> = {
   classes: 'Classes',
   other: 'Other',
 };
+const validReasons = ['general', 'prayer-times', 'event-booking', 'classes', 'other'];
+const validPreferred = ['email', 'phone'];
+const isValidEmail = (email: unknown): email is string =>
+  typeof email === 'string' && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+const isValidPhone = (phone: unknown): phone is string =>
+  typeof phone === 'string' && /^[\d\s-]+$/.test(phone);
 
 export const sendEmail = async (formData: FormData) => {
   const senderEmail = formData.get('senderEmail');
   const reason = formData.get('reason');
   const message = formData.get('message');
   const name = formData.get('senderName');
+  const senderPhone = formData.get('senderPhone');
+  const preferredContact = formData.get('preferredContact');
 
-  const validReasons = ['general', 'prayer-times', 'event-booking', 'classes', 'other'];
   if (typeof reason !== 'string' || !validReasons.includes(reason)) {
     return { error: 'Invalid reason selected' };
   }
-  if (!validateString(senderEmail, 100)) {
-    return {
-      error: 'Invalid sender email',
-    };
+  if (typeof preferredContact !== 'string' || !validPreferred.includes(preferredContact)) {
+    return { error: 'Invalid preferred contact method' };
   }
+
+  if (typeof senderEmail !== 'string' || !isValidEmail(senderEmail)) {
+    return { error: 'Invalid sender email' };
+  }
+
+  if (typeof senderPhone !== 'string' || !isValidPhone(senderPhone)) {
+    return { error: 'Invalid sender phone' };
+  }
+
   if (!validateString(name, 32)) {
     return {
       error: 'Invalid length of name',
@@ -55,6 +70,8 @@ export const sendEmail = async (formData: FormData) => {
         name: name as string,
         reason: reason as string,
         senderEmail: senderEmail as string,
+        senderPhone: senderPhone as string,
+        preferredContact: preferredContact as string,
       }),
     });
   } catch (error: unknown) {
