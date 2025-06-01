@@ -49,7 +49,7 @@ export default function ContactFormEmail({
                 src="https://raw.githubusercontent.com/aqibshabir/chester-mosque/master/public/logo-with-text.png"
                 alt="logo"
                 width={192}
-                height={48}
+                height={54}
                 style={{ display: 'block' }}
                 className="my-6"
               />

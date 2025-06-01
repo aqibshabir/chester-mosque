@@ -53,7 +53,7 @@ export default function TimeTable() {
 
     const timetable = new jsPDF();
 
-    timetable.addImage(logoBase64, 'PNG', 65, 10, 80, 20);
+    timetable.addImage(logoBase64, 'PNG', 62, 10, 80, 20);
 
     const pageHeight = timetable.internal.pageSize.height;
     timetable.setFont('helvetica', 'normal');
@@ -61,7 +61,7 @@ export default function TimeTable() {
     timetable.setTextColor(100);
     timetable.text(
       'Chester Mosque & Islamic Centre, 25 Clifton Drive, Blacon, Chester, CH1 5LT, United Kingdom',
-      65,
+      62,
       pageHeight - 10
     );
 
