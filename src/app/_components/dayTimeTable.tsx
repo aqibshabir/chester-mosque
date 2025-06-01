@@ -54,7 +54,7 @@ function DayTimetable() {
           <div
             key={name}
             className={cn(
-              'border text-black p-4 rounded-lg flex flex-col justify-center items-center h-[100px] w-full sm:w-[200px] hover:shadow-md',
+              'border text-black p-4 rounded-lg flex flex-col justify-center items-center h-[100px] w-full sm:w-[200px]',
               currentTimeNum > timeToNum(todayData?.timings[name]) ? 'bg-gray-100' : 'bg-white',
               firstUpcomingPrayer === name && 'border-2 border-indigo-600'
             )}

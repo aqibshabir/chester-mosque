@@ -6,14 +6,14 @@ import Updates from './_components/updates';
 export default function Home() {
   return (
     <>
-      <main className="">
+      <main className="relative overflow-hidden">
         <img
-          className="absolute top-130 -left-10 sm:top-106 xl:top-90  sm:-left-8 md:-left-0 w-50 sm:w-80 xl:w-100 z-10"
+          className="absolute top-105 -left-10 sm:top-85 xl:top-70 sm:-left-8 md:-left-0 w-50 sm:w-80 xl:w-100 z-10"
           src="/flower-left.png"
           alt="flower-left"
         />
         <img
-          className="absolute top-30 -right-6 sm:top-40 sm:-right-4 md:top-20 md:-right-0 w-40 sm:w-60 xl:w-80 z-10"
+          className="absolute top-10 -right-6 sm:top-5 sm:-right-4 md:top-10 xl:top-5 md:-right-0 w-40 sm:w-60 xl:w-80 z-10"
           src="/flower-right.png"
           alt="flower-right"
         />
