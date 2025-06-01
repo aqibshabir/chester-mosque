@@ -6,6 +6,7 @@ import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import { DateTime } from 'luxon';
 import { MdOutlineSaveAlt } from 'react-icons/md';
+import { logoBase64 } from '../../assets/logoBase64';
 
 import {
   Select,
@@ -52,6 +53,18 @@ export default function TimeTable() {
 
     const timetable = new jsPDF();
 
+    timetable.addImage(logoBase64, 'PNG', 65, 10, 80, 20);
+
+    const pageHeight = timetable.internal.pageSize.height;
+    timetable.setFont('helvetica', 'normal');
+    timetable.setFontSize(6);
+    timetable.setTextColor(100);
+    timetable.text(
+      'Chester Mosque & Islamic Centre, 25 Clifton Drive, Blacon, Chester, CH1 5LT, United Kingdom',
+      65,
+      pageHeight - 10
+    );
+
     const tableColumn = ['Date', 'Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
 
     const tableRows = monthData.map((day) => {
@@ -67,6 +80,7 @@ export default function TimeTable() {
     });
 
     autoTable(timetable, {
+      startY: 40,
       head: [tableColumn],
       body: tableRows,
       styles: {
