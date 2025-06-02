@@ -14,6 +14,16 @@ export const updateSubPageType = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'readTime',
+      title: 'Read Time',
+      type: 'number',
+    }),
+    defineField({
+      name: 'summary',
+      title: 'Summary',
+      type: 'text',
+    }),
+    defineField({
       name: 'slug',
       type: 'slug',
       title: 'URL Slug',
@@ -30,11 +40,6 @@ export const updateSubPageType = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'summary',
-      type: 'text',
-      title: 'Summary',
-    }),
-    defineField({
       name: 'content',
       type: 'array',
       title: 'Content',
@@ -43,7 +48,7 @@ export const updateSubPageType = defineType({
     defineField({
       name: 'image',
       type: 'image',
-      title: 'Feature Image',
+      title: 'Image',
       options: {
         hotspot: true,
       },
