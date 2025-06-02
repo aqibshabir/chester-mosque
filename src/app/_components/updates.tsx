@@ -46,7 +46,7 @@ export default async function Updates() {
         <h3 className="bg-indigo-600 text-white px-4 py-1 rounded-full font-semibold">
           {updates.title}
         </h3>
-        <p className="mb-12 md:mb-18 font-semibold text-xl md:text-4xl flex flex-col">
+        <p className="mb-6 md:mb-12 font-semibold text-xl md:text-4xl flex flex-col">
           {updates.introText}
         </p>
       </div>

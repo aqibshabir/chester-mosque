@@ -178,7 +178,6 @@ export default function TimeTable() {
                     </TableRow>
                   );
                 })}
-                <TableRow></TableRow>
               </TableBody>
             </Table>
           </div>

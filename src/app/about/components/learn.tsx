@@ -11,8 +11,7 @@ interface LearnProps {
 function Learn({ subPages }: LearnProps) {
   return (
     <div className="mx-4">
-      <h3 className="border border-black/80 whitespace-nowrap px-2 rounded-full flex gap-1.5 items-center w-fit mb-12">
-        <FaCircle className="animate-pulse w-2 text-indigo-600" />
+      <h3 className="bg-gray-100 whitespace-nowrap px-4 py-1 rounded-full w-fit font-semibold mb-12">
         Learn more
       </h3>
       <div className="flex flex-wrap justify-center items-center gap-10 mb-20">

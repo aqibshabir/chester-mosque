@@ -6,7 +6,7 @@ function Donate() {
     <div className="flex flex-col justify-center items-center mb-20 mx-4 md:mx-0">
       <h3 className="bg-gray-100 px-4 py-1 rounded-full font-semibold mb-8">Donate</h3>
       <div className="flex flex-col justify-center items-center text-center gap-2 md:gap-4 mb-8">
-        <p className="text-3xl md:text-5xl font-bold flex flex-col md:gap-2">
+        <p className="text-3xl md:text-5xl font-bold flex flex-col md:gap-1">
           <span> Build your legacy</span>
           <span> in the house of Allah</span>
         </p>

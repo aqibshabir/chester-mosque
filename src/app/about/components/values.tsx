@@ -20,8 +20,7 @@ function Values({ values }: ValuesProps) {
       <div className="m-2 sm:m-8 p-4 rounded-xl sm:rounded-4xl bg-white">
         <div className="p-10 lg:flex gap-8 xl:gap-24">
           <div className="flex flex-col min-h-20 justify-between md:px-4">
-            <h3 className="border border-black/80 whitespace-nowrap px-2 rounded-full flex gap-1.5 items-center w-fit">
-              <FaCircle className="animate-pulse w-2 text-indigo-600" />
+            <h3 className="bg-gray-100 whitespace-nowrap px-4 py-1 rounded-full w-fit font-semibold">
               Our Values
             </h3>
             <HiSparkles size={80} className="hidden lg:block mt-auto text-zinc-200" />

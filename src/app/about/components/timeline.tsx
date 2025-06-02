@@ -29,8 +29,7 @@ const Timeline = ({ events }: TimelineProps) => {
 
   return (
     <div className="w-ful mb-14 bg-white md:px-10 overflow-hidden mx-4 md:mx-0" ref={containerRef}>
-      <h3 className="border border-black/80 whitespace-nowrap px-2 rounded-full flex gap-1.5 items-center w-fit">
-        <FaCircle className="animate-pulse w-2 text-indigo-600" />
+      <h3 className="bg-gray-100 whitespace-nowrap px-4 py-1 rounded-full w-fit font-semibold">
         Our Journey
       </h3>
 
