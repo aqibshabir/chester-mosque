@@ -14,7 +14,7 @@ function SubPages({ subPages }: SubPagesProps) {
         {subPages.map((item) => (
           <Link
             key={item.title}
-            href={`/about/${item.slug}`}
+            href={`/events/${item.slug}`}
             className="relative w-[350px] sm:w-[300px] lg:w-[385px] h-[200px] sm:h-[400px] lg:h-[600] rounded-2xl overflow-hidden group shadow-lg"
           >
             <Image
