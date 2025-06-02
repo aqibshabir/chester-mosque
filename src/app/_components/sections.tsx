@@ -20,7 +20,7 @@ function Sections() {
             Built for the community, by the community
           </p>
           <Link href="/about">
-            <Button className="bg-indigo-600 hover:bg-indigo-600/90 lg:px-12 lg:py-6 text-xl">
+            <Button className="bg-indigo-600 hover:bg-indigo-600/90 lg:px-12 lg:py-6 lg:text-xl">
               About Us
             </Button>
           </Link>
@@ -38,7 +38,7 @@ function Sections() {
               Join our gatherings, talks & prayers
             </p>
             <p className="flex items-center gap-2 font-semibold text-lg text-white ">
-              See what's new{' '}
+              See what's new
               <FaArrowRight className="group-hover:translate-x-1 transition-all ease-in-out delay-100" />
             </p>
           </div>
