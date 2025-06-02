@@ -6,7 +6,7 @@ function Footer() {
   return (
     <footer className="bg-gradient-to-t from-indigo-500 to-indigo-600 sm:pt-0 flex justify-center">
       <div className="w-full max-w-[1280px] mx-auto">
-        <div className="mt-40 mb-20 md:my-20 flex flex-col justify-center items-center gap-4 md:gap-6">
+        <div className="mt-40 mb-20 md:my-10 flex flex-col justify-center items-center gap-4 md:gap-6">
           <img className="w-[70px] md:w-[120px]" src="/white_logo.png" alt="logo" />
           <p className="text-white font-bold text-3xl md:text-5xl">Need help?</p>
           <Link href="/contact">
