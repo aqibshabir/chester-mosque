@@ -41,9 +41,15 @@ export default async function Updates() {
   ));
 
   return (
-    <div className="my-10 mx-4">
-      <h3 className="text-4xl text-center font-semibold mb-4">{updates.title}</h3>
-      <p className="text-center text-sm sm:text-base text-black/70">{updates.introText}</p>
+    <div className="mx-auto w-full max-w-7xl">
+      <div className="flex flex-col justify-center items-start gap-4 md:gap-8 mx-4 xl:mx-0">
+        <h3 className="bg-indigo-600 text-white px-4 py-1 rounded-full font-semibold">
+          {updates.title}
+        </h3>
+        <p className="mb-12 md:mb-18 font-semibold text-xl md:text-4xl flex flex-col">
+          {updates.introText}
+        </p>
+      </div>
       <Carousel items={items} />
     </div>
   );
