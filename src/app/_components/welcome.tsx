@@ -3,10 +3,10 @@ import React from 'react';
 function Welcome() {
   return (
     <>
-      <div className="relative m-6 rounded-4xl bg-gray-100 h-140 p-4">
+      <div className="relative m-6 rounded-4xl bg-gradient-to-r from-indigo-600/40 to-indigo-600 text-white h-140 p-4">
         <div className="flex flex-col justify-center items-center h-full">
           <h2 className="text-5xl sm:text-7xl md:text-8xl font-bold">Welcome</h2>
-          <p className="text-base sm:text-lg md:text-xl font-extralight text-black/70">
+          <p className="text-base sm:text-lg md:text-xl font-extralight">
             To a Place of Peace and Prayer.
           </p>
         </div>
