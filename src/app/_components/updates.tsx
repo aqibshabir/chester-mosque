@@ -46,8 +46,8 @@ export default async function Updates() {
         <h3 className="bg-indigo-600 text-white px-4 py-1 rounded-full font-semibold">
           {updates.title}
         </h3>
-        <p className="mb-6 md:mb-12 font-semibold text-xl md:text-4xl flex flex-col">
-          {updates.introText}
+        <p className="mb-6 font-bold text-3xl md:text-5xl xl:text-6xl flex flex-col">
+          Stay informed with our latest news and updates
         </p>
       </div>
       <Carousel items={items} />

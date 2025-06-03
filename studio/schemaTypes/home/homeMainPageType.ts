@@ -25,5 +25,26 @@ export const homeMainPageType = defineType({
       title: 'Announcement End Date',
       type: 'datetime',
     }),
+    defineField({
+      name: 'featuredItems',
+      title: 'Featured Items (Carousel)',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [
+            {type: 'aboutSubPageType'},
+            {type: 'eventsSubPageType'},
+            {type: 'updatesSubPageType'},
+            {type: 'servicesSubPageType'},
+          ],
+        },
+      ],
+      validation: (Rule) =>
+        Rule.min(3)
+          .error('Must have at least 3 featured items.')
+          .max(7)
+          .error('Keep the number of featured items manageable — 7 or less.'),
+    }),
   ],
 })

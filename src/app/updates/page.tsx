@@ -20,7 +20,7 @@ type UpdatesMainPageType = {
 };
 
 const mainUpdatesQuery = defineQuery(
-  '*[_type == "updateMainPageType"][0]{title,introText,"subPages": subPages[]-> | order(publishedAt desc){_id,title,summary,"slug": slug.current,publishedAt,"image": image.asset._ref,}}'
+  '*[_type == "updateMainPageType"][0]{title,introText,"subPages": subPages[]-> | order(publishedAt desc){_id,title,summary,"slug": slug.current,publishedAt,"image": image.asset._ref}}'
 );
 
 export default async function UpdatesPage() {
