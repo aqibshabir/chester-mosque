@@ -16,17 +16,26 @@ export interface Timings {
   Lastthird: string;
 }
 
+interface HijiriDate {
+  month: {
+    number: number;
+    en: string;
+  };
+}
+
 interface DayData {
   timings: Timings;
   date: {
     readable: string;
     timestamp: string;
+    hijiri: HijiriDate;
   };
   meta: unknown;
 }
 
 export const useTimetable = (month: number, year: number) => {
   const [monthData, setMonthData] = useState<DayData[]>([]);
+  // make some state for jammahTimes
   const [loading, setLoading] = useState(true);
 
   const [start, end] = getStartAndEndDate(year, month);
@@ -36,6 +45,7 @@ export const useTimetable = (month: number, year: number) => {
       setLoading(true);
       try {
         const data = await getMonthlyTimeTable(start, end);
+        // send this data to getJammahTimes and then set to state you created for JammahTimes
         setMonthData(data);
       } catch (err) {
         console.error(err);
@@ -47,5 +57,5 @@ export const useTimetable = (month: number, year: number) => {
     fetchData();
   }, [month, year]);
 
-  return { monthData, loading };
+  return { monthData, loading }; // return jammahTimes also
 };

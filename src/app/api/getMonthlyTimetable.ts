@@ -12,11 +12,19 @@ interface Timings {
   Lastthird: string;
 }
 
+interface HijiriDate {
+  month: {
+    number: number;
+    en: string;
+  };
+}
+
 interface DayData {
   timings: Timings;
   date: {
     readable: string;
     timestamp: string;
+    hijiri: HijiriDate;
   };
   meta: unknown;
 }

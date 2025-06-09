@@ -43,9 +43,7 @@ export default async function Updates() {
   return (
     <div className="mx-auto w-full max-w-7xl">
       <div className="flex flex-col justify-center items-start gap-4 md:gap-8 mx-4 xl:mx-0">
-        <h3 className="bg-indigo-600 text-white px-4 py-1 rounded-full font-semibold">
-          {updates.title}
-        </h3>
+        <h3 className="bg-gray-100 px-4 py-1 rounded-full font-semibold">{updates.title}</h3>
         <p className="mb-6 font-bold text-3xl md:text-5xl xl:text-6xl flex flex-col">
           Stay informed with our latest news and updates
         </p>
