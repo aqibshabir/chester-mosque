@@ -51,7 +51,7 @@ export default function TimeTable() {
   };
 
   const handleDownloadPDF = () => {
-    if (!monthData) return;
+    if (!monthData || !jammahTimes) return;
 
     const timetable = new jsPDF();
 
@@ -67,22 +67,40 @@ export default function TimeTable() {
       pageHeight - 10
     );
 
-    const tableColumn = ['Date', 'Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
+    const tableColumn = [
+      'Date',
+      'Fajr Start',
+      'Fajr Jammah',
+      'Dhuhr Start',
+      'Dhuhr Jammah',
+      'Asr Start',
+      'Asr Jammah',
+      'Maghrib Start',
+      'Maghrib Jammah',
+      'Isha Start',
+      'Isha Jammah',
+    ];
 
-    const tableRows = monthData.map((day) => {
-      const [dayCount, month] = day.date.readable.split(' ');
+    const tableRows = monthData.map((day, index) => {
+      const [dayCount] = day.date.readable.split(' ');
+      const jammahDay = jammahTimes[index];
       return [
-        `${dayCount} ${month}`,
-        day.timings.Fajr,
-        day.timings.Dhuhr,
-        day.timings.Asr,
-        day.timings.Maghrib,
-        day.timings.Isha,
+        `${dayCount}`,
+        `${day.timings.Fajr}`,
+        `${jammahDay.timings.Fajr}`,
+        `${day.timings.Dhuhr}`,
+        `${jammahDay.timings.Dhuhr}`,
+        `${day.timings.Asr}`,
+        `${jammahDay.timings.Asr}`,
+        `${day.timings.Maghrib}`,
+        `${jammahDay.timings.Maghrib}`,
+        `${day.timings.Isha}`,
+        `${jammahDay.timings.Isha}`,
       ];
     });
 
     autoTable(timetable, {
-      startY: 40,
+      startY: 36,
       head: [tableColumn],
       body: tableRows,
       styles: {
@@ -91,9 +109,27 @@ export default function TimeTable() {
       headStyles: {
         fillColor: [79, 70, 229],
         textColor: 255,
+        fontSize: 8,
+        fontStyle: 'bold',
+        valign: 'middle',
+      },
+      didParseCell: function (data) {
+        if (data.column.index === 0 && data.section === 'body') {
+          data.cell.styles.fontStyle = 'bold';
+        }
+        if (data.column.index === 4 && data.section === 'body') {
+          const dayData = monthData[data.row.index];
+          if (dayData) {
+            const date = DateTime.fromSeconds(Number(dayData.date.timestamp));
+            const isFriday = date.weekday === 5;
+
+            if (isFriday) {
+              data.cell.styles.fontStyle = 'bold';
+            }
+          }
+        }
       },
     });
-
     timetable.save(`chester-mosque-timetable.pdf`);
   };
 
