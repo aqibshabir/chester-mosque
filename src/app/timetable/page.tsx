@@ -29,6 +29,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 
 import { getDates } from '@/lib/getDates';
 import Hero from './components/hero';
+import { cn } from '@/lib/utils';
 
 interface MonthOption {
   month: number;
@@ -40,7 +41,8 @@ const dates = getDates();
 
 export default function TimeTable() {
   const [selectedDate, setSelectedDate] = useState<MonthOption>(dates[0]);
-  const { monthData, loading } = useTimetable(selectedDate.month, selectedDate.year);
+  const [viewMode, setViewMode] = useState<'start' | 'jammah'>('start');
+  const { monthData, jammahTimes, loading } = useTimetable(selectedDate.month, selectedDate.year);
 
   const handleDateChange = (label: string) => {
     if (selectedDate.label !== label) {
@@ -99,31 +101,57 @@ export default function TimeTable() {
     <>
       <Hero heading="Timetable" />
       <div className="mb-20 p-4">
-        <div className="flex items-center justify-center md:justify-start">
-          {loading ? (
-            <Skeleton className="w-[180px] h-10 rounded-md" />
-          ) : (
-            <Select defaultValue={selectedDate.label} onValueChange={(e) => handleDateChange(e)}>
-              <SelectTrigger className="w-[180px]">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                {dates.map((date) => (
-                  <SelectItem key={date.label} value={date.label}>
-                    {date.label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          )}
+        <div className="flex flex-col sm:flex-row justify-between items-center md:mx-4">
+          <div className="flex items-center justify-center md:justify-start">
+            {loading ? (
+              <Skeleton className="w-[180px] h-10 rounded-md" />
+            ) : (
+              <Select defaultValue={selectedDate.label} onValueChange={(e) => handleDateChange(e)}>
+                <SelectTrigger className="w-[180px]">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {dates.map((date) => (
+                    <SelectItem key={date.label} value={date.label}>
+                      {date.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            )}
 
-          {loading ? (
-            <Skeleton className="w-10 h-10 rounded-md mx-2" />
-          ) : (
-            <Button variant="outline" onClick={handleDownloadPDF} className="ml-2" size="icon">
-              <MdOutlineSaveAlt />
+            {loading ? (
+              <Skeleton className="w-10 h-10 rounded-md mx-2" />
+            ) : (
+              <>
+                <Button variant="outline" onClick={handleDownloadPDF} className="ml-2" size="icon">
+                  <MdOutlineSaveAlt />
+                </Button>
+              </>
+            )}
+          </div>
+          <div className="flex space-x-2 my-4 md:my-0">
+            <Button
+              variant={viewMode === 'start' ? 'default' : 'link'}
+              className={cn(
+                'hover:no-underline text-black hover:bg-gray-50',
+                viewMode === 'start' && 'bg-indigo-600 hover:bg-indigo-600 text-white'
+              )}
+              onClick={() => viewMode !== 'start' && setViewMode('start')}
+            >
+              Start
             </Button>
-          )}
+            <Button
+              variant={viewMode === 'jammah' ? 'default' : 'link'}
+              className={cn(
+                'hover:no-underline text-black hover:bg-gray-50',
+                viewMode === 'jammah' && 'bg-indigo-600 hover:bg-indigo-600 text-white'
+              )}
+              onClick={() => viewMode !== 'jammah' && setViewMode('jammah')}
+            >
+              Jammah
+            </Button>
+          </div>
         </div>
         {loading ? (
           <div className="mt-4 space-y-2 mb-4">
@@ -146,38 +174,71 @@ export default function TimeTable() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {monthData?.map((day) => {
-                  const isToday = DateTime.now().toFormat('dd MMM yyyy') === day.date.readable;
-                  return (
-                    <TableRow
-                      className={
-                        isToday
-                          ? 'bg-indigo-600 hover:bg-indigo-600/95 hover:scale-102 hover:shadow-md text-white ease-in-out transition-all'
-                          : ''
-                      }
-                      key={day.date.readable}
-                    >
-                      <TableCell className="text-center" key={day.date.readable}>
-                        {day.date.readable.split(' ')[0]}
-                      </TableCell>
-                      <TableCell className="text-center" key={day.timings.Fajr}>
-                        {day.timings.Fajr}
-                      </TableCell>
-                      <TableCell className="text-center" key={day.timings.Dhuhr}>
-                        {day.timings.Dhuhr}
-                      </TableCell>
-                      <TableCell className="text-center" key={day.timings.Asr}>
-                        {day.timings.Asr}
-                      </TableCell>
-                      <TableCell className="text-center" key={day.timings.Maghrib}>
-                        {day.timings.Maghrib}
-                      </TableCell>
-                      <TableCell className="text-center" key={day.timings.Isha}>
-                        {day.timings.Isha}
-                      </TableCell>
-                    </TableRow>
-                  );
-                })}
+                {viewMode === 'start'
+                  ? monthData?.map((day) => {
+                      const isToday = DateTime.now().toFormat('dd MMM yyyy') === day.date.readable;
+                      return (
+                        <TableRow
+                          className={
+                            isToday
+                              ? 'bg-indigo-600 hover:bg-indigo-600/95 hover:scale-102 hover:shadow-md text-white ease-in-out transition-all'
+                              : ''
+                          }
+                          key={day.date.readable}
+                        >
+                          <TableCell className="text-center" key={day.date.readable}>
+                            {day.date.readable.split(' ')[0]}
+                          </TableCell>
+                          <TableCell className="text-center" key={day.timings.Fajr}>
+                            {day.timings.Fajr}
+                          </TableCell>
+                          <TableCell className="text-center" key={day.timings.Dhuhr}>
+                            {day.timings.Dhuhr}
+                          </TableCell>
+                          <TableCell className="text-center" key={day.timings.Asr}>
+                            {day.timings.Asr}
+                          </TableCell>
+                          <TableCell className="text-center" key={day.timings.Maghrib}>
+                            {day.timings.Maghrib}
+                          </TableCell>
+                          <TableCell className="text-center" key={day.timings.Isha}>
+                            {day.timings.Isha}
+                          </TableCell>
+                        </TableRow>
+                      );
+                    })
+                  : jammahTimes?.map((day) => {
+                      const isToday = DateTime.now().toFormat('dd MMM yyyy') === day.date.readable;
+                      return (
+                        <TableRow
+                          className={
+                            isToday
+                              ? 'bg-indigo-600 hover:bg-indigo-600/95 hover:scale-102 hover:shadow-md text-white ease-in-out transition-all'
+                              : ''
+                          }
+                          key={day.date.readable}
+                        >
+                          <TableCell className="text-center" key={day.date.readable}>
+                            {day.date.readable.split(' ')[0]}
+                          </TableCell>
+                          <TableCell className="text-center" key={day.timings.Fajr}>
+                            {day.timings.Fajr}
+                          </TableCell>
+                          <TableCell className="text-center" key={day.timings.Dhuhr}>
+                            {day.timings.Dhuhr}
+                          </TableCell>
+                          <TableCell className="text-center" key={day.timings.Asr}>
+                            {day.timings.Asr}
+                          </TableCell>
+                          <TableCell className="text-center" key={day.timings.Maghrib}>
+                            {day.timings.Maghrib}
+                          </TableCell>
+                          <TableCell className="text-center" key={day.timings.Isha}>
+                            {day.timings.Isha}
+                          </TableCell>
+                        </TableRow>
+                      );
+                    })}
               </TableBody>
             </Table>
           </div>

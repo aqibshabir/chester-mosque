@@ -20,7 +20,7 @@ export interface Timings {
   Lastthird: string;
 }
 
-interface HijiriDate {
+interface HijriDate {
   month: {
     number: number;
     en: string;
@@ -32,7 +32,7 @@ interface DayDataProps {
   date: {
     readable: string;
     timestamp: string;
-    hijiri: HijiriDate;
+    hijri: HijriDate;
   };
   meta: unknown;
 }
@@ -42,8 +42,8 @@ export default async function getJammahTimes(monthData: DayDataProps[]) {
     const fajr = getFajrJammah(day.timings.Fajr, 20);
     const dhuhr = getDhuhrJammah(day.date.timestamp);
     const asr = getAsrJammah(day.timings.Asr);
-    const maghrib = getMaghribJammah(day.timings.Maghrib, day.date.hijiri.month.number);
-    const isha = getIshaJammah(day.timings.Isha, day.date.timestamp, day.date.hijiri.month.number);
+    const maghrib = getMaghribJammah(day.timings.Maghrib, day.date.hijri.month.number);
+    const isha = getIshaJammah(day.timings.Isha, day.date.timestamp, day.date.hijri.month.number);
 
     return {
       ...day,

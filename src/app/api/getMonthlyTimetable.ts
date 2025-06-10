@@ -12,7 +12,7 @@ interface Timings {
   Lastthird: string;
 }
 
-interface HijiriDate {
+interface HijriDate {
   month: {
     number: number;
     en: string;
@@ -24,7 +24,7 @@ interface DayData {
   date: {
     readable: string;
     timestamp: string;
-    hijiri: HijiriDate;
+    hijri: HijriDate;
   };
   meta: unknown;
 }

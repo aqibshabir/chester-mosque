@@ -39,7 +39,7 @@ export const getDynamicMessage = (amount: number) => {
 };
 
 export const getFajrJammah = (time: string, minutesAdded: number): string => {
-  return DateTime.fromFormat(time, 'HH:mm').plus(minutesAdded).toFormat('HH:mm');
+  return DateTime.fromFormat(time, 'HH:mm').plus({ minutes: minutesAdded }).toFormat('HH:mm');
 };
 
 export const getDhuhrJammah = (timestamp: string): string => {
@@ -55,9 +55,15 @@ export const getDhuhrJammah = (timestamp: string): string => {
 export const getAsrJammah = (time: string): string => {
   const asrStart = DateTime.fromFormat(time, 'HH:mm');
   const earliestJammah = asrStart.plus({ minutes: 15 });
-  const next15MinuteBoundary = ((Math.floor(earliestJammah.minute / 15) + 1) * 15) % 60;
-  let jammahTime = earliestJammah.set({ minute: next15MinuteBoundary, second: 0, millisecond: 0 });
-  if (next15MinuteBoundary <= earliestJammah.minute) {
+
+  const roundedMinutes = Math.ceil(earliestJammah.minute / 15) * 15;
+  let jammahTime = earliestJammah.set({
+    minute: roundedMinutes % 60,
+    second: 0,
+    millisecond: 0,
+  });
+
+  if (roundedMinutes >= 60) {
     jammahTime = jammahTime.plus({ hours: 1 });
   }
   const latestJammah = asrStart.plus({ minutes: 30 });
@@ -69,11 +75,64 @@ export const getAsrJammah = (time: string): string => {
 
 export const getMaghribJammah = (time: string, hijriMonth: number): string => {
   const maghribStart = DateTime.fromFormat(time, 'HH:mm');
-  const delay = hijriMonth === 9 ? 15 : 7;
+  const isRamadan = hijriMonth === 9;
+  const delay = isRamadan ? 15 : 7;
   return maghribStart.plus({ minutes: delay }).toFormat('HH:mm');
 };
 
 export const getIshaJammah = (time: string, timestamp: string, hijriMonth: number): string => {
-  // todo
-  return time;
+  const [hourStr, minuteStr] = time.split(':');
+  const hour = Number(hourStr);
+  const minute = Number(minuteStr);
+  const ishaStart = DateTime.fromSeconds(Number(timestamp)).set({
+    hour,
+    minute,
+    second: 0,
+    millisecond: 0,
+  });
+
+  const isRamadan = hijriMonth === 9;
+  const earliestJammah = ishaStart.set({ hour: 19, minute: 30, second: 0, millisecond: 0 });
+  const latestJammah = ishaStart.set({ hour: 23, minute: 15, second: 0, millisecond: 0 });
+
+  if (isRamadan) {
+    const earliestTime = ishaStart.plus({ minutes: 40 });
+    const roundedMinutes = Math.ceil(earliestTime.minute / 15) * 15;
+    let jammahTime = earliestTime.set({
+      minute: roundedMinutes % 60,
+      second: 0,
+      millisecond: 0,
+    });
+
+    if (roundedMinutes >= 60) {
+      jammahTime = jammahTime.plus({ hours: 1 });
+    }
+
+    const latestTime = ishaStart.plus({ minutes: 55 });
+
+    if (jammahTime < earliestJammah) jammahTime = earliestJammah;
+    if (jammahTime > latestTime) jammahTime = latestTime;
+    if (jammahTime > latestJammah) jammahTime = latestJammah;
+
+    return jammahTime.toFormat('HH:mm');
+  } else if (ishaStart < earliestJammah) {
+    return earliestJammah.toFormat('HH:mm');
+  } else {
+    const earliestTime = ishaStart.plus({ minutes: 15 });
+    const roundedMinutes = Math.ceil(earliestTime.minute / 15) * 15;
+    let jammahTime = earliestTime.set({
+      minute: roundedMinutes % 60,
+      second: 0,
+      millisecond: 0,
+    });
+
+    if (roundedMinutes >= 60) {
+      jammahTime = jammahTime.plus({ hours: 1 });
+    }
+    const latestTime = ishaStart.plus({ minutes: 30 });
+    if (jammahTime > latestTime) jammahTime = latestTime;
+    if (jammahTime > latestJammah) jammahTime = latestJammah;
+
+    return jammahTime.toFormat('HH:mm');
+  }
 };

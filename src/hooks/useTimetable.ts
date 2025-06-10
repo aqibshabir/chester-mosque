@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getMonthlyTimeTable } from '@/app/api/getMonthlyTimetable';
 import { getStartAndEndDate } from '@/lib/getStartAndEndDate';
+import getJammahTimes from '@/lib/getJammahTimes';
 
 export interface Timings {
   Fajr: string;
@@ -16,7 +17,7 @@ export interface Timings {
   Lastthird: string;
 }
 
-interface HijiriDate {
+interface HijriDate {
   month: {
     number: number;
     en: string;
@@ -28,14 +29,14 @@ interface DayData {
   date: {
     readable: string;
     timestamp: string;
-    hijiri: HijiriDate;
+    hijri: HijriDate;
   };
   meta: unknown;
 }
 
 export const useTimetable = (month: number, year: number) => {
   const [monthData, setMonthData] = useState<DayData[]>([]);
-  // make some state for jammahTimes
+  const [jammahTimes, setJammahTimes] = useState<DayData[]>([]);
   const [loading, setLoading] = useState(true);
 
   const [start, end] = getStartAndEndDate(year, month);
@@ -45,8 +46,9 @@ export const useTimetable = (month: number, year: number) => {
       setLoading(true);
       try {
         const data = await getMonthlyTimeTable(start, end);
-        // send this data to getJammahTimes and then set to state you created for JammahTimes
         setMonthData(data);
+        const jammahData = await getJammahTimes(data);
+        setJammahTimes(jammahData);
       } catch (err) {
         console.error(err);
       } finally {
@@ -57,5 +59,5 @@ export const useTimetable = (month: number, year: number) => {
     fetchData();
   }, [month, year]);
 
-  return { monthData, loading }; // return jammahTimes also
+  return { monthData, jammahTimes, loading };
 };
