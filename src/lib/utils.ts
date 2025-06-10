@@ -92,7 +92,7 @@ export const getIshaJammah = (time: string, timestamp: string, hijriMonth: numbe
   });
 
   const isRamadan = hijriMonth === 9;
-  const earliestJammah = ishaStart.set({ hour: 19, minute: 30, second: 0, millisecond: 0 });
+  const earliestJammah = ishaStart.set({ hour: 19, minute: 45, second: 0, millisecond: 0 });
   const latestJammah = ishaStart.set({ hour: 23, minute: 15, second: 0, millisecond: 0 });
 
   if (isRamadan) {
