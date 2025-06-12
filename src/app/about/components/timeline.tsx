@@ -1,8 +1,6 @@
 'use client';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import React, { useEffect, useRef, useState } from 'react';
-import { FaCircle } from 'react-icons/fa';
-
 interface TimelineProps {
   events: { date: string; title: string; event: string }[];
 }

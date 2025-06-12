@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaAngleLeft, FaAngleRight, FaPlay, FaPause } from 'react-icons/fa6';
@@ -25,9 +25,9 @@ export default function FeaturedCarousel({ items }: Props) {
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setCurrent((prev) => (prev + 1) % items.length);
-  };
+  }, [items.length]);
 
   const prevSlide = () => {
     setCurrent((prev) => (prev - 1 + items.length) % items.length);
@@ -64,7 +64,7 @@ export default function FeaturedCarousel({ items }: Props) {
         clearTimeout(timeoutRef.current);
       }
     };
-  }, [current, paused]);
+  }, [current, paused, nextSlide]);
 
   return (
     <div

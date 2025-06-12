@@ -4,13 +4,13 @@ import {
   Head,
   Heading,
   Hr,
-  Img,
   Container,
   Preview,
   Section,
   Text,
   Tailwind,
 } from '@react-email/components';
+import Image from 'next/image';
 
 type ContactFormEmailProps = {
   message: string;
@@ -45,7 +45,7 @@ export default function ContactFormEmail({
         <Body className="bg-gray-100 text-black">
           <Container>
             <Section className="bg-white border border-black my-10 px-10 py-4 rounded-xl">
-              <Img
+              <Image
                 src="https://raw.githubusercontent.com/aqibshabir/chester-mosque/master/public/logo-with-text.png"
                 alt="logo"
                 width={192}

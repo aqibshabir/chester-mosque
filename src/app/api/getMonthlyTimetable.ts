@@ -45,7 +45,7 @@ const ishaMonthlyTuneMinutes: Record<number, number> = {
 };
 
 export const getMonthlyTimeTable = async (dateOne: string, dateTwo: string) => {
-  const [day, monthStr] = dateOne.split('-');
+  const monthStr = dateOne.split('-')[1];
   const month = parseInt(monthStr, 10);
 
   const ishaTune = ishaMonthlyTuneMinutes[month] || 0;

@@ -37,7 +37,7 @@ function Sections() {
               Join our gatherings, talks & prayers
             </p>
             <p className="flex items-center gap-2 font-semibold text-lg text-white ">
-              See what's new
+              See what&apos;s new
               <FaArrowRight className="group-hover:translate-x-1 transition-all ease-in-out delay-100" />
             </p>
           </div>

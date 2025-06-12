@@ -57,7 +57,7 @@ export const useTimetable = (month: number, year: number) => {
     };
 
     fetchData();
-  }, [month, year]);
+  }, [start, end]);
 
   return { monthData, jammahTimes, loading };
 };

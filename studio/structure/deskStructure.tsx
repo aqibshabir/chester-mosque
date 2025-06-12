@@ -1,3 +1,4 @@
+import React from 'react'
 import {StructureResolver} from 'sanity/structure'
 import {
   InfoOutlineIcon,
@@ -14,41 +15,41 @@ export const deskStructure: StructureResolver = (S) =>
     .items([
       S.listItem()
         .title('Home')
-        .icon(HomeIcon)
+        .icon(() => <HomeIcon />)
         .child(
           S.list()
             .title('Home')
             .items([
               S.listItem()
                 .title('Main Page')
-                .icon(DocumentTextIcon)
+                .icon(() => <DocumentTextIcon />)
                 .child(S.document().schemaType('homeMainPageType').documentId('homeMainPage')),
             ]),
         ),
       S.listItem()
         .title('About')
-        .icon(InfoOutlineIcon)
+        .icon(() => <InfoOutlineIcon />)
         .child(
           S.list()
             .title('About Pages')
             .items([
               S.listItem()
                 .title('Main Page')
-                .icon(DocumentTextIcon)
+                .icon(() => <DocumentTextIcon />)
                 .child(S.document().schemaType('aboutMainPageType').documentId('aboutMainPage')),
               S.documentTypeListItem('aboutSubPageType').title('Sub Pages'),
             ]),
         ),
       S.listItem()
         .title('Events')
-        .icon(CalendarIcon)
+        .icon(() => <CalendarIcon />)
         .child(
           S.list()
             .title('Events Pages')
             .items([
               S.listItem()
                 .title('Main Page')
-                .icon(DocumentTextIcon)
+                .icon(() => <DocumentTextIcon />)
                 .child(
                   S.document().schemaType('eventsMainPageType').documentId('eventsMainPageType'),
                 ),
@@ -57,14 +58,14 @@ export const deskStructure: StructureResolver = (S) =>
         ),
       S.listItem()
         .title('Services')
-        .icon(EarthGlobeIcon)
+        .icon(() => <EarthGlobeIcon />)
         .child(
           S.list()
             .title('Services Pages')
             .items([
               S.listItem()
                 .title('Main Page')
-                .icon(DocumentTextIcon)
+                .icon(() => <DocumentTextIcon />)
                 .child(
                   S.document()
                     .schemaType('servicesMainPageType')
@@ -75,14 +76,14 @@ export const deskStructure: StructureResolver = (S) =>
         ),
       S.listItem()
         .title('Updates')
-        .icon(BellIcon)
+        .icon(() => <BellIcon />)
         .child(
           S.list()
             .title('Updates Pages')
             .items([
               S.listItem()
                 .title('Main Page')
-                .icon(DocumentTextIcon)
+                .icon(() => <DocumentTextIcon />)
                 .child(S.document().schemaType('updateMainPageType').documentId('updateMainPage')),
               S.documentTypeListItem('updatesSubPageType').title('Sub Pages'),
             ]),

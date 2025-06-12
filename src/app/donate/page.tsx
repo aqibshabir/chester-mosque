@@ -43,7 +43,11 @@ export default function Page() {
       value = parts.join('.');
     }
     setInput(value);
-    Number(value) >= 1 ? setSelected(4) : setSelected(0);
+    if (Number(value) >= 1) {
+      setSelected(4);
+    } else {
+      setSelected(0);
+    }
   };
 
   const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
@@ -67,7 +71,7 @@ export default function Page() {
       const stripe = await stripePromise;
       stripe?.redirectToCheckout({ sessionId });
     } catch (error) {
-      throw new Error('Something went wrong');
+      throw new Error(`Something went wrong, error: ${error}`);
     }
   };
 
@@ -416,7 +420,7 @@ export default function Page() {
               </div>
             </div>
             <p className="text-xs text-gray-400 text-center w-[350px] sm:w-[400px] md:w-[700px] lg:w-[1000px] mx-auto mb-4 ">
-              By clicking "Donate now", you agree to our{' '}
+              By clicking &quot;Donate now&quot;, you agree to our{' '}
               <span className="underline">terms and conditions</span>. You will be redirected to
               Stripe to securely complete your donation.{' '}
               <span className="block">

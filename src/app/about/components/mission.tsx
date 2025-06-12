@@ -1,5 +1,4 @@
 import { PiMosque } from 'react-icons/pi';
-import { FaCircle } from 'react-icons/fa6';
 
 interface MissionProps {
   mission: string;

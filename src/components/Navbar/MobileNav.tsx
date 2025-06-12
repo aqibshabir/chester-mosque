@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { IoCloseOutline } from 'react-icons/io5';
+import Link from 'next/link';
 
 function MobileNav() {
   const [menuClick, setMenuClick] = useState(false);
@@ -55,22 +56,22 @@ function MobileNav() {
               exit={{ opacity: 0, y: -12.5 }}
             >
               <li className="cursor-pointer hover:text-black/60 transition-transform duration-300 hover:scale-110">
-                <a href="/about">About</a>
+                <Link href="/about">About</Link>
               </li>
               <li className="cursor-pointer hover:text-black/60 transition-transform duration-300 hover:scale-110">
-                <a href="/timetable">Timetable</a>
+                <Link href="/timetable">Timetable</Link>
               </li>
               <li className="cursor-pointer hover:text-black/60 transition-transform duration-300 hover:scale-110">
-                <a href="/events">Events</a>
+                <Link href="/events">Events</Link>
               </li>
               <li className="cursor-pointer hover:text-black/60 transition-transform duration-300 hover:scale-110">
-                <a href="/services">Services</a>
+                <Link href="/services">Services</Link>
               </li>
               <li className="cursor-pointer hover:text-black/60 transition-transform duration-300 hover:scale-110">
-                <a href="contact">Contact</a>
+                <Link href="contact">Contact</Link>
               </li>
               <li className="cursor-pointer hover:text-black/60 transition-transform duration-300 hover:scale-110">
-                <a href="/donate">Donate</a>
+                <Link href="/donate">Donate</Link>
               </li>
             </motion.ul>
           </motion.div>

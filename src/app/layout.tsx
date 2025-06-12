@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '', // Add image URL here (once I have it)
+        url: 'https://raw.githubusercontent.com/aqibshabir/chester-mosque/master/public/logo-with-text.png',
         width: 1200,
         height: 630,
         alt: 'Shah Jalal Jame Masjid & Islamic Centre - Chester Mosque',

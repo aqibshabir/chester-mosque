@@ -2,11 +2,12 @@ import { urlFor } from '@/lib/sanity';
 import { sanityFetch } from '@/sanity/sanityFetch';
 import { defineQuery, PortableText, PortableTextBlock, PortableTextComponents } from 'next-sanity';
 import Image from 'next/image';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { FaCircle } from 'react-icons/fa';
 
 interface AboutSubPageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 type SubPageType = {
@@ -16,12 +17,6 @@ type SubPageType = {
   content: PortableTextBlock[];
   image: string;
 };
-
-async function generateStaticParams() {
-  const slugQuery = defineQuery('*[_type == "aboutSubPageType"]{"slug":slug.current}');
-  const data = await sanityFetch<string[]>(slugQuery);
-  return data;
-}
 
 const components: PortableTextComponents = {
   block: {
@@ -58,14 +53,14 @@ const components: PortableTextComponents = {
   },
   marks: {
     link: ({ value, children }) => (
-      <a
+      <Link
         href={value?.href}
         target="_blank"
         rel="noopener noreferrer"
         className="text-indigo-600  visited:text-purple-700 hover:underline"
       >
         {children}
-      </a>
+      </Link>
     ),
   },
 };

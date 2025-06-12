@@ -3,6 +3,8 @@ import { useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MdOutlineKeyboardArrowUp } from 'react-icons/md';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
+import Link from 'next/link';
+import Image from 'next/image';
 
 interface SubPages {
   title: string;
@@ -41,7 +43,7 @@ function DesktopNav({ about, events, services }: DesktopNavProps) {
     <div className="hidden md:flex">
       <ul className="flex gap-6 lg:gap-10 mx-2">
         <li onMouseEnter={() => onMenuEnter(0)} onMouseLeave={() => onMenuLeave()}>
-          <a
+          <Link
             className="hover:text-gray-600 flex items-center text-base lg:text-md font-medium"
             href="/about"
           >
@@ -51,7 +53,7 @@ function DesktopNav({ about, events, services }: DesktopNavProps) {
             ) : (
               <MdOutlineKeyboardArrowDown className="ml-1" />
             )}
-          </a>
+          </Link>
           <AnimatePresence>
             {hoveredMenu === 0 && (
               <>
@@ -73,26 +75,32 @@ function DesktopNav({ about, events, services }: DesktopNavProps) {
                     aria-hidden="true"
                   />
                   <div className="flex h-full w-full">
-                    <a
+                    <Link
                       href="/about"
                       className="bg-linear-to-br to-indigo-600 from-indigo-600/60 hover:to-indigo-600 hover:from-indigo-600/55 m-2 p-2 w-[200px] flex flex-col justify-center items-center gap-1 rounded-xl text-white hover:scale-102 transition-transform duration-300 ease-in-out shadow-sm"
                     >
-                      <img className="mb-2 w-[60px]" src="/white_logo.png" alt="logo" />
+                      <Image
+                        className="mb-2 w-[60px]"
+                        src="/white_logo.png"
+                        height={400}
+                        width={400}
+                        alt="logo"
+                      />
                       <p className="font-semibold">About The Mosque</p>
                       <p className="text-sm text-gray-200 text-center">
                         Key details about our mosque, our team and FAQs.
                       </p>
-                    </a>
+                    </Link>
                     <div className="flex flex-col h-full justify-center m-1 gap-2">
                       {about.map((item) => (
-                        <a
+                        <Link
                           key={item.title}
                           href={`/about/${item.slug}`}
                           className="hover:bg-black/10 rounded-sm w-[250px] p-2 flex flex-col hover:scale-102 transition-transform duration-300"
                         >
                           <p className="font-semibold">{item.title}</p>
                           <p className="text-sm text-gray-600">{item.summary}</p>
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   </div>
@@ -102,22 +110,25 @@ function DesktopNav({ about, events, services }: DesktopNavProps) {
           </AnimatePresence>
         </li>
         <li>
-          <a
+          <Link
             className="hover:text-gray-600 text-base flex items-center font-medium"
             href="/timetable"
           >
             Timetable
-          </a>
+          </Link>
         </li>
         <li onMouseEnter={() => onMenuEnter(1)} onMouseLeave={() => onMenuLeave()}>
-          <a className="hover:text-gray-600 flex items-center text-base font-medium" href="/events">
+          <Link
+            className="hover:text-gray-600 flex items-center text-base font-medium"
+            href="/events"
+          >
             Events
             {hoveredMenu === 1 ? (
               <MdOutlineKeyboardArrowUp className="ml-1" />
             ) : (
               <MdOutlineKeyboardArrowDown className="ml-1" />
             )}
-          </a>
+          </Link>
           <AnimatePresence>
             {hoveredMenu === 1 && (
               <motion.div
@@ -140,14 +151,14 @@ function DesktopNav({ about, events, services }: DesktopNavProps) {
                 <div className="flex h-full w-full justify-center items-center p-2">
                   <div className="grid grid-cols-2 gap-2 h-full">
                     {events.map((item) => (
-                      <a
+                      <Link
                         key={item.title}
                         href={`/events/${item.slug}`}
                         className="hover:bg-black/10 hover:scale-102 transition-transform duration-300 rounded-sm p-2"
                       >
                         <p className="font-semibold">{item.title}</p>
                         <p className="text-sm text-gray-600">{item.summary}</p>
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -156,7 +167,7 @@ function DesktopNav({ about, events, services }: DesktopNavProps) {
           </AnimatePresence>
         </li>
         <li onMouseEnter={() => onMenuEnter(2)} onMouseLeave={() => onMenuLeave()}>
-          <a
+          <Link
             className="hover:text-gray-600 flex items-center text-base font-medium"
             href="/services"
           >
@@ -166,7 +177,7 @@ function DesktopNav({ about, events, services }: DesktopNavProps) {
             ) : (
               <MdOutlineKeyboardArrowDown className="ml-1" />
             )}
-          </a>
+          </Link>
           <AnimatePresence>
             {hoveredMenu === 2 && (
               <motion.div
@@ -189,14 +200,14 @@ function DesktopNav({ about, events, services }: DesktopNavProps) {
                 <div className="flex h-full w-full justify-center items-center p-2">
                   <div className="grid grid-cols-2 gap-2 h-full">
                     {services.map((item) => (
-                      <a
+                      <Link
                         key={item.title}
                         href={`/services/${item.slug}`}
                         className="hover:bg-black/10 hover:scale-102 transition-transform duration-300 rounded-sm w-[230px] p-2"
                       >
                         <p className="font-semibold">{item.title}</p>
                         <p className="text-sm text-gray-600">{item.summary}</p>
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>

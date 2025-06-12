@@ -17,7 +17,7 @@ function Form() {
     <form
       className="flex flex-col mx-4 md:mx-8 [1280px]:mx-0 gap-4"
       action={async (formData) => {
-        const { data, error } = await sendEmail(formData);
+        const { error } = await sendEmail(formData);
         if (error) {
           toast(error);
           return;

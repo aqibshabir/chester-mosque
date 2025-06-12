@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils';
 import { DateTime } from 'luxon';
 import { Button } from '@/components/ui/button';
 import DayTimetableSkeleton from './skeleton/dayTimeTableSkeleton';
+import Link from 'next/link';
 
 function DayTimetable() {
   const [currentTimeNum, setCurrentTimeNum] = useState<number | null>(null);
@@ -86,11 +87,11 @@ function DayTimetable() {
           </div>
         ))}
       </div>
-      <a href="/timetable" className="flex justify-center items-center mt-12">
+      <Link href="/timetable" className="flex justify-center items-center mt-12">
         <Button variant="link" className="sm:text-base">
           View Monthly Timetable
         </Button>
-      </a>
+      </Link>
     </div>
   );
 }

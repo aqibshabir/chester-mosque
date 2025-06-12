@@ -2,7 +2,6 @@ import { urlFor } from '@/lib/sanity';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { FaCircle } from 'react-icons/fa';
 
 interface LearnProps {
   subPages: { title: string; summary: string; image: string; slug: string }[];
