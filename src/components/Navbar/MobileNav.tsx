@@ -45,10 +45,6 @@ function MobileNav() {
             animate={{ y: 0, opacity: 100 }}
             exit={{ opacity: 0, y: -12.5 }}
           >
-            <div
-              className="absolute top-0 left-0 w-full h-2 bg-gradient-to-b from-black/20 via-black/5 to-transparent"
-              aria-hidden="true"
-            />
             <motion.ul
               className="flex flex-col justify-center items-center text-4xl gap-10 mt-10"
               initial={{ y: -25, opacity: 0 }}

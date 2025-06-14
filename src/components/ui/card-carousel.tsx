@@ -127,7 +127,7 @@ export const Card = ({ card, index, href }: { card: Card; index: number; href: s
         href={href}
         className="relative z-10 flex h-80 w-56 flex-col items-start justify-start overflow-hidden rounded-xl bg-gray-100 md:h-[28rem] md:w-74 xl:h-[32rem] xl:w-90 group"
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-indigo-600/40 to-indigo-600 z-20" />
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/40 to-indigo-600/80 z-20" />
         <div className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-gradient-to-b from-black/50 via-transparent to-transparent" />
         <div className="relative z-40 p-8">
           <p className="text-left font-sans text-sm font-medium text-white md:text-base">

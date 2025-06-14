@@ -91,10 +91,10 @@ export default function FeaturedCarousel({ items }: Props) {
                 sizes="100vw"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/40 to-indigo-600" />
+              <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/40 to-indigo-600/80" />
             </div>
 
-            <div className="relative text-center z-20 p-4">
+            <div className="relative text-center z-10 p-4">
               <h2 className="text-2xl sm:text-4xl lg:text-6xl font-bold mb-2">{item.title}</h2>
               <p className="text-white/70 text-sm sm:text-base md:text-lg mb-6">{item.summary}</p>
               <Link href={`/${item.section}/${item.slug}`}>
@@ -107,7 +107,7 @@ export default function FeaturedCarousel({ items }: Props) {
         ))}
       </div>
 
-      <div className="absolute bottom-4 w-full flex justify-center items-center gap-4 z-20">
+      <div className="absolute bottom-4 w-full flex justify-center items-center gap-4 z-10">
         <button
           onClick={() => setPaused((prev) => !prev)}
           className="p-2 text-sm bg-white/30 hover:bg-white/50 text-white rounded-full transition-colors"
@@ -131,7 +131,7 @@ export default function FeaturedCarousel({ items }: Props) {
 
       <button
         onClick={prevSlide}
-        className="hidden md:block absolute left-6 top-[55%] -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full z-20"
+        className="hidden md:block absolute left-6 top-[55%] -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full z-10"
         aria-label="Previous slide"
       >
         <FaAngleLeft />
@@ -139,7 +139,7 @@ export default function FeaturedCarousel({ items }: Props) {
 
       <button
         onClick={nextSlide}
-        className="hidden md:block absolute right-6 top-[55%] -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full z-20"
+        className="hidden md:block absolute right-6 top-[55%] -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full z-10"
         aria-label="Next slide"
       >
         <FaAngleRight />

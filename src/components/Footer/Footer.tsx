@@ -19,7 +19,7 @@ function Footer() {
           <Link href="/contact">
             <Button
               variant="ghost"
-              className="bg-black/10 text-white hover:bg-white hover:translate-y-0.5 ease-in-out transition-transform"
+              className="bg-black/20 text-white hover:bg-white hover:translate-y-0.5 ease-in-out transition-transform"
             >
               Contact us
             </Button>
@@ -77,7 +77,7 @@ function Footer() {
             </ul>
           </div>
         </div>
-        <div className="flex justify-center md:justify-between text-white/50 text-sm mb-1 mx-4">
+        <div className="flex justify-center md:justify-between text-white/50 text-sm mb-1 sm:mx-4">
           <p className="flex items-center group gap-1">
             &copy; Shah Jalal Jame Masjid {new Date().getFullYear()} <FaAngleRight size={10} />
             <Link

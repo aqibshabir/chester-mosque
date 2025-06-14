@@ -29,32 +29,32 @@ function Sections() {
       <div className="flex flex-col lg:flex-row justify-center items-center gap-8">
         <Link
           href="/events"
-          className="bg-indigo-600/90 py-10 px-6 w-[320px] sm:w-100 h-70 rounded-4xl hover:scale-95 transition-all cursor-pointer group delay-100"
+          className="bg-indigo-600 hover:bg-indigo-600/90 py-10 px-6 w-[320px] sm:w-100 h-70 rounded-4xl md:hover:scale-95 transition-all cursor-pointer group delay-100"
         >
           <div className="flex flex-col gap-8 mx-4">
             <p className="bg-white w-fit px-4 py-0.5 rounded-full font-semibold text-xl">Events</p>
             <p className="text-2xl sm:text-4xl font-bold text-white ">
               Join our gatherings, talks & prayers
             </p>
-            <p className="flex items-center gap-2 font-semibold text-lg text-white ">
+            <p className="flex items-center gap-2.5 font-semibold text-lg text-white ">
               See what&apos;s new
-              <FaArrowRight className="group-hover:translate-x-1 transition-all ease-in-out delay-100" />
+              <FaArrowRight className="group-hover:translate-x-3 transition-all ease-in-out delay-100" />
             </p>
           </div>
         </Link>
 
         <Link
           href="/services"
-          className="bg-indigo-600/20 py-10 px-6 w-[320px] sm:w-100 h-70 rounded-4xl hover:scale-95 transition-all cursor-pointer group delay-100"
+          className="bg-indigo-600/20 hover:bg-indigo-600/30 py-10 px-6 w-[320px] sm:w-100 h-70 rounded-4xl md:hover:scale-95 transition-all cursor-pointer group delay-100"
         >
           <div className="flex flex-col gap-8 mx-4">
-            <p className="bg-indigo-600/90 text-white w-fit px-4 py-0.5 rounded-full font-semibold text-xl">
+            <p className="bg-indigo-600 text-white w-fit px-4 py-0.5 rounded-full font-semibold text-xl">
               Services
             </p>
-            <p className="text-2xl sm:text-4xl font-bold">From Nikah to support: we are here</p>
-            <p className="flex items-center gap-2 font-semibold text-lg">
+            <p className="text-2xl sm:text-4xl font-bold">From Nikah to support: we're here</p>
+            <p className="flex items-center gap-2.5 font-semibold text-lg">
               See what we offer
-              <FaArrowRight className="group-hover:translate-x-1 transition-all ease-in-out delay-100" />
+              <FaArrowRight className="group-hover:translate-x-3 transition-all ease-in-out delay-100" />
             </p>
           </div>
         </Link>
