@@ -5,7 +5,7 @@ import { Toaster } from '@/components/ui/sonner';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Shah Jalal Jame Masjid | Chester Mosque & Islamic Centre',
+  title: 'Chester Mosque & Islamic Centre | Shah Jalal Jame Masjid',
   description:
     'The only mosque serving the Muslim community in Chester. Find prayer times, events, and religious services.',
 

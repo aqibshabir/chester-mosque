@@ -264,4 +264,8 @@
 
 html {
   overscroll-behavior: none;
+  ::selection {
+    background: #4a3dfc;
+    color: white;
+  }
 }

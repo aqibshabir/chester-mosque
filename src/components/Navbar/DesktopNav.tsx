@@ -68,12 +68,12 @@ function DesktopNav({ about, events, services }: DesktopNavProps) {
                   }}
                   onMouseEnter={() => onMenuEnter(0)}
                   onMouseLeave={() => onMenuLeave(true)}
-                  className="absolute z-8 top-[39px] left-1/2 -translate-x-[46%] w-[500px] h-[260px] p-2 shadow-md bg-gradient-to-br from-white/60 to-white/50 backdrop-blur-lg"
+                  className="absolute z-8 top-[46px] border rounded-2xl left-1/2 -translate-x-[46%] w-[500px] h-[260px] p-2 shadow-2xl bg-gradient-to-br from-white/60 to-white/50 backdrop-blur-lg"
                 >
                   <div className="flex h-full w-full">
                     <Link
                       href="/about"
-                      className="bg-linear-to-br to-indigo-600 from-indigo-600/60 hover:to-indigo-600 hover:from-indigo-600/55 m-2 p-2 w-[200px] flex flex-col justify-center items-center gap-1 rounded-xl text-white hover:scale-102 transition-transform duration-300 ease-in-out shadow-sm"
+                      className="bg-linear-to-br to-indigo-600 from-indigo-600/60 hover:to-indigo-600 hover:from-indigo-600/55 m-2 p-2 w-[200px] flex flex-col justify-center items-center gap-1 rounded-xl text-white hover:scale-102 transition-transform duration-100 ease-in-out shadow-sm"
                     >
                       <Image
                         className="mb-2 w-[60px]"
@@ -92,7 +92,7 @@ function DesktopNav({ about, events, services }: DesktopNavProps) {
                         <Link
                           key={item.title}
                           href={`/about/${item.slug}`}
-                          className="hover:bg-black/10 rounded-sm w-[250px] p-2 flex flex-col hover:scale-102 transition-transform duration-300"
+                          className="hover:bg-black/10 rounded-sm w-[250px] p-2 flex flex-col hover:scale-102 transition-transform duration-100"
                         >
                           <p className="font-semibold">{item.title}</p>
                           <p className="text-sm text-gray-600">{item.summary}</p>
@@ -138,7 +138,7 @@ function DesktopNav({ about, events, services }: DesktopNavProps) {
                 }}
                 onMouseEnter={() => onMenuEnter(1)}
                 onMouseLeave={() => onMenuLeave(true)}
-                className="absolute top-[39px] left-1/2 -translate-x-[46%] w-[500px] h-[300px] p-2 shadow-md bg-gradient-to-br from-white/70 to-white/50 backdrop-blur-lg"
+                className="absolute top-[46px] border rounded-2xl left-1/2 -translate-x-[46%] w-[500px] h-[300px] p-2 shadow-2xl bg-gradient-to-br from-white/70 to-white/50 backdrop-blur-lg"
               >
                 <div className="flex h-full w-full justify-center items-center p-2">
                   <div className="grid grid-cols-2 gap-2 h-full">
@@ -146,7 +146,7 @@ function DesktopNav({ about, events, services }: DesktopNavProps) {
                       <Link
                         key={item.title}
                         href={`/events/${item.slug}`}
-                        className="hover:bg-black/10 hover:scale-102 transition-transform duration-300 rounded-sm p-2"
+                        className="hover:bg-black/10 hover:scale-102 transition-transform duration-100 rounded-sm p-2"
                       >
                         <p className="font-semibold">{item.title}</p>
                         <p className="text-sm text-gray-600">{item.summary}</p>
@@ -183,7 +183,7 @@ function DesktopNav({ about, events, services }: DesktopNavProps) {
                 }}
                 onMouseEnter={() => onMenuEnter(2)}
                 onMouseLeave={() => onMenuLeave(true)}
-                className="absolute top-[39px] left-1/2 -translate-x-[46%] w-[500px] h-[220px] p-2 shadow-md bg-gradient-to-br from-white/70 to-white/50 backdrop-blur-lg"
+                className="absolute top-[46px] border rounded-2xl left-1/2 -translate-x-[46%] w-[500px] h-[220px] p-2 shadow-2xl bg-gradient-to-br from-white/70 to-white/50 backdrop-blur-lg"
               >
                 <div className="flex h-full w-full justify-center items-center p-2">
                   <div className="grid grid-cols-2 gap-2 h-full">
@@ -191,7 +191,7 @@ function DesktopNav({ about, events, services }: DesktopNavProps) {
                       <Link
                         key={item.title}
                         href={`/services/${item.slug}`}
-                        className="hover:bg-black/10 hover:scale-102 transition-transform duration-300 rounded-sm w-[230px] p-2"
+                        className="hover:bg-black/10 hover:scale-102 transition-transform duration-100 rounded-sm w-[230px] p-2"
                       >
                         <p className="font-semibold">{item.title}</p>
                         <p className="text-sm text-gray-600">{item.summary}</p>

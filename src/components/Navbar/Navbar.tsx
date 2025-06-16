@@ -32,12 +32,12 @@ export default async function Navbar() {
   return (
     <>
       <Announcements home={home} />
-      <nav className="sticky top-0 z-20 shadow-md p-2 bg-gradient-to-br from-white/80 to-white/50 backdrop-blur-lg">
+      <nav className="sticky top-0 z-20 border shadow-lg p-2 bg-gradient-to-br from-white/80 to-white/50 backdrop-blur-lg">
         <div className="flex items-center justify-between">
           <div className="md:hidden" aria-hidden="true"></div>
           <Link
             href="/"
-            className="flex items-center ml-1 hover:scale-101 ease-in-out transition-transform"
+            className="flex items-center ml-1 hover:scale-102 ease-in-out transition-all duration-20"
           >
             <Image
               width={50}
