@@ -38,7 +38,7 @@ export default async function UpdatesPage() {
               key={subPage._id}
               href={`/updates/${subPage.slug}`}
             >
-              <div className="absolute inset-0 bg-gradient-to-b from-indigo-500/70 to-indigo-600/90 group-hover:from-indigo-500/30 transition-colors delay-200 z-20" />
+              <div className="absolute inset-0 bg-gradient-to-b from-indigo-500/50 to-indigo-600/70 delay-200 z-18" />
               <Image
                 src={urlFor(subPage.image).auto('format').url()}
                 alt={subPage.title}
@@ -46,7 +46,7 @@ export default async function UpdatesPage() {
                 className="object-cover group-hover:scale-105 transition-all duration-500"
               />
               <div className="absolute inset-0 bg-black/15 group-hover:bg-black/5 transition duration-300" />
-              <div className="absolute top-0 p-6 text-white z-21">
+              <div className="absolute top-0 p-6 text-white z-19">
                 <p className="text-base md:text-lg mb-2 font-light">
                   {new Date(subPage.publishedAt).toLocaleDateString('en-GB', {
                     day: 'numeric',

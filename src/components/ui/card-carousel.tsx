@@ -59,8 +59,8 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
           ref={carouselRef}
           onScroll={checkScrollability}
         >
-          <div className="pointer-events-none absolute left-0 top-0 z-20 h-full w-20 bg-gradient-to-r from-white/50 to-transparent" />
-          <div className="pointer-events-none absolute right-0 top-0 z-20 h-full w-20 bg-gradient-to-l from-white/50 to-transparent" />
+          <div className="pointer-events-none absolute left-0 top-0 z-18 h-full w-20 bg-gradient-to-r from-white/50 to-transparent" />
+          <div className="pointer-events-none absolute right-0 top-0 z-18 h-full w-20 bg-gradient-to-l from-white/50 to-transparent" />
 
           <div className={cn('flex flex-row justify-start gap-4 md:gap-6 pl-[10%] md:pl-[5%]')}>
             {[...items, <ViewAllCard key="view-all" />].map((item, index) => (
@@ -83,7 +83,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
         </div>
         <div className="mr-10 flex justify-end gap-2">
           <button
-            className="relative z-40 flex h-10 w-10 items-center justify-center rounded-xl bg-gray-100 disabled:opacity-50 hover:cursor-pointer disabled:cursor-default"
+            className="relative z-18 flex h-10 w-10 items-center justify-center rounded-xl bg-gray-100 disabled:opacity-50 hover:cursor-pointer disabled:cursor-default"
             onClick={scrollLeft}
             disabled={!canScrollLeft}
             aria-label="Scroll Left"
@@ -91,7 +91,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
             <FaArrowLeft className="h-6 w-6 text-gray-500" />
           </button>
           <button
-            className="relative z-40 flex h-10 w-10 items-center justify-center rounded-2xl bg-gray-100 disabled:opacity-50 hover:cursor-pointer disabled:cursor-default"
+            className="relative z-18 flex h-10 w-10 items-center justify-center rounded-2xl bg-gray-100 disabled:opacity-50 hover:cursor-pointer disabled:cursor-default"
             onClick={scrollRight}
             disabled={!canScrollRight}
             aria-label="Scroll Right"
@@ -128,8 +128,8 @@ export const Card = ({ card, index, href }: { card: Card; index: number; href: s
         className="relative z-10 flex h-80 w-56 flex-col items-start justify-start overflow-hidden rounded-xl bg-gray-100 md:h-[28rem] md:w-74 xl:h-[32rem] xl:w-90 group"
       >
         <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/40 to-indigo-600/80 z-20" />
-        <div className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-gradient-to-b from-black/50 via-transparent to-transparent" />
-        <div className="relative z-40 p-8">
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-18 h-full bg-gradient-to-b from-black/50 via-transparent to-transparent" />
+        <div className="relative z-20 p-8">
           <p className="text-left font-sans text-sm font-medium text-white md:text-base">
             {card.category}
           </p>
