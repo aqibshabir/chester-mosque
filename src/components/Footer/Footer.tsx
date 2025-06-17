@@ -82,6 +82,8 @@ function Footer() {
             &copy; Shah Jalal Jame Masjid {new Date().getFullYear()} <FaAngleRight size={10} />
             <Link
               href="https://aqibshabir.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="ml-1 group-hover:underline group-hover:text-white hover:cursor-pointer hover:scale-105 transition-transform ease-in-out"
             >
               Made by Aqib Shabir

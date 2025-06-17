@@ -29,9 +29,9 @@ export const metadata: Metadata = {
   formatDetection: { email: true, address: true, telephone: true },
 
   openGraph: {
-    title: 'Shah Jalal Jame Masjid & Islamic Centre | Chester Mosque',
+    title: 'Shah Jalal Jame Masjid & Islamic Centre | Chester Mosque & Islamic Centre',
     description:
-      'The official website for Chester Mosque. Find prayer times, events, and Islamic services for the local community.',
+      'The official website for Chester Mosque & Islamic Centre. Find prayer times, events, and Islamic services for the local community.',
     url: 'https://www.shahjalalmosquechester.org/',
     type: 'website',
     images: [
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
         url: 'https://raw.githubusercontent.com/aqibshabir/chester-mosque/master/public/logo-with-text.png',
         width: 1200,
         height: 630,
-        alt: 'Shah Jalal Jame Masjid & Islamic Centre - Chester Mosque',
+        alt: 'Shah Jalal Jame Masjid & Islamic Centre - Chester Mosque & Islamic Centre',
       },
     ],
   },

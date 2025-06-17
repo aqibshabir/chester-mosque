@@ -7,6 +7,8 @@ import { Button } from '@/components/ui/button';
 import DayTimetableSkeleton from './skeleton/dayTimeTableSkeleton';
 import Link from 'next/link';
 
+const prayerNames: (keyof Timings)[] = ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
+
 function DayTimetable() {
   const [currentTimeNum, setCurrentTimeNum] = useState<number | null>(null);
   const [viewMode, setViewMode] = useState<'start' | 'jammah'>('start');
@@ -27,8 +29,6 @@ function DayTimetable() {
     const now = DateTime.now();
     setCurrentTimeNum(timeToNum(now.toLocaleString(DateTime.TIME_SIMPLE)));
   }, []);
-
-  const prayerNames: (keyof Timings)[] = ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
 
   if (loading || !todayData || !todayJammahData || currentTimeNum === null) {
     return <DayTimetableSkeleton />;

@@ -1,10 +1,7 @@
 'use client';
 import { useEffect, useRef, useState, useCallback } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
 import { FaAngleLeft, FaAngleRight, FaPlay, FaPause } from 'react-icons/fa6';
-import { urlFor } from '@/lib/sanity';
-import { Button } from './button';
+import Slide from './slide';
 
 interface FeaturedItem {
   title: string;
@@ -29,9 +26,9 @@ export default function FeaturedCarousel({ items }: Props) {
     setCurrent((prev) => (prev + 1) % items.length);
   }, [items.length]);
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     setCurrent((prev) => (prev - 1 + items.length) % items.length);
-  };
+  }, [items.length]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
@@ -74,36 +71,7 @@ export default function FeaturedCarousel({ items }: Props) {
     >
       <div className="relative w-full h-full">
         {items.map((item, index) => (
-          <div
-            key={index}
-            className={`
-              absolute inset-0 transition-opacity duration-700 ease-in-out
-              ${current === index ? 'opacity-100 z-10' : 'opacity-0 z-0'}
-              flex items-center justify-center text-white
-            `}
-          >
-            <div className="absolute inset-0">
-              <Image
-                src={urlFor(item.image).auto('format').url()}
-                alt={item.title}
-                fill
-                className="object-cover object-center"
-                sizes="100vw"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/40 to-indigo-600/80" />
-            </div>
-
-            <div className="relative text-center z-10 p-4">
-              <h2 className="text-2xl sm:text-4xl lg:text-6xl font-bold mb-2">{item.title}</h2>
-              <p className="text-white/70 text-sm sm:text-base md:text-lg mb-6">{item.summary}</p>
-              <Link href={`/${item.section}/${item.slug}`}>
-                <Button variant="secondary" className="hover:bg-white">
-                  Read More
-                </Button>
-              </Link>
-            </div>
-          </div>
+          <Slide key={index} item={item} index={index} current={current} />
         ))}
       </div>
 
