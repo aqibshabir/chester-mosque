@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { ReactNode, useEffect, useRef, useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa6';
 import { cn } from '@/lib/utils';
 import { motion } from 'motion/react';
@@ -9,7 +9,7 @@ import { urlFor } from '@/lib/sanity';
 import Image from 'next/image';
 
 interface CarouselProps {
-  items: JSX.Element[];
+  items: ReactNode[];
   initialScroll?: number;
 }
 
