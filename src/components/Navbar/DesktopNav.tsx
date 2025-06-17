@@ -1,8 +1,7 @@
 'use client';
-import { useRef, useState } from 'react';
+import { useRef, useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MdOutlineKeyboardArrowUp } from 'react-icons/md';
-import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
+import { MdOutlineKeyboardArrowUp, MdOutlineKeyboardArrowDown } from 'react-icons/md';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -21,6 +20,45 @@ interface DesktopNavProps {
 function DesktopNav({ about, events, services }: DesktopNavProps) {
   const [hoveredMenu, setHoveredMenu] = useState<number | null>(null);
   const menuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const memoizedAboutLinks = useMemo(() => {
+    return about.map((item) => (
+      <Link
+        key={item.slug}
+        href={`/about/${item.slug}`}
+        className="hover:bg-black/10 rounded-sm w-[250px] p-2 flex flex-col hover:scale-102 transition-transform duration-100"
+      >
+        <p className="font-semibold">{item.title}</p>
+        <p className="text-sm text-gray-600">{item.summary}</p>
+      </Link>
+    ));
+  }, [about]);
+
+  const memoizedEventsLinks = useMemo(() => {
+    return events.map((item) => (
+      <Link
+        key={item.slug}
+        href={`/events/${item.slug}`}
+        className="hover:bg-black/10 hover:scale-102 transition-transform duration-100 rounded-sm p-2"
+      >
+        <p className="font-semibold">{item.title}</p>
+        <p className="text-sm text-gray-600">{item.summary}</p>
+      </Link>
+    ));
+  }, [events]);
+
+  const memoizedServicesLinks = useMemo(() => {
+    return services.map((item) => (
+      <Link
+        key={item.slug}
+        href={`/services/${item.slug}`}
+        className="hover:bg-black/10 hover:scale-102 transition-transform duration-100 rounded-sm w-[230px] p-2"
+      >
+        <p className="font-semibold">{item.title}</p>
+        <p className="text-sm text-gray-600">{item.summary}</p>
+      </Link>
+    ));
+  }, [services]);
 
   const onMenuEnter = (index: number) => {
     if (menuTimeoutRef.current) {
@@ -59,8 +97,8 @@ function DesktopNav({ about, events, services }: DesktopNavProps) {
               <>
                 <motion.div
                   initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.75 }}
+                  animate={{ opacity: 1, scale: 1, pointerEvents: 'auto' }}
+                  exit={{ opacity: 0, scale: 0.75, pointerEvents: 'none' }}
                   transition={{
                     duration: 0.1,
                     scale: { type: 'spring', visualDuration: 0.2, bounce: 0.2 },
@@ -88,16 +126,7 @@ function DesktopNav({ about, events, services }: DesktopNavProps) {
                       </p>
                     </Link>
                     <div className="flex flex-col h-full justify-center m-1 gap-2">
-                      {about.map((item) => (
-                        <Link
-                          key={item.title}
-                          href={`/about/${item.slug}`}
-                          className="hover:bg-black/10 rounded-sm w-[250px] p-2 flex flex-col hover:scale-102 transition-transform duration-100"
-                        >
-                          <p className="font-semibold">{item.title}</p>
-                          <p className="text-sm text-gray-600">{item.summary}</p>
-                        </Link>
-                      ))}
+                      {memoizedAboutLinks}
                     </div>
                   </div>
                 </motion.div>
@@ -129,8 +158,8 @@ function DesktopNav({ about, events, services }: DesktopNavProps) {
             {hoveredMenu === 1 && (
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.75 }}
+                animate={{ opacity: 1, scale: 1, pointerEvents: 'auto' }}
+                exit={{ opacity: 0, scale: 0.75, pointerEvents: 'none' }}
                 transition={{
                   duration: 0.1,
                   scale: { type: 'spring', visualDuration: 0.2, bounce: 0.2 },
@@ -141,18 +170,7 @@ function DesktopNav({ about, events, services }: DesktopNavProps) {
                 className="absolute top-[46px] border rounded-2xl left-1/2 -translate-x-[46%] w-[500px] h-[300px] p-2 shadow-2xl bg-gradient-to-br from-white/70 to-white/50 backdrop-blur-lg"
               >
                 <div className="flex h-full w-full justify-center items-center p-2">
-                  <div className="grid grid-cols-2 gap-2 h-full">
-                    {events.map((item) => (
-                      <Link
-                        key={item.title}
-                        href={`/events/${item.slug}`}
-                        className="hover:bg-black/10 hover:scale-102 transition-transform duration-100 rounded-sm p-2"
-                      >
-                        <p className="font-semibold">{item.title}</p>
-                        <p className="text-sm text-gray-600">{item.summary}</p>
-                      </Link>
-                    ))}
-                  </div>
+                  <div className="grid grid-cols-2 gap-2 h-full">{memoizedEventsLinks}</div>
                 </div>
               </motion.div>
             )}
@@ -174,8 +192,8 @@ function DesktopNav({ about, events, services }: DesktopNavProps) {
             {hoveredMenu === 2 && (
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.75 }}
+                animate={{ opacity: 1, scale: 1, pointerEvents: 'auto' }}
+                exit={{ opacity: 0, scale: 0.75, pointerEvents: 'none' }}
                 transition={{
                   duration: 0.1,
                   scale: { type: 'spring', visualDuration: 0.2, bounce: 0.2 },
@@ -186,18 +204,7 @@ function DesktopNav({ about, events, services }: DesktopNavProps) {
                 className="absolute top-[46px] border rounded-2xl left-1/2 -translate-x-[46%] w-[500px] h-[220px] p-2 shadow-2xl bg-gradient-to-br from-white/70 to-white/50 backdrop-blur-lg"
               >
                 <div className="flex h-full w-full justify-center items-center p-2">
-                  <div className="grid grid-cols-2 gap-2 h-full">
-                    {services.map((item) => (
-                      <Link
-                        key={item.title}
-                        href={`/services/${item.slug}`}
-                        className="hover:bg-black/10 hover:scale-102 transition-transform duration-100 rounded-sm w-[230px] p-2"
-                      >
-                        <p className="font-semibold">{item.title}</p>
-                        <p className="text-sm text-gray-600">{item.summary}</p>
-                      </Link>
-                    ))}
-                  </div>
+                  <div className="grid grid-cols-2 gap-2 h-full">{memoizedServicesLinks}</div>
                 </div>
               </motion.div>
             )}

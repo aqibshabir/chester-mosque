@@ -44,6 +44,7 @@ export default async function Navbar() {
               height={50}
               src="/logo.png"
               alt="logo"
+              priority
               className="w-[50px] md:w-[38px]"
             />
             <h1 className="text-2xl md:text-base lg:text-xl text-indigo-600/90 ml-2 md:ml-2.5 mr-1 flex flex-col leading-5.5 md:leading-4.5 font-medium">
