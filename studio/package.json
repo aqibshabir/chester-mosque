@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "sanity dev  --no-auto-updates",
     "start": "sanity start",
-    "build": "sanity build --output-path dist",
+    "build": "sanity build  --no-auto-updates --output-path dist",
     "deploy": "sanity deploy",
     "deploy-graphql": "sanity graphql deploy"
   },
