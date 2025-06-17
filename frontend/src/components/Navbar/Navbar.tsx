@@ -32,7 +32,7 @@ export default async function Navbar() {
   return (
     <>
       <Announcements home={home} />
-      <nav className="sticky top-0 z-20 border shadow-lg p-2 bg-gradient-to-br from-white/80 to-white/50 navbar-blur backdrop-blur-lg">
+      <nav className="sticky top-0 z-20 border shadow-lg p-2 bg-gradient-to-br from-white/80 to-white/50 backdrop-blur-lg">
         <div className="flex items-center justify-between">
           <div className="md:hidden" aria-hidden="true"></div>
           <Link

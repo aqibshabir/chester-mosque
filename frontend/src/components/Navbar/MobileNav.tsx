@@ -40,7 +40,7 @@ function MobileNav() {
       <AnimatePresence>
         {menuClick && (
           <motion.div
-            className="absolute top-16 left-0 right-0 h-[calc(100vh-64px)] bg-white/50 backdrop-blur-lg z-49 p-4"
+            className="absolute top-16 left-0 right-0 h-[calc(100vh-64px)] bg-white/70 navbar-blur backdrop-blur-lg z-49 p-4"
             initial={{ y: -25, opacity: 0 }}
             animate={{ y: 0, opacity: 100 }}
             exit={{ opacity: 0, y: -12.5 }}
@@ -52,22 +52,34 @@ function MobileNav() {
               exit={{ opacity: 0, y: -12.5 }}
             >
               <li className="cursor-pointer hover:text-black/60 transition-transform duration-300 hover:scale-110">
-                <Link href="/about">About</Link>
+                <Link onClick={() => setMenuClick(false)} href="/about">
+                  About
+                </Link>
               </li>
               <li className="cursor-pointer hover:text-black/60 transition-transform duration-300 hover:scale-110">
-                <Link href="/timetable">Timetable</Link>
+                <Link onClick={() => setMenuClick(false)} href="/timetable">
+                  Timetable
+                </Link>
               </li>
               <li className="cursor-pointer hover:text-black/60 transition-transform duration-300 hover:scale-110">
-                <Link href="/events">Events</Link>
+                <Link onClick={() => setMenuClick(false)} href="/events">
+                  Events
+                </Link>
               </li>
               <li className="cursor-pointer hover:text-black/60 transition-transform duration-300 hover:scale-110">
-                <Link href="/services">Services</Link>
+                <Link onClick={() => setMenuClick(false)} href="/services">
+                  Services
+                </Link>
               </li>
               <li className="cursor-pointer hover:text-black/60 transition-transform duration-300 hover:scale-110">
-                <Link href="contact">Contact</Link>
+                <Link onClick={() => setMenuClick(false)} href="contact">
+                  Contact
+                </Link>
               </li>
               <li className="cursor-pointer hover:text-black/60 transition-transform duration-300 hover:scale-110">
-                <Link href="/donate">Donate</Link>
+                <Link onClick={() => setMenuClick(false)} href="/donate">
+                  Donate
+                </Link>
               </li>
             </motion.ul>
           </motion.div>
