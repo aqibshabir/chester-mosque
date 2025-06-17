@@ -5,7 +5,7 @@
   "main": "package.json",
   "license": "UNLICENSED",
   "scripts": {
-    "dev": "sanity dev",
+    "dev": "sanity dev  --no-auto-updates",
     "start": "sanity start",
     "build": "sanity build --output-path dist",
     "deploy": "sanity deploy",
@@ -18,11 +18,12 @@
     "dotenv": "^16.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sanity": "^3.86.1",
+    "sanity": "^3.92.0",
     "styled-components": "^6.1.15"
   },
   "devDependencies": {
     "@sanity/eslint-config-studio": "^5.0.2",
+    "@types/node": "^24.0.3",
     "@types/react": "^18.0.25",
     "eslint": "^9.9.0",
     "prettier": "^3.0.2",
