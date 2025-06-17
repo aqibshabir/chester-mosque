@@ -40,7 +40,7 @@ function MobileNav() {
       <AnimatePresence>
         {menuClick && (
           <motion.div
-            className="absolute top-16 left-0 right-0 h-[calc(100vh-64px)] bg-white/70 navbar-blur backdrop-blur-lg z-49 p-4"
+            className="absolute top-16 left-0 right-0 h-[calc(100vh-64px)] bg-white/80 backdrop-blur-lg z-49 p-4"
             initial={{ y: -25, opacity: 0 }}
             animate={{ y: 0, opacity: 100 }}
             exit={{ opacity: 0, y: -12.5 }}
