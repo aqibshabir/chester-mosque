@@ -43,7 +43,17 @@ function Footer() {
             </Link>
           </div>
           <div className="md:order-1 mb-14 md:mb-0 flex justify-center items-center">
-            <ul className="text-white grid grid-cols-1 md:grid-cols-3 font-semibold text-sm gap-x-12 gap-y-2 text-center">
+            <ul className="text-white grid grid-cols-1 md:grid-cols-4 font-semibold text-sm gap-x-8 lg:gap-x-12 gap-y-2 text-center">
+              <li>
+                <Link
+                  href="http://chester-mosque-studio.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gray-200"
+                >
+                  Login
+                </Link>
+              </li>
               <li>
                 <Link href="/about" className="hover:text-gray-200">
                   About
@@ -72,6 +82,11 @@ function Footer() {
               <li>
                 <Link href="/donate" className="hover:text-gray-200">
                   Donate
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-gray-200">
+                  Contact
                 </Link>
               </li>
             </ul>
