@@ -162,6 +162,7 @@ export const ImageContainer = ({ height, width, src, className, alt, ...rest }: 
       width={width}
       height={height}
       loading="lazy"
+      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
       decoding="async"
       alt={alt ? alt : 'card background'}
       {...rest}
