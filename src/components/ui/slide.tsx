@@ -18,7 +18,7 @@ interface SlideProps {
   current: number;
 }
 
-const Slide = React.memo(({ item, index, current }: SlideProps) => {
+function SlideComponent({ item, index, current }: SlideProps) {
   const isActive = index === current;
 
   return (
@@ -53,6 +53,8 @@ const Slide = React.memo(({ item, index, current }: SlideProps) => {
       </div>
     </div>
   );
-});
+}
+
+const Slide = React.memo(SlideComponent);
 
 export default Slide;

@@ -51,7 +51,7 @@ function Sections() {
             <p className="bg-indigo-600 text-white w-fit px-4 py-0.5 rounded-full font-semibold text-xl">
               Services
             </p>
-            <p className="text-2xl sm:text-4xl font-bold">From Nikah to support: we're here</p>
+            <p className="text-2xl sm:text-4xl font-bold">From Nikah to support: we&apos;re here</p>
             <p className="flex items-center gap-2.5 font-semibold text-lg">
               See what we offer
               <FaArrowRight className="group-hover:translate-x-3 transition-all ease-in-out delay-100" />
