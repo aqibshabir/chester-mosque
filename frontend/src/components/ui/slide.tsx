@@ -49,7 +49,7 @@ function SlideComponent({ item, index, current }: SlideProps) {
           <Button
             variant="secondary"
             className="hover:bg-white"
-            aria-description={`Read more about ${item.title}`}
+            aria-label={`Read more about ${item.title}`}
           >
             Read More
           </Button>
