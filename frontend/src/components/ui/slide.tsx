@@ -45,12 +45,8 @@ function SlideComponent({ item, index, current }: SlideProps) {
       <div className="relative text-center z-10 p-4">
         <h2 className="text-2xl sm:text-4xl lg:text-6xl font-bold mb-2">{item.title}</h2>
         <p className="text-white/70 text-sm sm:text-base md:text-lg mb-6">{item.summary}</p>
-        <Link href={`/${item.section}/${item.slug}`}>
-          <Button
-            variant="secondary"
-            className="hover:bg-white"
-            aria-label={`Read more about ${item.title}`}
-          >
+        <Link href={`/${item.section}/${item.slug}`} aria-label={`Read more about ${item.title}`}>
+          <Button variant="secondary" className="hover:bg-white">
             Read More
           </Button>
         </Link>
