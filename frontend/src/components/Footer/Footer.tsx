@@ -7,7 +7,7 @@ function Footer() {
   return (
     <footer className="bg-gradient-to-t from-indigo-500 to-indigo-600 sm:pt-0 flex justify-center">
       <div className="w-full max-w-[1280px] mx-auto">
-        <div className="mt-40 mb-20 md:my-10 flex flex-col justify-center items-center gap-4 md:gap-6">
+        <div className="mt-30 mb-10 md:my-10 flex flex-col justify-center items-center gap-4 md:gap-6">
           <Image
             className="w-[70px] md:w-[120px]"
             src="/white_logo.png"
@@ -26,7 +26,7 @@ function Footer() {
           </Link>
         </div>
 
-        <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-4 mx-4">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-2 mx-4">
           <div className="flex items-center justify-center order-2 md:order-1">
             <Link href="/" className="flex items-center">
               <Image
@@ -42,54 +42,59 @@ function Footer() {
               </p>
             </Link>
           </div>
-          <div className="md:order-1 mb-14 md:mb-0 flex justify-center items-center">
-            <ul className="text-white grid grid-cols-1 md:grid-cols-4 font-semibold text-sm gap-x-8 lg:gap-x-12 gap-y-2 text-center">
-              <li>
-                <Link
-                  href="http://chester-mosque-studio.vercel.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-gray-200"
-                >
-                  Login
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="hover:text-gray-200">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/events" className="hover:text-gray-200">
-                  Events
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="hover:text-gray-200">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link href="/timetable" className="hover:text-gray-200">
-                  Timetable
-                </Link>
-              </li>
-              <li>
-                <Link href="/updates" className="hover:text-gray-200">
-                  Updates
-                </Link>
-              </li>
-              <li>
-                <Link href="/donate" className="hover:text-gray-200">
-                  Donate
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-gray-200">
-                  Contact
-                </Link>
-              </li>
-            </ul>
+          <div className="flex flex-col justify-center items-center md:order-1">
+            <p className="mb-5 md:mb-2 text-sm text-indigo-900 font-semibold uppercase tracking-widest">
+              site links
+            </p>
+            <div className=" mb-20 md:mb-0 flex justify-center items-center">
+              <ul className="text-white grid grid-cols-2 text-xs md:grid-cols-4 font-semibold md:text-sm gap-x-6 lg:gap-x-12 gap-y-6 md:gap-y-1.5 text-center">
+                <li>
+                  <Link
+                    href="http://chester-mosque-studio.vercel.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-gray-200"
+                  >
+                    Login
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/about" className="hover:text-gray-200">
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/events" className="hover:text-gray-200">
+                    Events
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/timetable" className="hover:text-gray-200">
+                    Timetable
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services" className="hover:text-gray-200">
+                    Services
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/updates" className="hover:text-gray-200">
+                    Updates
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/donate" className="hover:text-gray-200">
+                    Donate
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact" className="hover:text-gray-200">
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <div className="flex justify-center md:justify-between text-white/50 text-sm mb-1 sm:mx-4">
