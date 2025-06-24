@@ -50,7 +50,7 @@ function Footer() {
               <ul className="text-white grid grid-cols-2 text-xs md:grid-cols-4 font-semibold md:text-sm gap-x-6 lg:gap-x-12 gap-y-6 md:gap-y-1.5 text-center">
                 <li>
                   <Link
-                    href="http://chester-mosque-studio.vercel.app"
+                    href={process.env.STUDIO_URL!}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-gray-200"
